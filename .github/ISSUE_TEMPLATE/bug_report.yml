@@ -62,6 +62,7 @@ body:
     - type: checkboxes
       id: self-assignment
       attributes:
+          label: Let us know if you would like to be assigned this issue
           options:
               - label: I'd like to work on this Issue myself 🙋
                 required: false
