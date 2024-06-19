@@ -56,7 +56,7 @@ body:
           description: Leave any recommendations you have on what should be tried in order to fix this bug.
           placeholder: Suggest an approach you think could help us fix this issue...
       validations:
-          required: false
+        required: false
 
     - type: checkboxes
       id: self-assignment
