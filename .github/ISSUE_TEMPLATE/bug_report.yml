@@ -31,8 +31,8 @@ body:
 
               What error messages or wrong response have you received from the code? _Include a copy of the error message or screen shot of the behaviour you see_
           value: "what is wrong"
-          validations:
-              required: true
+      validations:
+          required: true
 
     - type: textarea
       id: expected
@@ -46,8 +46,8 @@ body:
 
               What was the last stable version of the code that you are aware of?
           value: "what should be happening"
-          validations:
-              required: true
+      validations:
+          required: true
 
     - type: textarea
       id: suggestions
@@ -55,8 +55,8 @@ body:
           label: What could we do to solve this bug?
           description: Leave any recommendations you have on what should be tried in order to fix this bug.
           placeholder: Suggest an approach you think could help us fix this issue...
-          validations:
-              required: false
+      validations:
+          required: false
 
     - type: checkboxes
       id: self-assignment

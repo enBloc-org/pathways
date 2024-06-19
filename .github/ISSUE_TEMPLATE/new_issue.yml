@@ -10,8 +10,8 @@ body:
           description: Explain in a few lines how the code should be behaving once this issue is closed.
           placeholder: The codebase should ...
           value: "expected behaviour"
-          validations:
-              required: true
+      validations:
+          required: true
 
     - type: textarea
       id: actual
@@ -20,8 +20,8 @@ body:
           description: Show us how the code is behaving right now instead.
           placeholder: Right now, what happens is ...
           value: "actual behaviour"
-          validations:
-              required: true
+      validations:
+          required: true
 
     - type: textarea
       id: aon
@@ -30,5 +30,5 @@ body:
           description: Share any other relevant notes on this Issue.
           placeholder: It's important to make note that ...
           value: "any other notes"
-          validations:
-              required: false
+      validations:
+          required: false
