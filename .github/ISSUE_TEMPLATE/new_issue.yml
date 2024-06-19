@@ -1,0 +1,34 @@
+name: new issue
+description: Create a new standard issue for the backlog.
+title: "[Issue title]"
+
+body:
+    - type: textarea
+      id: expected
+      attributes:
+          label: Expected Behaviour
+          description: Explain in a few lines how the code should be behaving once this issue is closed.
+          placeholder: The codebase should ...
+          value: "expected behaviour"
+          validations:
+              required: true
+
+    - type: textarea
+      id: actual
+      attributes:
+          label: Current Behaviour
+          description: Show us how the code is behaving right now instead.
+          placeholder: Right now, what happens is ...
+          value: "actual behaviour"
+          validations:
+              required: true
+
+    - type: textarea
+      id: aon
+      attributes:
+          label: Any other notes
+          description: Share any other relevant notes on this Issue.
+          placeholder: It's important to make note that ...
+          value: "any other notes"
+          validations:
+              required: false
