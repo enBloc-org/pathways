@@ -25,11 +25,15 @@ body:
           label: Description of the Bug
           description: Explain what the problem is by answering as many of the questions suggested as you can.
           placeholder: |
-              Where in the code does the bug happen? _Include file function names if you know them_
+              Where in the code does the bug happen? 
+              
+              Include file function names if you know them
 
               What happens when you run the code?
 
-              What error messages or wrong response have you received from the code? _Include a copy of the error message or screen shot of the behaviour you see_
+              What error messages or wrong response have you received from the code? 
+              
+              Include a copy of the error message or screen shot of the behaviour you see
       validations:
           required: true
 
