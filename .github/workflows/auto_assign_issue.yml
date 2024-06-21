@@ -20,7 +20,7 @@ jobs:
                   fi
 
             - name: Assign to issuer
-              if: steps.check-if-requested.outputs.self-assigned == 'true'
+              if: env.self-assigned == 'true'
               uses: actions-ecosystem/action-add-assignees@v1
               with:
                   github_token: ${{secrets.GITHUB_TOKEN}}
