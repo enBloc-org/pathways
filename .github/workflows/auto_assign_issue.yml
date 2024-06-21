@@ -14,9 +14,9 @@ jobs:
               run: |
                   ISSUE_BODY=$(jq -r .issue.body "$GITHUB_EVENT_PATH")
                   if echo "$ISSUE_BODY" | grep -q "\[ x \] I'd like to work on this Issue myself 🙋"; then
-                    echo "::set-output name=self-assigned::true"
+                    echo "self-assigned=true" >> $GITHUB_ENV
                   else
-                    echo "::set-output name=self-assigned::false"
+                    echo "self-assigned=false" >> $GITHUB_ENV
                   fi
 
             - name: Assign to issuer
