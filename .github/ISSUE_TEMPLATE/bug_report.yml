@@ -26,13 +26,13 @@ body:
           description: Explain what the problem is by answering as many of the questions suggested as you can.
           placeholder: |
               Where in the code does the bug happen? 
-              
+
               Include file function names if you know them
 
               What happens when you run the code?
 
               What error messages or wrong response have you received from the code? 
-              
+
               Include a copy of the error message or screen shot of the behaviour you see
       validations:
           required: true
@@ -58,12 +58,14 @@ body:
           description: Leave any recommendations you have on what should be tried in order to fix this bug.
           placeholder: Suggest an approach you think could help us fix this issue...
       validations:
-        required: false
+          required: false
 
-    - type: checkboxes
-      id: self-assignment
+    - type: dropdown
+      id: self-assigned
       attributes:
-          label: Let us know if you would like to be assigned this issue
+          label: Assignment
+          description: Let us know if you would like to be assigned to this Issue
           options:
-              - label: I'd like to work on this Issue myself 🙋
-                required: false
+              - This issue is free for anyone to take
+              - I'd like to work on this Issue myself
+          default: 0
