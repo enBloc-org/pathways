@@ -13,7 +13,7 @@ jobs:
               id: check-if-requested
               run: |
                   ISSUE_BODY=$(jq -r .issue.body "$GITHUB_EVENT_PATH")
-                  if echo "$ISSUE_BODY" | grep -q "\[x\] I'd like to work on this Issue myself 🙋"; then
+                  if echo "$ISSUE_BODY" | grep -q "[x] I'd like to work on this Issue myself 🙋"; then
                     echo "self-assigned=true" >> $GITHUB_ENV
                   else
                     echo "self-assigned=false" >> $GITHUB_ENV
