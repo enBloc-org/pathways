@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES6",
+    "strict": true,
+    "esModuleInterop": false,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "resolveJsonModule": true,
+    "moduleResolution": "Node10",
+    "typeRoots": ["./node_modules/@types", "./types"]
+  },
+  "include": ["**/**/*.ts"],
+  "exclude": ["node_modules"]
+}
