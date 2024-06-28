@@ -1,0 +1,21 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "proxy server for pathways backend ",
+    "main": "index.ts",
+    "type": "module",
+    "scripts": {
+        "dev": "node src/index.js"
+    },
+    "author": "alphonso",
+    "license": "ISC",
+    "devDependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5"
+    },
+    "dependencies": {
+        "express": "^4.19.2",
+        "node-fetch": "^3.3.2",
+        "prettier": "^3.3.2"
+    }
+}
