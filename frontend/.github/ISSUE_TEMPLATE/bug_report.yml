@@ -1,0 +1,71 @@
+name: bug report
+description: Create a new issue to report a bug found in the codebase.
+title: "[Bug description]"
+labels: ["🪲 bug"]
+
+body:
+    - type: checkboxes
+      id: pre-requisites
+      attributes:
+          label: Pre-requisites
+          description: |
+              Make sure you have followed these steps before submitting a bug report!
+              Bug reports submitted without this checklist completed will not be accepted ⛔️
+          options:
+              - label: I have pulled the latest changes from the Origin
+                required: true
+              - label: I have made sure to update my environment by running `npm install` on my terminal
+                required: true
+              - label: I have tried to identify the source of the problem before submitting a report
+                required: true
+
+    - type: textarea
+      id: summary
+      attributes:
+          label: Description of the Bug
+          description: Explain what the problem is by answering as many of the questions suggested as you can.
+          placeholder: |
+              Where in the code does the bug happen? 
+
+              Include file function names if you know them
+
+              What happens when you run the code?
+
+              What error messages or wrong response have you received from the code? 
+
+              Include a copy of the error message or screen shot of the behaviour you see
+      validations:
+          required: true
+
+    - type: textarea
+      id: expected
+      attributes:
+          label: What should happen instead
+          description: Explain what you expected to happen when you found this bug instead. Answer as many of the questions suggested as you can.
+          placeholder: |
+              What action should the code have performed?
+
+              What return values should you have received instead of the error found?
+
+              What was the last stable version of the code that you are aware of?
+      validations:
+          required: true
+
+    - type: textarea
+      id: suggestions
+      attributes:
+          label: What could we do to solve this bug?
+          description: Leave any recommendations you have on what should be tried in order to fix this bug.
+          placeholder: Suggest an approach you think could help us fix this issue...
+      validations:
+          required: false
+
+    - type: dropdown
+      id: self-assigned
+      attributes:
+          label: Assignment
+          description: Let us know if you would like to be assigned to this Issue
+          options:
+              - This issue is free for anyone to take
+              - I'd like to work on this Issue myself
+          default: 0
