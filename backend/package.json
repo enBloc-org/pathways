@@ -10,11 +10,13 @@
   "author": "alphonso",
   "license": "ISC",
   "devDependencies": {
+    "@types/express": "^4.17.21",
     "@types/node": "^20.14.9",
     "@types/node-fetch": "^2.6.11",
     "dotenv": "^16.4.5"
   },
   "dependencies": {
+    "express": "^4.19.2",
     "node-fetch": "^3.3.2",
     "prettier": "^3.3.2"
   }

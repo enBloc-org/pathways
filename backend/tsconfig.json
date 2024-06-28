@@ -8,6 +8,7 @@
     "outDir": "./dist",
     "resolveJsonModule": true,
     "moduleResolution": "Node10",
+    "allowSyntheticDefaultImports": true,
     "typeRoots": ["./node_modules/@types", "./types"]
   },
   "include": ["**/**/*.ts"],
