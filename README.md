@@ -17,3 +17,5 @@ This is an app that is used to inform local authorities of what t-levels are ass
 
 ### 5. Market Information Integration User Story
 - As a future tool user, I want the tool to integrate with labour market information sources, so that I can see job market trends and demand for specific occupations.
+
+For guidance on contributing visit [this document](./.github/CONTRIBUTING.md)
