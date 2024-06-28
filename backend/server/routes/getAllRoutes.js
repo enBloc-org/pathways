@@ -3,13 +3,10 @@ import "dotenv/config"
 export default async function getAllRoutes() {
     const url = `${process.env.BASE_URL}/Routes`
 
-    const options: {
-        method: string
-        headers: HeadersInit
-    } = {
+    const options = {
         method: "GET",
         headers: {
-            "X-API-KEY": process.env.API_KEY as string,
+            "X-API-KEY": process.env.API_KEY,
             accept: "application/json",
         },
     }

@@ -1,16 +1,23 @@
 {
-  "compilerOptions": {
-    "target": "ES6",
-    "strict": true,
-    "esModuleInterop": false,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist",
-    "resolveJsonModule": true,
-    "moduleResolution": "Node10",
-    "allowSyntheticDefaultImports": true,
-    "typeRoots": ["./node_modules/@types", "./types"]
-  },
-  "include": ["**/**/*.ts"],
-  "exclude": ["node_modules"]
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "ESNext",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "outDir": "./dist",
+        "resolveJsonModule": true,
+        "moduleResolution": "Node10",
+        "allowSyntheticDefaultImports": true,
+        "typeRoots": [
+            "./node_modules/@types",
+            "./types"
+        ],
+        "noEmit": true,
+        "allowImportingTsExtensions": true,
+        "types": ["node", "express"]
+    },
+    "include": ["**/**/*.ts", "src/index.js", "server/server.js", "server/routes/getAllRoutes.js"],
+    "exclude": ["node_modules"]
 }
