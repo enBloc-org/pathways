@@ -12,10 +12,10 @@ export default function Dropdown({ routes }) {
   return (
     <div>
       <select id="dropdown" value={selectedRoute} onChange={handleChange}>
-        <option value="">--Please choose an option--</option>
+        <option value="">Please choose an option</option>
         {routes.map((route) => (
-          <option key={route.routeId} value={route.name}>
-            {route.name} ({route.routeId})
+          <option key={route.routeId} value={route}>
+            {route.name}
           </option>
         ))}
       </select>
