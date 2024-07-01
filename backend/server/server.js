@@ -2,6 +2,7 @@ import express from "express"
 import cors from "cors"
 
 import getAllRoutes from "./routes/getAllRoutes.js"
+import getRouteById from "./routes/getRouteById.js"
 
 const server = express()
 
@@ -15,6 +16,16 @@ server.use(cors(corsOptions))
 server.get("/getAllRoutes", async (req, res) => {
     try {
         const data = await getAllRoutes()
+        res.status(200).json(data)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
+
+server.get("/getRouteById/:id", async (req, res) => {
+    const { id } = req.params
+    try {
+        const data = await getRouteById(id)
         res.status(200).json(data)
     } catch (error) {
         res.status(500).json(error)
