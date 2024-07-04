@@ -1,34 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react"
+import Dropdown from "./components/DropDown"
+import "./App.css"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [allRoutes, setAllRoutes] = useState([])
+  const [selectedRoute, setSelectedRoute] = useState("")
+  const [routeDetails, setRouteDetails] = useState(null)
+
+  useEffect(() => {
+    const fetch = async () => {
+      try {
+        const fetchedRoutes = await fetchAllRoutes()
+        setAllRoutes(fetchedRoutes)
+      } catch (error) {
+        console.error("Failed to fetch routes:", error)
+      }
+    }
+    fetch()
+  }, [])
+
+  useEffect(() => {
+    if (selectedRoute) {
+      const route = allRoutes.find(
+        route => route.routeId === parseInt(selectedRoute, 10)
+      )
+      setRouteDetails(route)
+    }
+  }, [selectedRoute, allRoutes])
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="App">
+      <h1>Route Details</h1>
+      <Dropdown
+        routes={allRoutes}
+        selectedRoute={selectedRoute}
+        setSelectedRoute={setSelectedRoute}
+        showId={false}
+      />
+      {routeDetails && (
+        <div>
+          <h2>{routeDetails.name}</h2>
+          <p>ID: {routeDetails.routeId}</p>
+          <p>Sequence: {routeDetails.sequence}</p>
+          <p>Object: {routeDetails.object}</p>
+        </div>
+      )}
+    </div>
   )
 }
 
