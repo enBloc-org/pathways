@@ -1,7 +1,7 @@
 import "dotenv/config"
 
 /**
- * 
+ *
  * @async this function must be awaited
  * @param {number} id expects the id value of a Route
  * @returns {Promise<Object>} Returns an Object with all information on the target Route
@@ -17,7 +17,7 @@ import "dotenv/config"
 export default async function fetchRouteById(id) {
     try {
         const data = await fetch(
-            `${process.env.SERVER}/getRouteById/${id}`
+            `http://localhost:8080/getRouteById/${id}`
         )
         return data
     } catch (error) {

@@ -1,5 +1,3 @@
-import "dotenv/config"
-
 /**
  *
  * @async this function must be awaited
@@ -17,7 +15,7 @@ import "dotenv/config"
 export default async function fetchAllRoutes() {
     try {
         const data = await fetch(
-            `${process.env.SERVER}/getAllRoutes`
+            `http://localhost:8080/getAllRoutes`
         )
         const parsedData = await data.json()
 
