@@ -2,6 +2,7 @@ import "./App.css";
 import Dropdown from "./components/Dropdown";
 import fetchAllRoutes from "./utils/fetchAllRoutes";
 import { useEffect, useState } from "react";
+import OccupationCard from "./components/occupationcard";
 
 function App() {
   const [allRoutes, setAllRoutes] = useState([]);
@@ -36,14 +37,16 @@ function App() {
         setSelectedRoute={setSelectedRoute}
         showId={false}
       />
-      {routeDetails && (
-        <div>
-          <h2>{routeDetails.name}</h2>
-          <p>ID: {routeDetails.routeId}</p>
-          <p>Sequence: {routeDetails.sequence}</p>
-          <p>Object: {routeDetails.object}</p>
-        </div>
-      )}
+      
+      {routeDetails && (routeDetails?.clusterGroups?.[0]?.clusters?.[0]?.occupations.map((occupation, index) => (
+        <OccupationCard 
+          key={index} 
+          name={occupation.name}
+          level={occupation.level}
+          overview={occupation.overview}
+          technicalLevelName={occupation.mapHierarchy?.technicalLevelName}
+        />
+      )))}
     </div>
   );
 }
