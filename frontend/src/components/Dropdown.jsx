@@ -1,9 +1,7 @@
 import React, { useState } from "react"
 
 export default function Dropdown({ routes }) {
-    function handleChange(event) {
-        setSelectedRoute(event.target.value)
-    }
+ 
     if (!routes || routes.length === 0) {
         return <div>Loading...</div>
     }
@@ -29,3 +27,4 @@ export default function Dropdown({ routes }) {
             </select>
         </div>
     )
+}
