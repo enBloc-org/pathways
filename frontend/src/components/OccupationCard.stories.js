@@ -1,7 +1,4 @@
-import React from "react";
-import { within } from "@storybook/testing-library";
-import { expect } from "@storybook/jest";
-import OccupationCard from "./occupationcard";
+import OccupationCard from "./OccupationCard"
 
 const mockedOccupation = {
   object: "Occupation",
@@ -34,13 +31,22 @@ export default {
     title: "OccupationCard",
     component: OccupationCard,
     args: {
-      occupation: mockedOccupation,
+        name: mockedOccupation.name,
+        level: mockedOccupation.level,
+        overview: mockedOccupation.overview,
+        technicalLevelName: mockedOccupation.mapHierarchy.technicalLevelName
     },
+  };
 
-}
+  export const OccupationCardWithData = {
+
+  }
   
-  export const OccupationCardDefault = { 
+  export const OccupationCardWithoutData = {
     args: {
-        occupation: mockedOccupation,
-    },
-};
+      name: undefined,
+      level: undefined,
+      overview: undefined,
+      technicalLevelName: undefined
+    }
+  };
