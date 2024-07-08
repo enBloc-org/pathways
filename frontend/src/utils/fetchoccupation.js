@@ -1,5 +1,5 @@
 /**
- * Fetch occupations based on a search parameter.
+ * Fetch occupations from the server based on a search parameter.
  * @async This function must be awaited.
  * @param {string} searchTerm The term to search for occupations.
  * @returns {Promise<Array>} Returns an array of occupation objects.
@@ -14,22 +14,12 @@
  */
 export default async function fetchOccupation(searchTerm) {
     try {
-        // Mock data to simulate fetching occupations
-        const mockData = [
-            { id: 1, title: 'Software Engineer', description: 'Develops software solutions.' },
-            { id: 2, title: 'Civil Engineer', description: 'Designs and oversees construction projects.' },
-            { id: 3, title: 'Mechanical Engineer', description: 'Designs mechanical systems and devices.' }
-        ];
-
-        // Simulate a delay as if fetching from a server
-        await new Promise(resolve => setTimeout(resolve, 1000));
-
-        // Filter mock data based on the search term
-        const filteredData = mockData.filter(occupation =>
-            occupation.title.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-
-        return filteredData;
+        const response = await fetch(`http://localhost:6006/searchOccupations?search=${encodeURIComponent(searchTerm)}`);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch occupations: ${response.statusText}`);
+        }
+        const data = await response.json();
+        return data;
     } catch (error) {
         console.error(`Error fetching occupations: ${error}`);
         throw error;
