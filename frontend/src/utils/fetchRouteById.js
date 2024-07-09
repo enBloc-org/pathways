@@ -1,4 +1,4 @@
-import "dotenv/config"
+import "dotenv/config";
 
 /**
  *
@@ -7,20 +7,28 @@ import "dotenv/config"
  * @returns {Promise<Object>} Returns an Object with all information on the target Route
  * @throws {Error} Throws an error object if the fetch is unsuccessful
  * @example
- * try{
+ * try {
  *  const fetchedRoute = await fetchRouteById(2)
  *  const parsedRoute = await JSON.parse(fetchedRoute)
- * }catch (error){
+ * } catch (error) {
  *  console.error(error)
  * }
  */
 export default async function fetchRouteById(id) {
     try {
-        const data = await fetch(
-            `http://localhost:8080/getRouteById/${id}`
-        )
-        return data
+        const response = await fetch(`http://localhost:8080/getRouteById/${id}`);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch route: ${response.statusText}`);
+        }
+        const data = await response.json();
+        
+        if (!data.clusters || !Array.isArray(data.clusters)) {
+            throw new Error('Invalid response format: missing clusters');
+        }
+        
+        return data;
     } catch (error) {
-        console.error(`Error fetching data: ${error}`)
+        console.error(`Error fetching data: ${error}`);
+        throw error;
     }
 }

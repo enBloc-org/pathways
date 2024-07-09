@@ -1,7 +1,8 @@
-import "./App.css";
-import Dropdown from "./components/Dropdown";
-import fetchAllRoutes from "./utils/fetchAllRoutes";
-import { useEffect, useState } from "react";
+import './App.css';
+import Dropdown from './components/Dropdown';
+import fetchAllRoutes from './utils/fetchAllRoutes';
+import ClusterCard from './components/ClusterCard';
+import { useEffect, useState } from 'react';
 
 function App() {
   const [allRoutes, setAllRoutes] = useState([]);
@@ -14,7 +15,7 @@ function App() {
         const fetchedRoutes = await fetchAllRoutes();
         setAllRoutes(fetchedRoutes);
       } catch (error) {
-        console.error("Failed to fetch routes:", error);
+        console.error('Failed to fetch routes:', error);
       }
     };
     fetch();
@@ -22,7 +23,7 @@ function App() {
 
   useEffect(() => {
     if (selectedRoute) {
-      const route = allRoutes.find(route => route.routeId === parseInt(selectedRoute, 10));
+      const route = allRoutes.find((route) => route.routeId === parseInt(selectedRoute, 10));
       setRouteDetails(route);
     }
   }, [selectedRoute, allRoutes]);
@@ -30,19 +31,18 @@ function App() {
   return (
     <div className="App">
       <h1>Route Details</h1>
-      <Dropdown 
+      <Dropdown
         routes={allRoutes}
         selectedRoute={selectedRoute}
         setSelectedRoute={setSelectedRoute}
         showId={false}
       />
       {routeDetails && (
-        <div>
-          <h2>{routeDetails.name}</h2>
-          <p>ID: {routeDetails.routeId}</p>
-          <p>Sequence: {routeDetails.sequence}</p>
-          <p>Object: {routeDetails.object}</p>
-        </div>
+        <ClusterCard
+          name={routeDetails.name}
+          description={`ID: ${routeDetails.routeId}`}
+          technicalLevelName={`Technical Level: ${routeDetails.technicalLevelName}`}
+        />
       )}
     </div>
   );
