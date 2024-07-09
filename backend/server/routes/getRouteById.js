@@ -4,7 +4,7 @@ export default async function getRouteById(givenId) {
     if (typeof givenId !== "string" || !givenId)
         throw new Error("Id value not acceptable")
 
-    const url = `${process.env.BASE_URL}/Routes/${givenId}`
+    const url = `${process.env.BASE_URL}/Routes/${givenId}?expand=occupation.overview%2C%20occupation.summary%2C%20occupation.maphierarchy`
 
     const options = {
         method: "GET",
