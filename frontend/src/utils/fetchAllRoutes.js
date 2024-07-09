@@ -15,7 +15,7 @@
 export default async function fetchAllRoutes() {
     try {
         const data = await fetch(
-            `http://localhost:8080/getAllRoutes`
+            `${process.env.REACT_APP_SERVER}/getAllRoutes`
         )
         const parsedData = await data.json()
 
