@@ -12,16 +12,18 @@
  * }
  *
  */
-export default async function fetchAllRoutes() {
+async function fetchAllRoutes() {
     try {
-        const data = await fetch(
-            `http://localhost:8080/getAllRoutes`
-        )
-        const parsedData = await data.json()
+      const response = await fetch('http://localhost:8080/getAllRoutes');
+      if (!response.ok) throw new Error('Network response was not ok');
+      const data = await response.json();
 
-        return parsedData
+      return data;
     } catch (error) {
-        console.error(`Error fetching data: ${error}`)
-        throw error
+      console.error("fetchAllRoutes error:", error);
+      throw error;
     }
-}
+  }
+  
+  export default fetchAllRoutes;
+  

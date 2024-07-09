@@ -14,6 +14,7 @@ function App() {
     const fetch = async () => {
       try {
         const fetchedRoutes = await fetchAllRoutes();
+    
         setAllRoutes(fetchedRoutes);
       } catch (error) {
         console.error("Failed to fetch routes:", error);
@@ -24,9 +25,11 @@ function App() {
 
   useEffect(() => {
     if (selectedRoute) {
+      console.log(selectedRoute)
       const getDetails = async () => {
         try {
           const data = await fetchRouteById(selectedRoute);
+      
           setRouteDetails(data);
         } catch (error) {
           console.error("failed to fetch route details:", error);
@@ -48,7 +51,7 @@ function App() {
       />
 
       {routeDetails && (routeDetails?.clusterGroups?.[0]?.clusters?.[0]?.occupations.map((occupation, index) => (
-        
+
         <OccupationCard 
           key={index} 
           name={occupation.name}
