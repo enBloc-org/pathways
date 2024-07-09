@@ -1,4 +1,4 @@
-import OccupationCard from "./OccupationCard"
+import OccupationCard from "./OccupationCard";
 
 const mockedOccupation = {
   object: "Occupation",

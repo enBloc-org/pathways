@@ -1,8 +1,9 @@
 import "./App.css";
 import Dropdown from "./components/Dropdown";
 import fetchAllRoutes from "./utils/fetchAllRoutes";
+import fetchRouteById from "./utils/fetchRouteById";
 import { useEffect, useState } from "react";
-import OccupationCard from "./components/occupationcard";
+import OccupationCard from "@/components/OccupationCard";
 
 function App() {
   const [allRoutes, setAllRoutes] = useState([]);
@@ -22,11 +23,19 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (selectedRoute) {
-      const route = allRoutes.find(route => route.routeId === parseInt(selectedRoute, 10));
-      setRouteDetails(route);
+    const getDetails = async()=>{
+      try{
+        const {data, error} = await fetchRouteById(selectedRoute)
+        if(error) throw error
+        setRouteDetails(selectedRoute)
+      
+      }catch(error){
+        throw error
+      }
     }
-  }, [selectedRoute, allRoutes]);
+
+    getDetails()
+  }, [selectedRoute, setRouteDetails]);
 
   return (
     <div className="App">
@@ -37,7 +46,7 @@ function App() {
         setSelectedRoute={setSelectedRoute}
         showId={false}
       />
-      
+
       {routeDetails && (routeDetails?.clusterGroups?.[0]?.clusters?.[0]?.occupations.map((occupation, index) => (
         <OccupationCard 
           key={index} 
