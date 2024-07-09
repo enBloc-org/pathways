@@ -1,5 +1,3 @@
-import "dotenv/config"
-
 /**
  *
  * @async this function must be awaited

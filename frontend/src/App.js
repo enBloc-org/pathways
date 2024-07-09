@@ -3,7 +3,7 @@ import Dropdown from "./components/Dropdown";
 import fetchAllRoutes from "./utils/fetchAllRoutes";
 import fetchRouteById from "./utils/fetchRouteById";
 import { useEffect, useState } from "react";
-import OccupationCard from "@/components/OccupationCard";
+import OccupationCard from "./components/OccupationCard";
 
 function App() {
   const [allRoutes, setAllRoutes] = useState([]);
