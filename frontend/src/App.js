@@ -49,7 +49,7 @@ function App() {
         />
       ));
     } else {
-      return <div>No dwetails yet.</div>;
+      return <div>No deetails yet.</div>;
     }
   };
 
@@ -80,3 +80,4 @@ function App() {
 }
 
 export default App;
+
