@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react";
 
 export default function Dropdown({
     routes,
@@ -6,10 +6,11 @@ export default function Dropdown({
     setSelectedRoute,
 }) {
     function handleChange(event) {
-        setSelectedRoute(event.target.value)
+        setSelectedRoute(event.target.value);
     }
+
     if (!routes || routes.length === 0) {
-        return <div>Loading...</div>
+        return <div>Loading...</div>;
     }
 
     return (
@@ -19,18 +20,15 @@ export default function Dropdown({
                 value={selectedRoute}
                 onChange={handleChange}
             >
-                <option value="" disabled={true}>
+                <option value="" disabled>
                     Please choose an option
                 </option>
-                {routes.map(route => (
-                    <option
-                        key={route.routeId}
-                        value={route.routeId}
-                    >
+                {routes.map((route) => (
+                    <option key={route.routeId} value={route.routeId}>
                         {route.name}
                     </option>
                 ))}
             </select>
         </div>
-    )
+    );
 }
