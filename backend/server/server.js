@@ -3,7 +3,7 @@ import cors from "cors"
 
 import getAllRoutes from "./routes/getAllRoutes.js"
 import getRouteById from "./routes/getRouteById.js"
-import getOccupationByQuery from "./getOccupationByQuery.js"
+import getOccupationByQuery from "./routes/getOccupationByQuery.js"
 
 const server = express()
 
