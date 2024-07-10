@@ -8,8 +8,7 @@ export default function TextSearch(searchHandler) {
         setSearchParameter(event.target.value)
     }
 
-    const submitHandler = event => {
-        event.preventDefault()
+    const submitHandler = () => {
         searchHandler(searchParameter)
     }
 
@@ -20,8 +19,8 @@ export default function TextSearch(searchHandler) {
                     value={searchParameter}
                     onChange={inputHandler}
                     placeholder="Enter your search parameter"
-                ></input>
-                <button type="submit">search</button>
+                />
+                <button type="button">search</button>
             </form>
             {searchParameter && (
                 <p>You searched: {searchParameter}</p>

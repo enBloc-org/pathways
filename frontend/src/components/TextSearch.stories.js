@@ -11,7 +11,7 @@ export const DefaultTextSearch = {
     args: {
         searchHandler: fn(),
     },
-    argType:{},
+    argType: {},
     play: async ({ canvasElement, step, args }) => {
         const canvas = within(canvasElement)
         const input = canvas.getByRole("textbox")
@@ -28,8 +28,10 @@ export const DefaultTextSearch = {
         await step(
             "Button submits the search parameters typed",
             async () => {
-              await userEvent.click(submitButton)
-              await expect(args.searchHandler).toHaveBeenCalled()
+                await userEvent.click(submitButton)
+                await expect(
+                    args.searchHandler
+                ).toHaveBeenCalled()
             }
         )
     },
