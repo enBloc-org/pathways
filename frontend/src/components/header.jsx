@@ -1,9 +1,11 @@
 import React from 'react';
+import gatsbylogo from '../image/gatsbylogo.jpeg'
 
 const Header = () => {
   return (
     <header style={headerStyle}>
       <h1>Gatsby App</h1>
+      <img src = {gatsbylogo} style={{ width: 100, height: 'auto' }} />
       <input type="text" placeholder="Search..." style={searchBarStyle} />
     </header>
   );
