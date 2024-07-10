@@ -17,7 +17,7 @@ import "dotenv/config"
 export default async function fetchRouteById(id) {
     try {
         const data = await fetch(
-            `http://localhost:8080/getRouteById/${id}`
+            `${process.env.REACT_APP_SERVER}/getRouteById/${id}`
         )
         return data
     } catch (error) {

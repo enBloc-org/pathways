@@ -1,8 +1,10 @@
 import React, { useState } from "react"
 
-export default function Dropdown({ routes }) {
-    const [selectedRoute, setSelectedRoute] =
-        useState("")
+export default function Dropdown({
+    routes,
+    selectedRoute,
+    setSelectedRoute,
+}) {
     function handleChange(event) {
         setSelectedRoute(event.target.value)
     }
