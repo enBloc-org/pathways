@@ -25,6 +25,7 @@ function App() {
     if (selectedRoute) {
       const route = allRoutes.find((route) => route.routeId === parseInt(selectedRoute, 10));
       setRouteDetails(route);
+      console.log(routeDetails)
     }
   }, [selectedRoute, allRoutes]);
 
@@ -49,3 +50,4 @@ function App() {
 }
 
 export default App;
+  
