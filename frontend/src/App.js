@@ -2,6 +2,7 @@ import './App.css';
 import Dropdown from './components/Dropdown';
 import fetchAllRoutes from './utils/fetchAllRoutes';
 import { useEffect, useState } from 'react';
+import ClusterCard from './components/ClusterCard';
 
 function App() {
   const [allRoutes, setAllRoutes] = useState([]);
@@ -9,7 +10,7 @@ function App() {
   const [routeDetails, setRouteDetails] = useState(null);
 
   useEffect(() => {
-    const fetch = async () => {
+    const fetchRoutes = async () => {
       try {
         const fetchedRoutes = await fetchAllRoutes();
         setAllRoutes(fetchedRoutes);
@@ -17,15 +18,23 @@ function App() {
         console.error('Failed to fetch routes:', error);
       }
     };
-    fetch();
+
+    fetchRoutes();
   }, []);
 
   useEffect(() => {
-    if (selectedRoute) {
-      const route = allRoutes.find((route) => route.routeId === parseInt(selectedRoute, 10));
-      setRouteDetails(route);
-      console.log("Selected Route Details:", route);
-    }
+    const fetchRouteDetails = async () => {
+      if (selectedRoute) {
+        try {
+          const route = allRoutes.find((route) => route.routeId === parseInt(selectedRoute, 10));
+          setRouteDetails(route);
+        } catch (error) {
+          console.error('Failed to fetch route details:', error);
+        }
+      }
+    };
+
+    fetchRouteDetails();
   }, [selectedRoute, allRoutes]);
 
   return (
@@ -42,6 +51,20 @@ function App() {
           <p>Name: {routeDetails.name}</p>
           <p>ID: {routeDetails.routeId}</p>
           <p>Technical Level: {routeDetails.technicalLevelName || 'N/A'}</p>
+          <div className="clusters">
+            {routeDetails.clusters && routeDetails.clusters.length > 0 ? (
+              routeDetails.clusters.map((cluster) => (
+                <ClusterCard
+                  key={cluster.id}
+                  name={cluster.name}
+                  description={cluster.description}
+                  technicalLevelName={cluster.technicalLevelName || 'N/A'}
+                />
+              ))
+            ) : (
+              <p></p>
+            )}
+          </div>
         </div>
       ) : (
         <div>Select a route to see details.</div>
