@@ -1,7 +1,7 @@
 import './App.css';
 import Dropdown from './components/Dropdown';
 import fetchAllRoutes from './utils/fetchAllRoutes';
-import OccupationCard from './components/ccupationcard';
+import OccupationCard from './components/OccupationCard';
 import { useEffect, useState } from 'react';
 import Header from './components/Header';
 
@@ -48,7 +48,7 @@ function App() {
         />
       ));
     } else {
-      return <div>No deetails yet.</div>;
+      return <div>No details yet.</div>;
     }
   };
 
