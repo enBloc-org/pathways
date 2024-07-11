@@ -1,0 +1,42 @@
+/* src/styles/OccupationCard.css */
+
+.occupation-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #f9f9f9;
+    max-width: 300px;
+    margin: 16px auto;
+    position: relative;
+    font-family: Arial, sans-serif;
+  }
+  
+  .occupation-card h2 {
+    background-color: #a04625; /* color matching the image */
+    color: white;
+    padding: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    margin: -16px -16px 16px -16px;
+  }
+  
+  .occupation-card p {
+    margin: 8px 0;
+  }
+  
+  .occupation-card p strong {
+    display: block;
+  }
+  
+  .occupation-card .overview {
+    font-style: italic;
+    color: grey;
+  }
+  
+  .occupation-card .technical-level-name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+  }
+  
