@@ -5,7 +5,7 @@ const ClusterCard = ({ name, description, technicalLevelName }) => {
     <div className="cluster-card">
       <h2>{name}</h2>
       <p>{description}</p>
-      <p>Technical Level: {technicalLevelName}</p>
+      {technicalLevelName && <p>Technical Level: {technicalLevelName}</p>}
     </div>
   );
 };

@@ -50,7 +50,7 @@ function App() {
         <div>
           <p>Name: {routeDetails.name}</p>
           <p>ID: {routeDetails.routeId}</p>
-          <p>Technical Level: {routeDetails.technicalLevelName || 'N/A'}</p>
+          {routeDetails.technicalLevelName && <p>Technical Level: {routeDetails.technicalLevelName}</p>}
           <div className="clusters">
             {routeDetails.clusters && routeDetails.clusters.length > 0 ? (
               routeDetails.clusters.map((cluster) => (
@@ -58,11 +58,11 @@ function App() {
                   key={cluster.id}
                   name={cluster.name}
                   description={cluster.description}
-                  technicalLevelName={cluster.technicalLevelName || 'N/A'}
+                  technicalLevelName={cluster.technicalLevelName}
                 />
               ))
             ) : (
-              <p></p>
+              <p>No clusters found for this route.</p>
             )}
           </div>
         </div>
