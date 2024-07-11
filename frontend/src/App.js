@@ -1,9 +1,8 @@
 import './App.css';
 import Dropdown from './components/Dropdown';
 import fetchAllRoutes from './utils/fetchAllRoutes';
-import OccupationCard from './components/occupationcard';
 import { useEffect, useState } from 'react';
-import Header from './components/header';
+import header from './components/header';
 
 function App() {
   const [allRoutes, setAllRoutes] = useState([]);
@@ -30,31 +29,9 @@ function App() {
     }
   }, [selectedRoute, allRoutes]);
 
-  const renderOccupationCards = () => {
-    if (
-      routeDetails &&
-      routeDetails.clusterGroups &&
-      routeDetails.clusterGroups[0] &&
-      routeDetails.clusterGroups[0].clusters &&
-      routeDetails.clusterGroups[0].clusters[0].occupations
-    ) {
-      return routeDetails.clusterGroups[0].clusters[0].occupations.map((occupation) => (
-        <OccupationCard
-          key={occupation.id}
-          name={occupation.name}
-          level={occupation.level}
-          overview={occupation.overview}
-          technicalLevelName={occupation.technicalLevelName}
-        />
-      ));
-    } else {
-      return <div>No deetails yet.</div>;
-    }
-  };
-
   return (
     <div className="App">
-      <Header />
+      <header />
       <h1>Route Details</h1>
       <Dropdown
         routes={allRoutes}
@@ -63,14 +40,11 @@ function App() {
         showId={false}
       />
       {routeDetails ? (
-        <>
-          <clustercard
-            name={routeDetails.name}
-            description={`ID: ${routeDetails.routeId}`}
-            technicalLevelName={`Technical Level: ${routeDetails.technicalLevelName || 'N/A'}`}
-          />
-          {renderOccupationCards()}
-        </>
+        <div>
+          <p>Name: {routeDetails.name}</p>
+          <p>ID: {routeDetails.routeId}</p>
+          <p>Technical Level: {routeDetails.technicalLevelName || 'N/A'}</p>
+        </div>
       ) : (
         <div>Select a route to see details.</div>
       )}
@@ -79,5 +53,3 @@ function App() {
 }
 
 export default App;
-
-
