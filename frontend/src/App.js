@@ -1,5 +1,6 @@
 import "./App.css";
 import Dropdown from "./components/Dropdown";
+import Header from "./components/Header";
 import fetchAllRoutes from "./utils/fetchAllRoutes";
 import { useEffect, useState } from "react";
 
