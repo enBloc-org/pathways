@@ -8,7 +8,7 @@ const Header = () => {
       <div className="logo-container">
         <img src={gatsbylogo} alt="Gatsby Logo" className="logo" />
       </div>
-      <input type="text" placeholder="Search..." className="search-bar" />
+      <input type="text" placeholder="Search a pathway" className="search-bar" />
     </header>
   );
 };
