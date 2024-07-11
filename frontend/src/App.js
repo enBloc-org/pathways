@@ -1,5 +1,6 @@
 import "./App.css";
 import Dropdown from "./components/Dropdown";
+import Header from "./components/Header";
 import fetchAllRoutes from "./utils/fetchAllRoutes";
 import { useEffect, useState } from "react";
 
@@ -29,6 +30,7 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <h1>Route Details</h1>
       <Dropdown 
         routes={allRoutes}
