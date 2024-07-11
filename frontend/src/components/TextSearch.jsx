@@ -1,4 +1,5 @@
 import { useState } from "react"
+import "../style/TextSearch.css"
 
 export default function TextSearch(searchHandler) {
     const [searchParameter, setSearchParameter] =
@@ -13,7 +14,7 @@ export default function TextSearch(searchHandler) {
     }
 
     return (
-        <>
+        <div>
             <form onSubmit={submitHandler}>
                 <input
                     value={searchParameter}
@@ -22,9 +23,6 @@ export default function TextSearch(searchHandler) {
                 />
                 <button type="button">search</button>
             </form>
-            {searchParameter && (
-                <p>You searched: {searchParameter}</p>
-            )}
-        </>
+        </div>
     )
 }
