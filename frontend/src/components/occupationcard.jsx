@@ -1,3 +1,4 @@
+import "../style/OccupationCard.css"
 
 export default function OccupationCard({ 
   name, 
