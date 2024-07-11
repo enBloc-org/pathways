@@ -1,7 +1,7 @@
 import { useState } from "react"
 import "../style/TextSearch.css"
 
-export default function TextSearch(searchHandler) {
+export default function TextSearch({searchHandler}) {
   const [searchParameter, setSearchParameter] =
     useState(undefined)
 
@@ -9,19 +9,20 @@ export default function TextSearch(searchHandler) {
     setSearchParameter(event.target.value)
   }
 
-  const submitHandler = () => {
+  const submitHandler = event => {
+    event.preventDefault()
     searchHandler(searchParameter)
   }
 
   return (
     <div>
-      <form onSubmit={submitHandler}>
+      <form onSubmit={event => submitHandler(event)}>
         <input
           value={searchParameter}
           onChange={inputHandler}
-          placeholder="Search a"
+          placeholder="Search job title"
         />
-        <button type="button">⏎</button>
+        <button>⏎</button>
       </form>
     </div>
   )
