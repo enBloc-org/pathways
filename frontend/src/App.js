@@ -2,7 +2,6 @@ import './App.css';
 import Dropdown from './components/Dropdown';
 import fetchAllRoutes from './utils/fetchAllRoutes';
 import { useEffect, useState } from 'react';
-import header from './components/header';
 
 function App() {
   const [allRoutes, setAllRoutes] = useState([]);
@@ -31,7 +30,6 @@ function App() {
 
   return (
     <div className="App">
-      <header />
       <h1>Route Details</h1>
       <Dropdown
         routes={allRoutes}
