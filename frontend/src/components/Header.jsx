@@ -1,7 +1,7 @@
 import gatsbylogo from '../image/gatsbylogo.jpeg';
 import "../styles/header.css";
 
-const Header = () => {
+export default function Header() {
   return (
     <header className="header">
       <div className="logo-container">
@@ -11,5 +11,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;
