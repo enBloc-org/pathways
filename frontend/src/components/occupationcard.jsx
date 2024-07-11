@@ -1,5 +1,5 @@
 
-export default function OccupationCard({ 
+export default function occupationcard({ 
     name, 
     level, 
     overview, 
