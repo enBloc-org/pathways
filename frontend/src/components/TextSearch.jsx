@@ -19,7 +19,7 @@ export default function TextSearch(searchHandler) {
         <input
           value={searchParameter}
           onChange={inputHandler}
-          placeholder="Enter your search parameter"
+          placeholder="Search a"
         />
         <button type="button">⏎</button>
       </form>
