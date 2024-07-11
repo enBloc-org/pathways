@@ -2,10 +2,23 @@ div {
     position: relative;
     display: flex;
     align-items: center;
+    width: fit-content;
+    height: fit-content;
+    box-shadow: inset 0 0 10px var(--grey);
+}
+
+input {
+    border: none;
+    font-size: medium;
+    width: 17rem;
+    height: 1.5rem;
 }
 
 button {
     background: none;
     border: none;
     text-align: center;
+    position: absolute;
+    right: 1rem;
+    top: calc(50% / 2);
 }
