@@ -10,7 +10,7 @@ export default function Header() {
       <input type="text" placeholder="Search a pathway" className="search-bar" />
       <div className="button-container">
         <button className="header-button">About</button>
-        <button className="header-button">Help</button>
+        <button className="header-button">Search</button>
       </div>
     </header>
   );
