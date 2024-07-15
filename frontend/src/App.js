@@ -2,6 +2,7 @@ import './App.css';
 import Dropdown from './components/Dropdown';
 import ClusterCard from './components/ClusterCard'
 import fetchAllRoutes from './utils/fetchAllRoutes';
+import fetchOccupationByQuery from './utils/fetchOccupationByQuery'
 import { useEffect, useState } from 'react';
 import Header from './components/Header';
 
@@ -31,7 +32,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      <Header searchHandler={fetchOccupationByQuery} />
       <h1>Route Details</h1>
       <Dropdown
         routes={allRoutes}
