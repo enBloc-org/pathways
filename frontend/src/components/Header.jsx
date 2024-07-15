@@ -10,9 +10,7 @@ export default function Header({ searchHandler }) {
       </div>
       <TextSearch searchHandler={searchHandler} />
       <div className="button-container">
-        <a className="header-button">
-          About
-        </a>
+        <a className="header-button">About</a>
         <a className="header-button" type="button">
           Search
         </a>
