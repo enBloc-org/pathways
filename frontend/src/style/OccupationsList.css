@@ -1,5 +1,8 @@
-div {
+.container {
   display: flex;
   flex-direction: column;
-  width: fit-content;
+  width: 25vw;
+  height: 100vh;
+  padding: 5px;
+  overflow: auto;
 }

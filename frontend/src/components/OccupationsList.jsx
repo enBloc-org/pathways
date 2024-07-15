@@ -3,7 +3,7 @@ import "../style/OccupationsList.css"
 
 export default function OccupationsList({ occupationsArray }) {
   return (
-    <div>
+    <div className="container">
       {occupationsArray.map(occupation => (
         <OccupationCard
           name={occupation.name}
