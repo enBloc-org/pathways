@@ -26,7 +26,6 @@ function App() {
     if (selectedRoute) {
       const route = allRoutes.find((route) => route.routeId === parseInt(selectedRoute, 10));
       setRouteDetails(route);
-      console.log("Selected Route Details:", route);
     }
   }, [selectedRoute, allRoutes]);
 
