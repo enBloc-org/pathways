@@ -1,16 +1,11 @@
 .occupation-details {
-    width: 30rem;
-    height: 35rem;
+    max-width: 600px;
     margin: auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #f9f9f9;
     margin-bottom: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: space-between;
   }
   
   .header {
@@ -22,13 +17,43 @@
   .section {
     margin-bottom: 20px;
   }
-
-  .section p {
-    overflow: auto;
-    height: 10rem;
-  }
   
   .section h3 {
     margin-bottom: 10px;
+  }
+  
+  .in-brief {
+    border: 1px solid lightblue;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #eaf4fb;
+  }
+  
+  .in-depth {
+    margin-top: 10px;
+  }
+  
+  .additional-details.collapsed {
+    max-height: 100px;
+    overflow: hidden;
+  }
+  
+  .additional-details.expanded {
+    max-height: none;
+  }
+  
+  button {
+    display: block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: none;
+    background-color: #0026ff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
   }
   
