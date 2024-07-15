@@ -2,56 +2,34 @@ import './App.css';
 import Dropdown from './components/Dropdown';
 import fetchAllRoutes from './utils/fetchAllRoutes';
 import ClusterCard from './components/ClusterCard';
-import OccupationCard from './components/occupationcard';
 import { useEffect, useState } from 'react';
 import Header from './components/header';
 
-function App() {
-  const [allRoutes, setAllRoutes] = useState([]);
-  const [selectedRoute, setSelectedRoute] = useState('');
-  const [routeDetails, setRouteDetails] = useState(null);
+export default function App() {
+  const [allRoutes, setAllRoutes] = useState([])
+  const [selectedRoute, setSelectedRoute] = useState("")
+  const [routeDetails, setRouteDetails] = useState(null)
 
   useEffect(() => {
     const fetch = async () => {
       try {
-        const fetchedRoutes = await fetchAllRoutes();
-        setAllRoutes(fetchedRoutes);
+        const fetchedRoutes = await fetchAllRoutes()
+        setAllRoutes(fetchedRoutes)
       } catch (error) {
         console.error('Failed to fetch routes:', error);
       }
-    };
-    fetch();
-  }, []);
+    }
+    fetch()
+  }, [])
 
   useEffect(() => {
     if (selectedRoute) {
-      const route = allRoutes.find((route) => route.routeId === parseInt(selectedRoute, 10));
-      setRouteDetails(route);
-      console.log("Selected Route Details:", route);
+      const route = allRoutes.find(
+        route => route.routeId === parseInt(selectedRoute, 10)
+      )
+      setRouteDetails(route)
     }
-  }, [selectedRoute, allRoutes]);
-
-  const renderOccupationCards = () => {
-    if (
-      routeDetails &&
-      routeDetails.clusterGroups &&
-      routeDetails.clusterGroups[0] &&
-      routeDetails.clusterGroups[0].clusters &&
-      routeDetails.clusterGroups[0].clusters[0].occupations
-    ) {
-      return routeDetails.clusterGroups[0].clusters[0].occupations.map((occupation) => (
-        <OccupationCard
-          key={occupation.id}
-          name={occupation.name}
-          level={occupation.level}
-          overview={occupation.overview}
-          technicalLevelName={occupation.technicalLevelName}
-        />
-      ));
-    } else {
-      return <div>No deetails yet.</div>;
-    }
-  };
+  }, [selectedRoute, allRoutes])
 
   return (
     <div className="App">
@@ -76,8 +54,5 @@ function App() {
         <div>Select a route to see details.</div>
       )}
     </div>
-  );
+  )
 }
-
-export default App;
-
