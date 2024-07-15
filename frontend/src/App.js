@@ -1,8 +1,9 @@
-import "./App.css"
-import Dropdown from "./components/Dropdown"
-import Header from "./components/Header"
-import fetchAllRoutes from "./utils/fetchAllRoutes"
-import { useEffect, useState } from "react"
+import './App.css';
+import Dropdown from './components/Dropdown';
+import ClusterCard from './components/ClusterCard'
+import fetchAllRoutes from './utils/fetchAllRoutes';
+import { useEffect, useState } from 'react';
+import Header from './components/Header';
 
 function App() {
   const [allRoutes, setAllRoutes] = useState([])
@@ -23,10 +24,8 @@ function App() {
 
   useEffect(() => {
     if (selectedRoute) {
-      const route = allRoutes.find(
-        route => route.routeId === parseInt(selectedRoute, 10)
-      )
-      setRouteDetails(route)
+      const route = allRoutes.find((route) => route.routeId === parseInt(selectedRoute, 10));
+      setRouteDetails(route);
     }
   }, [selectedRoute, allRoutes])
 
@@ -40,16 +39,17 @@ function App() {
         setSelectedRoute={setSelectedRoute}
         showId={false}
       />
-      {routeDetails && (
-        <div>
-          <h2>{routeDetails.name}</h2>
-          <p>ID: {routeDetails.routeId}</p>
-          <p>Sequence: {routeDetails.sequence}</p>
-          <p>Object: {routeDetails.object}</p>
-        </div>
+      {routeDetails ? (
+          <ClusterCard
+            name={routeDetails.name}
+            description={`ID: ${routeDetails.routeId}`}
+            technicalLevelName={`Technical Level: ${routeDetails.technicalLevelName || 'N/A'}`}
+          />
+      ) : (
+        <div>Select a route to see details.</div>
       )}
     </div>
   )
 }
 
-export default App
+export default App;
