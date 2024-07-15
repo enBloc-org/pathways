@@ -1,11 +1,4 @@
-import React from 'react';
-
-const occupationDetailsStyle = {
-  padding: '20px',
-  border: '1px solid #ccc',
-  borderRadius: '8px',
-  backgroundColor: '#f9f9f9',
-};
+import '../style/OccupationDetails.css'; 
 
 export default function OccupationDetails({ name, level, overview, technicalLevelName, additionalDetails }) {
   if (!name || !level || !overview || !technicalLevelName || !additionalDetails) {
@@ -13,12 +6,20 @@ export default function OccupationDetails({ name, level, overview, technicalLeve
   }
 
   return (
-    <div style={occupationDetailsStyle}>
-      <h2>{name}</h2>
-      <p><strong>Level:</strong> {level}</p>
-      <p><strong>Overview:</strong> {overview}</p>
-      <p><strong>Technical Level Name:</strong> {technicalLevelName}</p>
-      <p><strong>Additional Details:</strong> <span dangerouslySetInnerHTML={{ __html: additionalDetails }} /></p>
+    <div className="occupation-details">
+      <div className="header">
+        <h2>{name}</h2>
+        <p><strong>Level:</strong> {level}</p>
+        <p><strong>Technical Level Name:</strong> {technicalLevelName}</p>
+      </div>
+      <div className="section">
+        <h3>Overview</h3>
+        <p>{overview}</p>
+      </div>
+      <div className="section">
+        <h3>Additional Details</h3>
+        <div dangerouslySetInnerHTML={{ __html: additionalDetails }} />
+      </div>
     </div>
   );
 }
