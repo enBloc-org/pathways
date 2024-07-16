@@ -1,12 +1,13 @@
 .occupation-details {
   width: 80%;
-  max-width: 800px;
+  width: 800px;
   margin: auto;
   padding: 2rem;
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
   margin-bottom: 2rem;
+  position: relative;
 }
 
 .header {
@@ -24,10 +25,33 @@
 }
 
 .in-brief {
+  position: relative;
   padding: 1rem;
-  border-radius: 8px;
+  border-radius: 50px / 20px; 
   background-color: #9f5c1c;
-  color: white; 
+  color: white;
+  overflow: hidden; 
+}
+
+.in-brief::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -20px; 
+  width: 20px; 
+  height: 100%;
+  background-color: #f9f9f9; 
+  border-radius: 50%; 
+}
+
+.in-brief::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -20px; 
+  width: 20px; 
+  height: 100%;
+  background-color: #f9f9f9; 
 }
 
 .overview-text {
@@ -78,8 +102,7 @@ button:hover::after {
   background-color: var(--pink);
 }
 
-.route-name {
-  font-size: 1.5rem; 
+.route-name{font-size: 1.3rem; 
   color: var(--pink); 
 }
 
