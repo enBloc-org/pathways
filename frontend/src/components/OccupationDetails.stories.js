@@ -40,11 +40,5 @@ const Template = (args) => <OccupationDetails {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  name: mockedOccupation.name,
-  level: mockedOccupation.level,
-  overview: mockedOccupation.overview,
-  technicalLevelName: mockedOccupation.mapHierarchy.technicalLevelName,
-  additionalDetails: mockedOccupation.summary,
-  routeName: mockedOccupation.mapHierarchy.routeName,
-  pathwayName: mockedOccupation.mapHierarchy.pathwayName
+occupation:mockedOccupation
 };
