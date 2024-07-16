@@ -42,7 +42,7 @@
 
 .in-depth {
   margin-top: 1rem;
-  padding: 1rem 4rem;
+  padding: 4rem;
 }
 
 .additional-details.collapsed {
@@ -51,8 +51,8 @@
 }
 
 .additional-details.expanded {
-  max-height: 15rem; 
-  overflow-y: scroll;
+  max-height: 15rem; /* Set a max-height when expanded */
+  overflow-y: scroll; /* Enable vertical scrolling */
 }
 
 button {

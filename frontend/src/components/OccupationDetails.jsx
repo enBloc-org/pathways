@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import '../style/globals.css';
 import '../style/OccupationDetails.css';
 
 export default function OccupationDetails({ name, level, overview, technicalLevelName, additionalDetails, routeName, pathwayName }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
+  const additionalDetailsRef = useRef(null);
 
   if (!name || !level || !overview || !technicalLevelName || !additionalDetails || !routeName || !pathwayName) {
     return <div>Loading...</div>;
@@ -12,6 +13,9 @@ export default function OccupationDetails({ name, level, overview, technicalLeve
 
   const handleReadMore = () => {
     setIsExpanded(!isExpanded);
+    if (isExpanded && additionalDetailsRef.current) {
+      additionalDetailsRef.current.scrollTop = 0;
+    }
   };
 
   const handleClose = () => {
@@ -33,8 +37,9 @@ export default function OccupationDetails({ name, level, overview, technicalLeve
         <p className="overview-text">{overview}</p>
       </div>
       <div className="section in-depth">
-        <h3>In Depth:</h3>
+        <h3>In Depth</h3>
         <div
+          ref={additionalDetailsRef}
           className={`additional-details ${isExpanded ? 'expanded' : 'collapsed'}`}
           dangerouslySetInnerHTML={{ __html: additionalDetails }}
         />
@@ -44,7 +49,7 @@ export default function OccupationDetails({ name, level, overview, technicalLeve
       </div>
       <div className="pathway-name">
         <div className="pathway-name-container">
-          <p>Pathway Name: <span className="pathway-name-text">{pathwayName}</span>
+          <p><strong>Pathway name: </strong><span className="pathway-name-text">{pathwayName}</span>
           </p>
         </div>
       </div>
