@@ -16,7 +16,7 @@ export default function OccupationDetails({ name, level, overview, technicalLeve
     <div className="occupation-details">
       <div className="header">
         <h2>{name}</h2>
-        <p><strong>Level:</strong> {level} - {technicalLevelName}</p>
+        <p>Level {level} - <i>{technicalLevelName}</i></p>
       </div>
       <div className="section in-brief">
         <h3>In Brief</h3>
