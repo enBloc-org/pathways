@@ -33,7 +33,7 @@ export default function OccupationDetails({ name, level, overview, technicalLeve
         <p className="overview-text">{overview}</p>
       </div>
       <div className="section in-depth">
-        <h3>In Depth</h3>
+        <h3>In Depth:</h3>
         <div
           className={`additional-details ${isExpanded ? 'expanded' : 'collapsed'}`}
           dangerouslySetInnerHTML={{ __html: additionalDetails }}
@@ -44,7 +44,7 @@ export default function OccupationDetails({ name, level, overview, technicalLeve
       </div>
       <div className="pathway-name">
         <div className="pathway-name-container">
-          <p><strong>Pathway name: </strong><span className="pathway-name-text">{pathwayName}</span>
+          <p>Pathway Name: <span className="pathway-name-text">{pathwayName}</span>
           </p>
         </div>
       </div>
