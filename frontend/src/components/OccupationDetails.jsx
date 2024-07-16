@@ -25,7 +25,7 @@ export default function OccupationDetails({ name, level, overview, technicalLeve
       <button className="close-button" onClick={handleClose}>X</button>
       <div className="header">
         <h2>{name}</h2>
-        <p><strong>Level:</strong> {level} - {technicalLevelName}</p>
+        <p>Level {level} - <i>{technicalLevelName}</i></p>
         <p className="route-name">{routeName}</p>
       </div>
       <div className="section in-brief">
@@ -44,8 +44,8 @@ export default function OccupationDetails({ name, level, overview, technicalLeve
       </div>
       <div className="pathway-name">
         <div className="pathway-name-container">
-          <p><strong>Pathway name:</strong></p>
-          <p className="pathway-name-text">{pathwayName}</p>
+          <p><strong>Pathway name: </strong><span className="pathway-name-text">{pathwayName}</span>
+          </p>
         </div>
       </div>
     </div>

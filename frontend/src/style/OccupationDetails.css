@@ -1,6 +1,8 @@
 .occupation-details {
-  width: 80%;
-  max-width: 800px;
+  width: 80vmax;
+  height: 80vmax;
+  max-width: 650px;
+  max-height: 650px;
   margin: auto;
   padding: 2rem;
   border: 1px solid #ccc;
@@ -42,7 +44,9 @@
 
 .in-depth {
   margin-top: 1rem;
-  padding: 4rem;
+  padding: 1rem 4rem;
+  overflow:auto;
+  max-height: 15rem;
 }
 
 .additional-details.collapsed {
