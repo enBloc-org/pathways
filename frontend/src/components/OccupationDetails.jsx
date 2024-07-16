@@ -35,7 +35,7 @@ export default function OccupationDetails({ name, level, overview, technicalLeve
         </button>
       </div>
       <div className="pathway-name">
-        <p><strong>Pathway name:</strong> {pathwayName}</p>
+        <p><strong>Pathway name:</strong> <span className="pathway-name-text">{pathwayName}</span></p>
       </div>
     </div>
   );
