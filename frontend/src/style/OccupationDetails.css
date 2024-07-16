@@ -51,8 +51,8 @@
 }
 
 .additional-details.expanded {
-  max-height: 15rem; /* Set a max-height when expanded */
-  overflow-y: scroll; /* Enable vertical scrolling */
+  max-height: 15rem; 
+  overflow-y: scroll; 
 }
 
 button {
