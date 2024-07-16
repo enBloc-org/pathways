@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import '../style/globals.css';
-import '../style/OccupationDetails.css'; 
+import '../style/OccupationDetails.css';
 
 export default function OccupationDetails({ name, level, overview, technicalLevelName, additionalDetails, routeName, pathwayName }) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   if (!name || !level || !overview || !technicalLevelName || !additionalDetails || !routeName || !pathwayName) {
     return <div>Loading...</div>;
@@ -13,8 +14,15 @@ export default function OccupationDetails({ name, level, overview, technicalLeve
     setIsExpanded(!isExpanded);
   };
 
+  const handleClose = () => {
+    setIsVisible(false);
+  };
+
+  if (!isVisible) return null;
+
   return (
     <div className="occupation-details">
+      <button className="close-button" onClick={handleClose}>X</button>
       <div className="header">
         <h2>{name}</h2>
         <p><strong>Level:</strong> {level} - {technicalLevelName}</p>
