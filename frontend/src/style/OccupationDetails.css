@@ -10,7 +10,6 @@
 }
 
 .header {
-  border-bottom: 1px solid #ccc;
   padding-bottom: 1rem;
   margin-bottom: 2rem;
 }
@@ -20,14 +19,20 @@
 }
 
 .section h3 {
-  margin-bottom: 1rem;
+  display: inline;
+  margin-right: 0.5rem;
 }
 
 .in-brief {
-  border: 1px solid lightblue;
   padding: 1rem;
   border-radius: 8px;
-  background-color: #eaf4fb;
+  background-color: #9f5c1c;
+  color: white; 
+}
+
+.overview-text {
+  display: inline;
+  color: white; 
 }
 
 .in-depth {
@@ -66,9 +71,14 @@ button::after {
 }
 
 button:hover {
-  color: var(--brown);
+  color: var(--pink);
 }
 
 button:hover::after {
-  background-color: var(--brown);
+  background-color: var(--pink);
+}
+
+.route-name {
+  font-size: 1.8rem; 
+  color: red;
 }
