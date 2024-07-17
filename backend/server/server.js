@@ -4,6 +4,7 @@ import cors from "cors"
 import getAllRoutes from "./routes/getAllRoutes.js"
 import getRouteById from "./routes/getRouteById.js"
 import getOccupationByQuery from "./getOccupationByQuery.js"
+import getTechnicalProgression from "./routes/getTechnicalProgression.js"
 
 const server = express()
 
@@ -45,5 +46,18 @@ server.get(
         }
     }
 )
+
+server.get("/getTechnicalProgression", async (req, res) => {
+    try {
+        const { query } = req.params
+        const productData = await getOccupationByQuery(query)
+        const productCode = productData.productCode
+        const data = await getTechnicalProgression(productCode)
+
+        res.status(200).json(data)
+    } catch (error) {
+        res.status(500).json(error)
+    }
+})
 
 export default server
