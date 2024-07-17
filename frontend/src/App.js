@@ -1,7 +1,9 @@
-import "./style/globals.css"
 import fetchOccupationByQuery from "./utils/fetchOccupationByQuery"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Header from "./components/Header"
+
+import './style/globals.css'
+import './App.css'
 
 function App() {
   const [searchResults, setSearchResults] = useState(undefined)
@@ -12,7 +14,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="app">
       <Header searchHandler={handleSearch} />
       {searchResults && <p>{searchResults.results[0].object}</p>}
     </div>
