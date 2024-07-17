@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="app">
       <Header searchHandler={handleSearch} />
-      {searchResults && <p>{searchResults.results[0].object}</p>}
+      {searchResults && <p>{searchResults.results.map(result => <p>{result.name}</p>)}</p>}
     </div>
   )
 }
