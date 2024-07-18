@@ -13,10 +13,16 @@ return (
   <div className="occupation-card">
     <h2>{name}</h2> 
     <div className="level">
-    <p><strong>Level:</strong> {level}</p>
+    <p>Level {level}</p>
     </div>
     <div>
-    <p className="overview"><strong>In brief:</strong> {overview}</p>
+    <p className="overview">
+      <span>
+      <i>
+        In brief: 
+      </i>
+      </span>
+      {` ${overview}`}</p>
     </div>
     <div className="technical-level-name">
       <span><strong>Technical Level Name:</strong> {technicalLevelName}</span>

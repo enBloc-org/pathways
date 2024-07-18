@@ -1,6 +1,6 @@
 .occupation-card {
-  height: 200px;
-  width: 500px;
+  height: 16rem;
+  width: 35rem;
   display: flex;
   flex-direction: column;
   align-items:start;
@@ -20,50 +20,21 @@
 }
 
 .level {
-  padding-left: 1rem;
+  padding-left: 3rem;
 }
 
 .overview {
   margin-left: 1rem;
 }
 
+.overview span {
+  color: var(--grey);
+}
+
 .technical-level-name{
   display: flex;
   justify-content: space-between;
   width:95%;
-  margin-left: 1rem;
+  margin-left:1rem;
   margin-bottom: 1rem;
 }
-
-/* 
-.occupation-card {
-    padding: 16px;
-    margin: 16px auto;
-    position: relative;
-  }
-  
-  .occupation-card h2 {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-    margin: -16px -16px 16px -16px;
-  }
-  
-  .occupation-card p {
-    margin: 8px 0;
-  }
-  
-  .occupation-card p strong {
-    display: block;
-  }
-  
-  .occupation-card .overview {
-    font-style: italic;
-    color: grey;
-  }
-  
-.technical-level-name {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-   */
