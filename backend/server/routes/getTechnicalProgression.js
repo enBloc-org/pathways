@@ -1,7 +1,7 @@
 export default async function getTechnicalProgression(givenProductCode){
     if (typeof givenProductCode !== "string" || !givenProductCode)
-        throw new Error("Id value not acceptable")
-const url = `${process.env.BASE_URL}/TechincalEducationProgression/${givenProductCode}`
+        throw new Error("Product code value not acceptable")
+const url = `${process.env.BASE_URL}/TechnicalEducationProgression/${givenProductCode}`
 
 // note assumes similarity between get routes structure and ge progression
 //options might need to be different

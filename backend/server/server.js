@@ -47,11 +47,9 @@ server.get(
     }
 )
 
-server.get("/getTechnicalProgression", async (req, res) => {
+server.get("/getTechnicalProgression/:productCode", async (req, res) => {
     try {
-        const { query } = req.params
-        const productData = await getOccupationByQuery(query)
-        const productCode = productData.productCode
+        const { productCode } = req.params
         const data = await getTechnicalProgression(productCode)
 
         res.status(200).json(data)

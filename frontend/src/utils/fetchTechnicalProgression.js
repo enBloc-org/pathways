@@ -1,7 +1,7 @@
-export default async function fetchTechnicalProgression(query) {
+export default async function fetchTechnicalProgression(productCode) {
     try {
         const data = await fetch(
-            `${process.env.REACT_APP_SERVER}/getTechnicalProgression/${query}`
+            `${process.env.REACT_APP_SERVER}/getTechnicalProgression/${productCode}`
         )
         return data
     } catch (error) {
