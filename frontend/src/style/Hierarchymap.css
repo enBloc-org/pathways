@@ -12,36 +12,38 @@
 }
 
 .hierarchy-map {
-  background-color: #cdc3c35d;
+  background-color: var(--grey);
   padding: 20px;
   box-shadow: 0 0 10px rgb(255, 255, 255);
-  width: 600px;
+  width: 80vw;
+  height:60vh;
+  position: relative;
 }
 
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 10px 1fr 10px 1fr;
-  align-items: start;
   gap: 10px;
   height: 100%; 
 }
 
-.grid-item {
-  background-color: none;
-  padding: 15rem 3rem;
-  text-align: center;
-  font-size: 20px;
+.heading{
+ display: flex;
+ flex-direction:row;
+ justify-content: space-evenly;
+ width:100%;
+ position: absolute;
+ top: 0;
+ left:0;
+}
+
+.grid-container p {
+  grid-column-start: 3;
 }
 
 .grid-line {
   background-color: rgb(120, 183, 208);
   width: 10px;
-  height: 100%;
+  min-height: 100%;
   margin: 0;
-}
-
-.route-name {
-  font-size: 20px;
-  margin-top: 20px;
-  text-align: center;
 }
