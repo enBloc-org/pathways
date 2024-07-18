@@ -1,0 +1,19 @@
+:root {
+  --grey: #9a928f;
+  --brown: #9b4c10;
+  --pink: #d6606d;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.grey-header-text {
+  color: var(--grey);
+  font-size: 52pt;
+}
+
+.white-header-text {
+  color: white;
+  font-size: 52pt;
+}

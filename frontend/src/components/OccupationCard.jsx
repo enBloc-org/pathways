@@ -1,12 +1,12 @@
 export default function OccupationCard({ 
-  name, 
-  level, 
-  overview, 
-  technicalLevelName
-}) {
-if (!name | !level | !overview | !technicalLevelName) {
-  return <div>Loading...</div>;
-}
+    name, 
+    level, 
+    overview, 
+    technicalLevelName
+ }) {
+  if (!name | !level | !overview | !technicalLevelName) {
+    return <div>Loading...</div>;
+  }
 
 return (
   <div className="occupation-card">
