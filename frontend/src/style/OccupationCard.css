@@ -1,6 +1,6 @@
 .occupation-card {
-  height: 40vmin;
-  width: 70vmin;
+  height: 28dvh;
+  width: 25dvw;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -8,18 +8,19 @@
   border: 1px solid var(--brown);
   box-shadow: 0 0 10px black;
   border-radius: 0 7vmin 7vmin 0;
-  font-size: 3vmin;
+  font-size: 2vmin;
 }
 
 .occupation-card h2 {
   background-color: var(--brown);
   color: white;
-  padding: 1vmin;
+  padding: 1.2vmin;
   width: 100%;
-  height: 20%;
+  height: 3rem;
+  text-justify: center;
   margin-top: 0;
   border-radius: 0 7vmin 0 0;
-  font-size: 2.5vmin;
+  font-size: 2vmin;
 }
 
 .level {
@@ -30,7 +31,7 @@
 .overview {
   padding-left: 2em;
   margin: 0;
-  overflow:auto;
+  overflow: auto;
   text-wrap: wrap;
   width: 90%;
 }
@@ -46,11 +47,11 @@
   text-align: center;
   width: 95%;
   padding: 0 1em;
-  font-size: 2.5vmin;
+  font-size: 2vmin;
 }
 
-.technical-level-name div>img {
+.technical-level-name div > img {
   object-fit: contain;
-  height: 4vmin;
-  width:4vmin;
+  height: 2.5vmin;
+  width: 2.5vmin;
 }
