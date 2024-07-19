@@ -1,0 +1,40 @@
+.occupation-card {
+  height: 16rem;
+  width: 35rem;
+  display: flex;
+  flex-direction: column;
+  align-items:start;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px black;
+  border-radius: 0 3rem 3rem 0;
+}
+
+.occupation-card h2{
+  background-color: var(--brown);
+  color: white;
+  padding: 8px;
+  width: 100%;
+  margin-top: 0;
+  border-radius: 0 3rem 0 0;
+}
+
+.level {
+  padding-left: 3rem;
+}
+
+.overview {
+  margin-left: 1rem;
+}
+
+.overview span {
+  color: var(--grey);
+}
+
+.technical-level-name{
+  display: flex;
+  justify-content: space-between;
+  width:95%;
+  margin-left:1rem;
+  margin-bottom: 1rem;
+}
