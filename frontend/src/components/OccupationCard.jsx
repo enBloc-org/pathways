@@ -1,5 +1,5 @@
 import "../style/OccupationCard.css"
-import expandButton from '../images/expand.svg'
+import expandButton from "../images/expand.svg"
 
 export default function OccupationCard({
   name,
@@ -20,7 +20,6 @@ export default function OccupationCard({
           <span>
             <i>In brief:</i>
           </span>{" "}
-          <br />
           {` ${overview}`}
         </p>
       </div>
@@ -29,7 +28,9 @@ export default function OccupationCard({
           <strong>Technical Level:</strong> <br />{" "}
           {technicalLevelName}
         </p>
-        <img src={expandButton}/>
+        <div>
+          <img src={expandButton} />
+        </div>
       </div>
     </div>
   )

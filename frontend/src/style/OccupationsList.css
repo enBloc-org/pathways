@@ -1,8 +1,9 @@
 .container {
   display: flex;
   flex-direction: column;
-  width: 25vw;
-  height: 100vh;
+  gap:1rem;
+  width: 75vmin;
+  height: 100dvh;
   padding: 5px;
   overflow: auto;
 }
