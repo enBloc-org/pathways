@@ -9,14 +9,15 @@
 .route-header {
   font-size: 32px;
   margin-bottom: 20px;
+  font-weight: 300; 
 }
 
 .hierarchy-map {
-  background-color: var(--grey);
+  background-color: rgb(214, 215, 215);
   padding: 20px;
   box-shadow: 0 0 10px rgb(255, 255, 255);
   width: 80vw;
-  height:60vh;
+  height: 60vh;
   position: relative;
 }
 
@@ -24,17 +25,31 @@
   display: grid;
   grid-template-columns: 1fr 10px 1fr 10px 1fr;
   gap: 10px;
-  height: 100%; 
+  height: 104%;
+  position: relative;
+  z-index: 1; 
 }
 
-.heading{
- display: flex;
- flex-direction:row;
- justify-content: space-evenly;
- width:100%;
- position: absolute;
- top: 0;
- left:0;
+.heading {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  top: 0; 
+  left: 0;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  z-index: 0; 
+}
+
+.heading-item- {
+  flex: 1; 
+  text-align: center; 
+}
+
+.heading p {
+  margin: 0;
+  font-weight: 300; 
 }
 
 .grid-container p {
@@ -44,6 +59,15 @@
 .grid-line {
   background-color: rgb(120, 183, 208);
   width: 10px;
-  min-height: 100%;
-  margin: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+
+.line-1 {
+  left: 33%;
+}
+
+.line-2 {
+  left: 66%;
 }

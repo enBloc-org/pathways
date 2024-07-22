@@ -1,22 +1,25 @@
 import React from 'react';
-import '../style/Hierarchymap.css'; 
+import '../style/Hierarchymap.css';
 
-const HierarchyMap = ({}) => {
+const HierarchyMap = () => {
   return (
     <div className="hierarchy-map-wrapper">
       <p className="route-header">Digital</p>
       <div className="hierarchy-map">
         <div className="heading">
-          <p>Technical</p>
-          <div className="grid-line"></div>
-          <p>Higher Technical</p>
-          <div className="grid-line"></div>
-          <p>Professional</p>
+          <div className="heading-item-">
+            <p>Technical</p>
+          </div>
+          <div className="heading-item-">
+            <p>Higher Technical</p>
+          </div>
+          <div className="heading-item-">
+            <p>Professional</p>
+          </div>
         </div>
-
         <div className="grid-container">
-          
-          <p>content</p>
+          <div className="grid-line line-1"></div>
+          <div className="grid-line line-2"></div>
         </div>
       </div>
     </div>
