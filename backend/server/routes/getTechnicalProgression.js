@@ -3,8 +3,6 @@ export default async function getTechnicalProgression(givenProductCode){
         throw new Error("Product code value not acceptable")
 const url = `${process.env.BASE_URL}/TechnicalEducationProgression/${givenProductCode}`
 
-// note assumes similarity between get routes structure and ge progression
-//options might need to be different
 const options = {
     method: "GET",
     headers: {
