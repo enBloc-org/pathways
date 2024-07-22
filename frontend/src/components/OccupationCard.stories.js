@@ -32,7 +32,6 @@ export default {
   component: OccupationCard,
   args: {
     name: mockedOccupation.name,
-    level: mockedOccupation.level,
     overview: mockedOccupation.overview,
     technicalLevelName:
       mockedOccupation.mapHierarchy.technicalLevelName,
