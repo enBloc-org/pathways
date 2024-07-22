@@ -13,7 +13,6 @@
 }
 
 .occupation-card h2 {
-  /* background-color: var(--brown); */
   color: white;
   padding: 1.2vmin;
   height: 20%;
@@ -21,11 +20,6 @@
   margin-top: 0;
   border-radius: 0 7vmin 0 0;
   font-size: 2vmin;
-}
-
-.level {
-  padding-left: 2em;
-  margin-top: -0.5em;
 }
 
 .overview {
