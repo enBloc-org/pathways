@@ -1,6 +1,7 @@
 import fetchOccupationByQuery from "./utils/fetchOccupationByQuery"
 import { useState } from "react"
 import Header from "./components/Header"
+import InfoPage from "./components/InfoPage"
 
 import './style/globals.css'
 import './App.css'
@@ -16,7 +17,15 @@ function App() {
   return (
     <div className="app">
       <Header searchHandler={handleSearch} />
-      {searchResults && <p>{searchResults.results.map(result => <p>{result.name}</p>)}</p>}
+      {!searchResults ? (
+        <InfoPage />
+      ) : (
+        <div className="search-results">
+          {searchResults.results.map(result => (
+            <p key={result.id}>{result.name}</p>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
