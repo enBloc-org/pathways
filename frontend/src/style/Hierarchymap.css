@@ -47,9 +47,10 @@
   text-align: center; 
 }
 
-.heading p {
+.heading-item p {
   margin: 0;
   font-weight: 300; 
+  font-size: 24px; 
 }
 
 .grid-container p {
