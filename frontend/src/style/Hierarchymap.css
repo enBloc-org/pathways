@@ -1,0 +1,75 @@
+.hierarchy-map-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.route-header {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: var(--grey);
+}
+
+.hierarchy-map {
+  background-color: var(--grey);
+  padding: 20px;
+  box-shadow: 0 0 10px var(--grey);
+  width: 80vw;
+  height: 60vh;
+  position: relative;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 10px 1fr 10px 1fr;
+  gap: 10px;
+  height: 100%;
+  z-index: 1; 
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  top: 0; 
+  left: 0;
+  padding: 30px 20px;
+  box-sizing: border-box;
+  z-index: 0; 
+}
+
+.heading-item {
+  flex: 1; 
+  text-align: center; 
+}
+
+.heading-item p {
+  margin: 0;
+  font-weight: 300; 
+  font-size: 5vmin; 
+}
+
+.grid-container p {
+  grid-column-start: 3;
+}
+
+.grid-line {
+  background-color: var(--blue);
+  width: 10px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 45;
+}
+
+.line-1 {
+  left: 33%;
+}
+
+.line-2 {
+  left: 66%;
+}
