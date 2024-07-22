@@ -2,7 +2,7 @@ import React from 'react';
 import HierarchyMap from './Hierarchymap';
 
 export default {
-  title: 'Components/HierarchyMap',
+  title: 'HierarchyMap',
   component: HierarchyMap,
 };
 

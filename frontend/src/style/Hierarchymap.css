@@ -4,18 +4,19 @@
   align-items: flex-start;
   margin-bottom: 20px;
   padding-left: 20px;
+  position: relative;
 }
 
 .route-header {
   font-size: 32px;
   margin-bottom: 20px;
-  font-weight: 300; 
+  color: var(--grey);
 }
 
 .hierarchy-map {
-  background-color: rgb(214, 215, 215);
+  background-color: var(--grey);
   padding: 20px;
-  box-shadow: 0 0 10px rgb(255, 255, 255);
+  box-shadow: 0 0 10px var(--grey);
   width: 80vw;
   height: 60vh;
   position: relative;
@@ -25,8 +26,7 @@
   display: grid;
   grid-template-columns: 1fr 10px 1fr 10px 1fr;
   gap: 10px;
-  height: 104%;
-  position: relative;
+  height: 100%;
   z-index: 1; 
 }
 
@@ -42,7 +42,7 @@
   z-index: 0; 
 }
 
-.heading-item- {
+.heading-item {
   flex: 1; 
   text-align: center; 
 }
@@ -57,11 +57,12 @@
 }
 
 .grid-line {
-  background-color: rgb(120, 183, 208);
+  background-color: var(--blue);
   width: 10px;
   position: absolute;
   top: 0;
   bottom: 0;
+  z-index: 45;
 }
 
 .line-1 {
