@@ -1,4 +1,3 @@
-import React from 'react';
 import HierarchyMap from './Hierarchymap';
 
 export default {
@@ -6,19 +5,4 @@ export default {
   component: HierarchyMap,
 };
 
-const Template = (args) => <HierarchyMap {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {
-  routeName: 'Digital',
-  exampleOccupation: {
-    name: 'Software Developer',
-    level: 2,
-    mapHierarchy: {
-      technicalLevelName: 'Intermediate',
-      pathwayName: 'Development',
-    },
-    overview: 'Develops and maintains software applications.',
-    summary: '<p>In-depth details about the role of a software developer...</p>',
-  },
-};
+export const DefaultHierarchyMap = {};
