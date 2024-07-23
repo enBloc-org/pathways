@@ -1,11 +1,12 @@
 import Header from './Header';
-import {fn} from '@storybook/test'
+import { action } from '@storybook/addon-actions';
 
 export default {
-    title:'Header',
-    component: Header,
-    args:{
-        searchHandler: fn()
-    }
+  title: 'Header',
+  component: Header,
+  args: {
+    searchHandler: action('searchHandler')
+  }
 };
-export const DefaultHeader = {}
+
+export const DefaultHeader = {};

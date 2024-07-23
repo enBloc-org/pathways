@@ -1,6 +1,6 @@
-import TextSearch from "./TextSearch"
-import gatsbyLogo from "../images/GATSBY.jpeg"
-import "../style/Header.css"
+import TextSearch from "./TextSearch";
+import gatsbyLogo from "../images/GATSBY.jpeg";
+import "../style/Header.css";
 
 export default function Header({ searchHandler }) {
   return (
@@ -10,11 +10,13 @@ export default function Header({ searchHandler }) {
       </div>
       <TextSearch searchHandler={searchHandler} />
       <div className="button-container">
-        <a className="header-button">About</a>
+        <a href="http://localhost:6006/?path=/infopage--default-info-page" className="header-button">
+          About
+        </a>
         <a className="header-button" type="button">
           Search
         </a>
       </div>
     </header>
-  )
+  );
 }
