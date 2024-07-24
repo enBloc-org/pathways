@@ -1,10 +1,13 @@
+import React from "react";
 import TextSearch from "./TextSearch";
 import gatsbyLogo from "../images/GATSBY.jpeg";
 import "../style/Header.css";
+import FilterList from "./FilterList";
 
-export default function Header({ searchHandler }) {
+export default function Header({ searchHandler, allRoutes }) {
   return (
     <header className="header">
+      <FilterList allRoutes={allRoutes} />
       <div className="logo-container">
         <img src={gatsbyLogo} alt="Gatsby Logo" className="logo" />
       </div>
