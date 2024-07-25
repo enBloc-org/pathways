@@ -14,7 +14,7 @@ export default function OccupationCard({
   }
 
   const clickHandler = () => {
-    expandHandler(true)
+    expandHandler(occupation)
   }
 
   return (
