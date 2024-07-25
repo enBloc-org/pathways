@@ -1,3 +1,5 @@
+import { fn } from "@storybook/test"
+
 import OccupationsList from "./OccupationsList"
 
 const mockedOccupations = [
@@ -198,6 +200,7 @@ export default {
   component: OccupationsList,
   args: {
     occupationsArray: mockedOccupations,
+    eventHandler: fn(),
   },
 }
 

@@ -1,15 +1,16 @@
 import OccupationCard from "./OccupationCard"
 import "../style/OccupationsList.css"
 
-export default function OccupationsList({ occupationsArray }) {
+export default function OccupationsList({
+  occupationsArray,
+  eventHandler,
+}) {
   return (
     <div className="container">
       {occupationsArray.map(occupation => (
         <OccupationCard
-          name={occupation.name}
-          level={occupation.level}
-          overview={occupation.overview}
-          technicalLevelName={occupation.mapHierarchy.technicalLevelName}
+          occupation={occupation}
+          expandHandler={eventHandler}
         />
       ))}
     </div>
