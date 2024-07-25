@@ -3,7 +3,6 @@ import fetchOccupationByQuery from "./utils/fetchOccupationByQuery";
 import fetchAllRoutes from "./utils/fetchAllRoutes.js";
 import Header from "./components/Header";
 import OccupationsList from "./components/OccupationsList";
-import FilterList from "./components/FilterList";
 import FilterButton from "./components/FilterButton";
 import "./style/globals.css";
 import "./App.css";
@@ -39,7 +38,6 @@ function App() {
     <div className="app">
       <Header searchHandler={handleSearch} allRoutes={allRoutes} />
       <div className="filter-section">
-        <FilterList options={allRoutes} />
         <FilterButton options={allRoutes} onApply={handleApplyFilters} />
       </div>
       {searchResults && (
