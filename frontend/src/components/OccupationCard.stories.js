@@ -1,4 +1,7 @@
+import { fn } from "@storybook/test"
+
 import OccupationCard from "./OccupationCard"
+
 const mockedOccupation = {
   object: "Occupation",
   stdCode: "OCC0118",
@@ -28,13 +31,14 @@ const mockedOccupation = {
   statusLastUpdated: "2016-03-23",
 }
 
-const mockedBrokenData = {...mockedOccupation, overview: undefined}
+const mockedBrokenData = { ...mockedOccupation, overview: undefined }
 
 export default {
   title: "OccupationCard",
   component: OccupationCard,
   args: {
     occupation: mockedOccupation,
+    expandHandler: fn(),
   },
 }
 

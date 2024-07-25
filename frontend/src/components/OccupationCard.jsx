@@ -2,10 +2,19 @@ import "../style/OccupationCard.css"
 import expandButton from "../images/expand.svg"
 
 export default function OccupationCard({
-  occupation
+  occupation,
+  expandHandler,
 }) {
-  if (!occupation.name || !occupation.overview || !occupation.mapHierarchy.technicalLevelName) {
+  if (
+    !occupation.name ||
+    !occupation.overview ||
+    !occupation.mapHierarchy.technicalLevelName
+  ) {
     return <div>Loading...</div>
+  }
+
+  const clickHandler = () => {
+    expandHandler(true)
   }
 
   return (
@@ -24,9 +33,9 @@ export default function OccupationCard({
           <strong>Technical Level:</strong> <br />{" "}
           {occupation.mapHierarchy.technicalLevelName}
         </p>
-        <div>
+        <button type="button" onClick={clickHandler}>
           <img src={expandButton} />
-        </div>
+        </button>
       </div>
     </div>
   )
