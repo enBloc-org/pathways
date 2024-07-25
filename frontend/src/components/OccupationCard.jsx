@@ -2,29 +2,27 @@ import "../style/OccupationCard.css"
 import expandButton from "../images/expand.svg"
 
 export default function OccupationCard({
-  name,
-  overview,
-  technicalLevelName,
+  occupation
 }) {
-  if (!name || !overview || !technicalLevelName) {
+  if (!occupation.name || !occupation.overview || !occupation.mapHierarchy.technicalLevelName) {
     return <div>Loading...</div>
   }
 
   return (
     <div className="occupation-card">
-      <h2>{name}</h2>
+      <h2>{occupation.name}</h2>
       <div>
         <p className="overview">
           <span>
             <i>In brief:</i>
           </span>{" "}
-          {` ${overview}`}
+          {` ${occupation.overview}`}
         </p>
       </div>
       <div className="technical-level-name">
         <p>
           <strong>Technical Level:</strong> <br />{" "}
-          {technicalLevelName}
+          {occupation.mapHierarchy.technicalLevelName}
         </p>
         <div>
           <img src={expandButton} />

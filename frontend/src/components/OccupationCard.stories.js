@@ -27,14 +27,14 @@ const mockedOccupation = {
   },
   statusLastUpdated: "2016-03-23",
 }
+
+const mockedBrokenData = {...mockedOccupation, overview: undefined}
+
 export default {
   title: "OccupationCard",
   component: OccupationCard,
   args: {
-    name: mockedOccupation.name,
-    overview: mockedOccupation.overview,
-    technicalLevelName:
-      mockedOccupation.mapHierarchy.technicalLevelName,
+    occupation: mockedOccupation,
   },
 }
 
@@ -42,9 +42,6 @@ export const OccupationCardWithData = {}
 
 export const OccupationCardWithoutData = {
   args: {
-    name: undefined,
-    level: undefined,
-    overview: undefined,
-    technicalLevelName: undefined,
+    occupation: mockedBrokenData,
   },
 }
