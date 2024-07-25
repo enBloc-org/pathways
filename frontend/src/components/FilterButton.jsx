@@ -3,6 +3,7 @@ import "../style/Filterbutton.css";
 
 export default function FilterButton({ options, onApply }) {
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleCheckboxChange = (routeId) => {
     setSelectedOptions((prevSelected) =>
@@ -16,23 +17,35 @@ export default function FilterButton({ options, onApply }) {
     onApply(selectedOptions);
   };
 
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prevIsDropdownOpen) => !prevIsDropdownOpen);
+  };
+
   return (
     <div className="filter-container">
-      <h2>Select Filters</h2>
-      <div className="filter-options">
-        {options.map((route) => (
-          <div key={route.routeId}>
-            <input
-              type="checkbox"
-              id={`filter-${route.routeId}`}
-              checked={selectedOptions.includes(route.routeId)}
-              onChange={() => handleCheckboxChange(route.routeId)}
-            />
-            <label htmlFor={`filter-${route.routeId}`}>{route.name}</label>
+      <button className="filter-toggle-button" onClick={toggleDropdown}>
+        Filter Result
+      </button>
+      {isDropdownOpen && (
+        <div className="dropdown">
+          <div className="filter-options">
+            {options.map((route) => (
+              <div key={route.routeId} className="filter-option">
+                <input
+                  type="checkbox"
+                  id={`filter-${route.routeId}`}
+                  checked={selectedOptions.includes(route.routeId)}
+                  onChange={() => handleCheckboxChange(route.routeId)}
+                />
+                <label htmlFor={`filter-${route.routeId}`}>{route.name}</label>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-      <button className="filter-apply-button" onClick={handleApplyFilters}>Apply Filters</button>
+          <button className="filter-apply-button" onClick={handleApplyFilters}>
+            Apply Filters
+          </button>
+        </div>
+      )}
     </div>
   );
 }
