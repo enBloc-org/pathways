@@ -1,4 +1,5 @@
-import { fn } from "@storybook/test"
+import { fn, within, userEvent } from "@storybook/test"
+import { expect } from "@storybook/jest"
 
 import OccupationCard from "./OccupationCard"
 
@@ -42,7 +43,16 @@ export default {
   },
 }
 
-export const OccupationCardWithData = {}
+export const OccupationCardWithData = {
+  play: async ({ args, canvasElement, step }) => {
+    const canvas = within(canvasElement)
+    const expandButton = canvas.getByRole("button")
+    await step('Click expand button', async()=>{
+      await userEvent.click(expandButton)
+      await expect(args.expandHandler).toHaveBeenCalled()
+    })
+  },
+}
 
 export const OccupationCardWithoutData = {
   args: {
