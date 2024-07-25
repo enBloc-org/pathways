@@ -9,7 +9,7 @@
     background-color: #bebebe;
     border-radius: 1000px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-left: -29rem;
+    margin-left: -32rem;
     margin-top: 30rem;
     position: absolute;
     z-index: 1;
@@ -19,8 +19,8 @@
   .filter-options {
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
-    grid-gap: 2px;
-    padding: 20px;
+    grid-gap: 1px;
+    padding: 30px;
     background-color: #bebebe;
     box-sizing: border-box;
   }
@@ -55,7 +55,8 @@
     color: #ffffff;
     border-radius: 4px;
     transition: background-color 0.2s ease-in-out;
-    margin-top: 20px;
+    margin-top: 200px;
+    margin-right:465px;
   }
 
-  
+    
