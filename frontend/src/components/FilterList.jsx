@@ -1,28 +1,14 @@
-import React, {useState, useEffect} from "react"
-import Dropdown from "./Dropdown"
-import ''
+import React from "react";
 
-
-export default function FilterList({allRoutes}){
-// try {
-//       const routesArray = await fetchAllRoutes() 
-//       const parsedRoutes = await JSON.parse(routesArray) 
-//      } catch (error){
-//       console.error(error) 
-//     }
-
-
-
-    return (
-        <div> 
-            {allRoutes.map(route => (
-                <div key={route.routeId}>
-                    <input type="checkbox" name={route.name} value={route.name} />
-                    <label htmlFor={route.Id}> {route.name} </label>
-                </div>
-            ))}
-        </div>
-    );
-
+export default function FilterList({ options }) {
+  return (
+    <div>
+      <h2>Available Filter Options</h2>
+      <ul>
+        {options.map((route) => (
+          <li key={route.routeId}>{route.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
-    a

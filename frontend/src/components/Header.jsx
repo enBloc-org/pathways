@@ -7,7 +7,6 @@ import FilterList from "./FilterList";
 export default function Header({ searchHandler, allRoutes }) {
   return (
     <header className="header">
-      <FilterList allRoutes={allRoutes} />
       <div className="logo-container">
         <img src={gatsbyLogo} alt="Gatsby Logo" className="logo" />
       </div>
