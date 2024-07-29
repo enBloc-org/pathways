@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../style/Filterbutton.css";
-import filterIcon from '../images/filter.svg'
+import filterIcon from "../images/filter.svg"; 
 
 export default function FilterButton({ options, onApply }) {
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -26,11 +26,12 @@ export default function FilterButton({ options, onApply }) {
   return (
     <div className="filter-container">
       <button className="filter-toggle-button" onClick={toggleDropdown}>
-        <img src={filterIcon}/>
+        Filter Results
+        <img src={filterIcon} alt="Filter Icon" className="filter-icon" />
       </button>
-      {isDropdownOpen && (
+      {/* {isDropdownOpen && (  */}
         <div className="dropdown">
-          <div className="filter-options">
+          <div className="filter-options-container">
             {options.map((route) => (
               <div key={route.routeId} className="filter-option">
                 <input
@@ -44,12 +45,15 @@ export default function FilterButton({ options, onApply }) {
             ))}
           </div>
           <div className="filter-actions">
-            <button className="filter-apply-button" onClick={handleApplyFilters}>
+            <button
+              className="filter-apply-button"
+              onClick={handleApplyFilters}
+            >
               Apply Filters
             </button>
           </div>
         </div>
-      )}
+      {/* )} */}
     </div>
   );
 }
