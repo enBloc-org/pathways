@@ -1,64 +1,95 @@
+.details-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100dvh;
+  width: 100dvw;
+}
+
 .occupation-details {
-  width: 80%;
-  max-width: 800px;
-  margin: auto;
-  padding: 2rem;
-  border: 1px solid #ccc;
+  height: 80dvh;
+  min-height: 500px;
+  max-height: 700px;
+  width: 80dvw;
+  min-width: 600px;
+  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 2rem;
+  border: 1px solid var(--grey);
   border-radius: 8px;
-  background-color: #f9f9f9;
-  margin-bottom: 2rem;
-  position: relative;
+  background-color: white;
+  margin: 5vmin;
+}
+
+.occupation-details::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  background: black;
+  opacity: 50%;
+  z-index: -1;
+  height: 100dvh;
+  width: 100dvw;
 }
 
 .header {
-  padding-bottom: 1rem;
-  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: first baseline;
 }
 
-.section {
-  margin-bottom: 2rem;
-}
-
-.section h3 {
+.in-brief h3 {
   display: inline;
   margin-right: 0.5rem;
 }
 
 .in-brief {
-  position: relative;
   margin-left: -2rem;
   padding: 1.3rem;
   border-top-right-radius: 5rem;
   border-bottom-right-radius: 5rem;
   background-color: var(--brown);
   color: white;
-  overflow: hidden;
 }
 
 .overview-text {
   display: inline;
-  color: white; 
+  color: white;
+}
+
+.in-depth-container {
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .in-depth {
-  margin-top: 1rem;
-  padding: 4rem;
+  padding: 0 4rem;
+}
+
+.in-depth > p {
+  font-weight: bold;
 }
 
 .additional-details.collapsed {
-  max-height: 6rem;
+  max-height: 10rem;
   overflow: hidden;
 }
 
 .additional-details.expanded {
-  max-height: 15rem; 
-  overflow-y: scroll; 
+  max-height: 11rem;
+  overflow-y: scroll;
 }
 
-button {
+.read-more-button {
   display: inline-block;
   text-decoration: underline;
-  margin-top: 1rem;
   padding: 0.5rem 0;
   border: none;
   background: none;
@@ -68,24 +99,21 @@ button {
 }
 
 .route-name {
-  font-size: 1.3rem; 
-  color: var(--pink); 
+  font-size: 1.3rem;
+  color: var(--pink);
 }
 
 .pathway-name-text {
   font-size: 1rem;
-  color: var(--pink); 
+  color: var(--pink);
 }
 
 .pathway-name-container {
   display: flex;
-  justify-content: flex-end; 
+  justify-content: flex-end;
 }
 
 .close-button {
-  position: absolute;
-  top: 30px;
-  right: 30px;
   background: none;
   border: none;
   font-size: 1.5rem;
