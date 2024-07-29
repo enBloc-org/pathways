@@ -42,8 +42,10 @@ export default function FilterButton({ options, onApply }) {
                 />
                 <label htmlFor={`filter-${route.routeId}`}>{route.name}</label>
               </div>
+              
             ))}
           </div>
+          
           <div className="filter-actions">
             <button
               className="filter-apply-button"
