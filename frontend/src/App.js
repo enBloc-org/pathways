@@ -1,10 +1,10 @@
 import fetchOccupationByQuery from "./utils/fetchOccupationByQuery"
 import { useState } from "react"
 import Header from "./components/Header"
-import InfoPage from "./components/InfoPage"
+import OccupationsList from "./components/OccupationsList"
 
-import './style/globals.css'
-import './App.css'
+import "./style/globals.css"
+import "./App.css"
 
 function App() {
   const [searchResults, setSearchResults] = useState(undefined)
@@ -17,13 +17,10 @@ function App() {
   return (
     <div className="app">
       <Header searchHandler={handleSearch} />
-      {!searchResults ? (
-        <InfoPage />
-      ) : (
-        <div className="search-results">
-          {searchResults.results.map(result => (
-            <p key={result.id}>{result.name}</p>
-          ))}
+      {searchResults && (
+        <div style={{width:"100dvw"}}>
+          <OccupationsList occupationsArray={searchResults.results} />
+          <div style={{width: "70vmin", }}></div>
         </div>
       )}
     </div>
