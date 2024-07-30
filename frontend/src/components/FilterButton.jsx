@@ -26,6 +26,7 @@ export default function FilterButton({ options, onApply }) {
   return (
     <div className="filter-container">
       <button className="filter-toggle-button" onClick={toggleDropdown}>
+        Filter Result 
         <img src={filterIcon}/>
       </button>
       {isDropdownOpen && (
