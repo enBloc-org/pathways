@@ -47,7 +47,6 @@ function App() {
         </div>
       )}
       <div>
-        <h3>Selected Filters:</h3>
         <ul>
           {appliedFilters.map((routeId) => {
             const route = allRoutes.find((route) => route.routeId === routeId);

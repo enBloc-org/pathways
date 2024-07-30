@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../style/Filterbutton.css";
-import filterIcon from '../images/filter.svg'
+import filterIcon from '../images/filter.svg';
 
 export default function FilterButton({ options, onApply }) {
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -27,7 +27,7 @@ export default function FilterButton({ options, onApply }) {
     <div className="filter-container">
       <button className="filter-toggle-button" onClick={toggleDropdown}>
         Filter Result
-        <img src={filterIcon}/>
+        <img src={filterIcon} alt="Filter Icon"/>
       </button>
       {isDropdownOpen && (
         <div className="dropdown">
@@ -44,14 +44,11 @@ export default function FilterButton({ options, onApply }) {
               </div>
             ))}
           </div>
-          <div className="filter-actions">
-            <button className="filter-apply-button" onClick={handleApplyFilters}>
-              Apply Filters
-            </button>
-          </div>
+          <button className="filter-apply-button" onClick={handleApplyFilters}>
+            Apply Filters
+          </button>
         </div>
       )}
     </div>
   );
 }
-
