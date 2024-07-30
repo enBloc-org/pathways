@@ -46,14 +46,6 @@ function App() {
           <div style={{ width: "70vmin" }}></div>
         </div>
       )}
-      <div>
-        <ul>
-          {appliedFilters.map((routeId) => {
-            const route = allRoutes.find((route) => route.routeId === routeId);
-            return <li key={routeId}>{route.name}</li>;
-          })}
-        </ul>
-      </div>
     </div>
   );
 }
