@@ -22,7 +22,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     grid-gap: 1px;
-    padding: 39px;
+    padding: 42px;
     background-color: #bebebe;
     box-sizing: border-box;
   }
@@ -66,5 +66,11 @@
   .filter-toggle-button {
     margin-right: -30rem;
     margin-top: -12rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
   }
   
+  .filter-results {
+    margin-top: .45rem;
+  }
