@@ -1,28 +1,35 @@
-import fetchOccupationByQuery from "./utils/fetchOccupationByQuery"
 import { useState } from "react"
+import { Routes, Route, useNavigate } from "react-router-dom"
+
+import fetchOccupationByQuery from "./utils/fetchOccupationByQuery"
 import Header from "./components/Header"
-import OccupationsList from "./components/OccupationsList"
+import About from "./pages/About"
+import Search from "./pages/Search"
 
 import "./style/globals.css"
 import "./App.css"
 
 function App() {
   const [searchResults, setSearchResults] = useState(undefined)
+  const navigate = useNavigate()
 
   const handleSearch = async query => {
     const data = await fetchOccupationByQuery(query)
-    setSearchResults(data)
+    setSearchResults(data.results)
+    navigate("/search")
   }
 
   return (
     <div className="app">
       <Header searchHandler={handleSearch} />
-      {searchResults && (
-        <div style={{width:"100dvw"}}>
-          <OccupationsList occupationsArray={searchResults.results} />
-          <div style={{width: "70vmin", }}></div>
-        </div>
-      )}
+
+      <Routes>
+        <Route path="/about" element={<About />} />
+        <Route
+          path="search"
+          element={<Search searchResults={searchResults} />}
+        />
+      </Routes>
     </div>
   )
 }
