@@ -1,8 +1,9 @@
-import TextSearch from "./TextSearch"
-import gatsbyLogo from "../images/GATSBY.jpeg"
-import "../style/Header.css"
+import React from "react";
+import TextSearch from "./TextSearch";
+import gatsbyLogo from "../images/GATSBY.jpeg";
+import "../style/Header.css";
 
-export default function Header({ searchHandler }) {
+export default function Header({ searchHandler, allRoutes }) {
   return (
     <header className="header">
       <div className="logo-container">
@@ -10,11 +11,13 @@ export default function Header({ searchHandler }) {
       </div>
       <TextSearch searchHandler={searchHandler} />
       <div className="button-container">
-        <a className="header-button">About</a>
+        <a href="/info-page" className="header-button">
+          About
+        </a>
         <a className="header-button" type="button">
           Search
         </a>
       </div>
     </header>
-  )
+  );
 }
