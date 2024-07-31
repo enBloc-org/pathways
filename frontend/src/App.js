@@ -4,13 +4,14 @@ import fetchAllRoutes from "./utils/fetchAllRoutes.js";
 import Header from "./components/Header";
 import OccupationsList from "./components/OccupationsList";
 import FilterButton from "./components/FilterButton";
+import SaveSearchButton from "./components/SaveSearchButton.jsx"; 
 import "./style/globals.css";
 import "./App.css";
 
 function App() {
   const [searchResults, setSearchResults] = useState(undefined);
   const [allRoutes, setAllRoutes] = useState([]);
-  const [appliedFilters, setAppliedFilters] = useState([]);
+  const [AppliedFilters, setAppliedFilters] = useState([]);
 
   useEffect(() => {
     const fetchRoutes = async () => {
@@ -31,7 +32,7 @@ function App() {
 
   const handleApplyFilters = (selectedOptions) => {
     setAppliedFilters(selectedOptions);
-    console.log("Applied Filters:", selectedOptions);
+    console.log("Applied Filters:", AppliedFilters);
   };
 
   return (
@@ -39,6 +40,7 @@ function App() {
       <Header searchHandler={handleSearch} allRoutes={allRoutes} />
       <div className="filter-section">
         <FilterButton options={allRoutes} onApply={handleApplyFilters} />
+        <SaveSearchButton /> {}
       </div>
       {searchResults && (
         <div style={{ width: "100dvw" }}>
