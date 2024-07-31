@@ -12,6 +12,7 @@ function App() {
   const [searchResults, setSearchResults] = useState(undefined);
   const [allRoutes, setAllRoutes] = useState([]);
   const [AppliedFilters, setAppliedFilters] = useState([]);
+  const [occupationSearch,setoccupationSearch] =useState('')
 
   useEffect(() => {
     const fetchRoutes = async () => {
@@ -27,12 +28,15 @@ function App() {
 
   const handleSearch = async (query) => {
     const data = await fetchOccupationByQuery(query);
+    setoccupationSearch(query)
     setSearchResults(data);
+    window.location.hash = query;
   };
 
   const handleApplyFilters = (selectedOptions) => {
     setAppliedFilters(selectedOptions);
     console.log("Applied Filters:", AppliedFilters);
+    window.location.hash = (occupationSearch + selectedOptions)
   };
 
   return (
