@@ -11,7 +11,7 @@ import "./App.css";
 function App() {
   const [searchResults, setSearchResults] = useState(undefined);
   const [allRoutes, setAllRoutes] = useState([]);
-  const [setAppliedFilters] = useState([]);
+  const [AppliedFilters, setAppliedFilters] = useState([]);
 
   useEffect(() => {
     const fetchRoutes = async () => {
@@ -32,7 +32,7 @@ function App() {
 
   const handleApplyFilters = (selectedOptions) => {
     setAppliedFilters(selectedOptions);
-    console.log("Applied Filters:", selectedOptions);
+    console.log("Applied Filters:", AppliedFilters);
   };
 
   return (
