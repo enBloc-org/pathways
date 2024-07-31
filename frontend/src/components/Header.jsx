@@ -4,7 +4,7 @@ import TextSearch from "./TextSearch"
 import gatsbyLogo from "../images/GATSBY.jpeg"
 import "../style/Header.css"
 
-export default function Header({ searchHandler }) {
+export default function Header({ searchHandler, allRoutes }) {
   return (
     <nav className="header">
       <div className="logo-container">
