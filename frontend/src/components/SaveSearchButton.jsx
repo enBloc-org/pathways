@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import heartIcon from '../images/heart.svg';
 import heartRedIcon from '../images/redheart.svg';
+import "../style/Heart.css";
 
 export default function SaveSearchButton() {
   const [isHeartClicked, setIsHeartClicked] = useState(false);
