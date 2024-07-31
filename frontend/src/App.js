@@ -5,6 +5,7 @@ import fetchOccupationByQuery from "./utils/fetchOccupationByQuery"
 import Header from "./components/Header"
 import About from "./pages/About"
 import Search from "./pages/Search"
+import OccupationPage from "./pages/OccupationPage"
 
 import "./style/globals.css"
 import "./App.css"
@@ -26,8 +27,12 @@ function App() {
       <Routes>
         <Route path="/about" element={<About />} />
         <Route
-          path="search"
+          path="/search"
           element={<Search searchResults={searchResults} />}
+        />
+        <Route
+          path="/occupation-details/:occupation"
+          element={<OccupationPage />}
         />
       </Routes>
     </div>
