@@ -14,7 +14,6 @@ function App() {
   const [appliedFilters, setAppliedFilters] = useState([]);
   const [occupationSearch, setOccupationSearch] = useState('');
   const [recentSearches, setRecentSearches] = useState([]);
-  const [saveConfirmation, setSaveConfirmation] = useState(false);
 
   useEffect(() => {
     const fetchRoutes = async () => {
@@ -27,6 +26,7 @@ function App() {
     };
     fetchRoutes();
 
+    // Load recent searches from local storage
     const savedSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
     console.log("Loaded searches from local storage:", savedSearches);
     setRecentSearches(savedSearches);
@@ -58,9 +58,6 @@ function App() {
     localStorage.setItem('recentSearches', JSON.stringify(updatedSearches));
     
     console.log("Search state saved to local storage:", localStorage.getItem('recentSearches'));
-    
-    setSaveConfirmation(true);
-    setTimeout(() => setSaveConfirmation(false), 3000); 
   };
 
   return (
@@ -70,7 +67,6 @@ function App() {
         <FilterButton options={allRoutes} onApply={handleApplyFilters} />
         <SaveSearchButton onClick={handleSaveSearch} />
       </div>
-      {saveConfirmation && <div className="save-confirmation">Search saved successfully!</div>}
       {searchResults && (
         <div style={{ width: "100dvw" }}>
           <OccupationsList occupationsArray={searchResults.results} />
