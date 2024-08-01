@@ -3,8 +3,7 @@ import fetchOccupationByQuery from "./utils/fetchOccupationByQuery";
 import fetchAllRoutes from "./utils/fetchAllRoutes.js";
 import Header from "./components/Header";
 import OccupationsList from "./components/OccupationsList";
-import FilterButton from "./components/FilterButton";
-import SaveSearchButton from "./components/SaveSearchButton.jsx"; 
+import FilterContainer from "./components/FilterContainer.jsx";
 import "./style/globals.css";
 import "./App.css";
 
@@ -13,7 +12,6 @@ function App() {
   const [allRoutes, setAllRoutes] = useState([]);
   const [appliedFilters, setAppliedFilters] = useState([]);
   const [occupationSearch, setOccupationSearch] = useState('');
-  const [recentSearches, setRecentSearches] = useState([]);
 
   useEffect(() => {
     const fetchRoutes = async () => {
@@ -25,10 +23,6 @@ function App() {
       }
     };
     fetchRoutes();
-    
-    const savedSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
-    console.log("Loaded searches from local storage:", savedSearches);
-    setRecentSearches(savedSearches);
   }, []);
 
   const handleSearch = async (query) => {
@@ -38,52 +32,15 @@ function App() {
     window.location.hash = query;
   };
 
-  const handleApplyFilters = (selectedOptions) => {
-    setAppliedFilters(selectedOptions);
-    console.log("Applied Filters:", selectedOptions);
-    window.location.hash = `${occupationSearch}&filter=${selectedOptions.join(",")}`;
-  };
-
-  const handleSaveSearch = () => {
-    const searchState = {
-      query: occupationSearch,
-      filters: appliedFilters
-    };
-    const updatedSearches = [...recentSearches, searchState];
-    console.log("Search state before saving:", searchState);
-    console.log("Updated searches before saving:", updatedSearches);
-    
-    setRecentSearches(updatedSearches);
-    localStorage.setItem('recentSearches', JSON.stringify(updatedSearches));
-    
-    console.log("Search state saved to local storage:", localStorage.getItem('recentSearches'));
-  };
-
-  const handleUnsaveSearch = () => {
-    const searchState = {
-      query: occupationSearch,
-      filters: appliedFilters
-    };
-    const updatedSearches = recentSearches.filter(search => 
-      search.query !== searchState.query || 
-      JSON.stringify(search.filters) !== JSON.stringify(searchState.filters)
-    );
-    console.log("Search state before unsaving:", searchState);
-    console.log("Updated searches before unsaving:", updatedSearches);
-    
-    setRecentSearches(updatedSearches);
-    localStorage.setItem('recentSearches', JSON.stringify(updatedSearches));
-    
-    console.log("Search state removed from local storage:", localStorage.getItem('recentSearches'));
-  };
-
   return (
     <div className="app">
       <Header searchHandler={handleSearch} allRoutes={allRoutes} />
-      <div className="filter-section">
-        <FilterButton options={allRoutes} onApply={handleApplyFilters} />
-        <SaveSearchButton onSave={handleSaveSearch} onUnsave={handleUnsaveSearch} />
-      </div>
+      <FilterContainer 
+        allRoutes={allRoutes} 
+        appliedFilters={appliedFilters}
+        setAppliedFilters={setAppliedFilters}
+        occupationSearch={occupationSearch}
+      />
       {searchResults && (
         <div style={{ width: "100dvw" }}>
           <OccupationsList occupationsArray={searchResults.results} />
