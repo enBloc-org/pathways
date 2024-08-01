@@ -16,7 +16,7 @@ function App() {
 
   const handleSearch = async query => {
     const data = await fetchOccupationByQuery(query)
-    setSearchResults(data.results)
+    setSearchResults(data)
     navigate("/search")
   }
 
@@ -36,7 +36,7 @@ function App() {
         />
       </Routes>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
