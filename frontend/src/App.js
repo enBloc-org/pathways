@@ -25,8 +25,7 @@ function App() {
       }
     };
     fetchRoutes();
-
-    // Load recent searches from local storage
+    
     const savedSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
     console.log("Loaded searches from local storage:", savedSearches);
     setRecentSearches(savedSearches);
@@ -60,12 +59,30 @@ function App() {
     console.log("Search state saved to local storage:", localStorage.getItem('recentSearches'));
   };
 
+  const handleUnsaveSearch = () => {
+    const searchState = {
+      query: occupationSearch,
+      filters: appliedFilters
+    };
+    const updatedSearches = recentSearches.filter(search => 
+      search.query !== searchState.query || 
+      JSON.stringify(search.filters) !== JSON.stringify(searchState.filters)
+    );
+    console.log("Search state before unsaving:", searchState);
+    console.log("Updated searches before unsaving:", updatedSearches);
+    
+    setRecentSearches(updatedSearches);
+    localStorage.setItem('recentSearches', JSON.stringify(updatedSearches));
+    
+    console.log("Search state removed from local storage:", localStorage.getItem('recentSearches'));
+  };
+
   return (
     <div className="app">
       <Header searchHandler={handleSearch} allRoutes={allRoutes} />
       <div className="filter-section">
         <FilterButton options={allRoutes} onApply={handleApplyFilters} />
-        <SaveSearchButton onClick={handleSaveSearch} />
+        <SaveSearchButton onSave={handleSaveSearch} onUnsave={handleUnsaveSearch} />
       </div>
       {searchResults && (
         <div style={{ width: "100dvw" }}>

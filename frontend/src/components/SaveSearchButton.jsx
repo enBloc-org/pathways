@@ -3,14 +3,16 @@ import heartIcon from '../images/heart.svg';
 import heartRedIcon from '../images/redheart.svg';
 import "../style/Heart.css";
 
-export default function SaveSearchButton({ onClick }) {
+export default function SaveSearchButton({ onSave, onUnsave }) {
   const [isHeartClicked, setIsHeartClicked] = useState(false);
 
   const toggleHeart = () => {
-    setIsHeartClicked((prevIsHeartClicked) => !prevIsHeartClicked);
-    if (onClick) {
-      onClick();
+    if (isHeartClicked) {
+      onUnsave();
+    } else {
+      onSave();
     }
+    setIsHeartClicked((prevIsHeartClicked) => !prevIsHeartClicked);
   };
 
   return (
