@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
 import fetchOccupationByQuery from "./utils/fetchOccupationByQuery";
 import fetchAllRoutes from "./utils/fetchAllRoutes.js";
 import Header from "./components/Header";
@@ -13,22 +13,8 @@ function App() {
   const [allRoutes, setAllRoutes] = useState([]);
   const [appliedFilters, setAppliedFilters] = useState([]);
   const [occupationSearch, setOccupationSearch] = useState('');
-  const [savedSearches, setSavedSearches] = useState(() => {
-    const saved = localStorage.getItem('savedSearches');
-    return saved ? JSON.parse(saved) : [];
-  });
-
-  const handleSearch = useCallback(async (query) => {
-    const data = await fetchOccupationByQuery(query);
-    setOccupationSearch(query);
-    setSearchResults(data);
-    updateHash(query, appliedFilters);
-  }, [appliedFilters]);
-
-  const updateHash = (query, filters) => {
-    const filtersString = filters.map(option => option.replace(/\s+/g, '-')).join(',');
-    window.location.hash = `query=${encodeURIComponent(query)}&filter=${filtersString}`;
-  };
+  const [recentSearches, setRecentSearches] = useState([]);
+  const [saveConfirmation, setSaveConfirmation] = useState(false);
 
   useEffect(() => {
     const fetchRoutes = async () => {
@@ -41,26 +27,40 @@ function App() {
     };
     fetchRoutes();
 
-    const query = new URLSearchParams(window.location.hash.slice(1)).get('query') || '';
-    const filter = new URLSearchParams(window.location.hash.slice(1)).get('filter') || '';
+    const savedSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
+    console.log("Loaded searches from local storage:", savedSearches);
+    setRecentSearches(savedSearches);
+  }, []);
+
+  const handleSearch = async (query) => {
+    const data = await fetchOccupationByQuery(query);
     setOccupationSearch(query);
-    setAppliedFilters(filter ? filter.split(',') : []);
-    if (query) {
-      handleSearch(query);
-    }
-  }, [handleSearch]);
+    setSearchResults(data);
+    window.location.hash = query;
+  };
 
   const handleApplyFilters = (selectedOptions) => {
     setAppliedFilters(selectedOptions);
     console.log("Applied Filters:", selectedOptions);
-    updateHash(occupationSearch, selectedOptions);
+    window.location.hash = `${occupationSearch}&filter=${selectedOptions.join(",")}`;
   };
 
   const handleSaveSearch = () => {
-    const currentHash = window.location.hash;
-    const updatedSearches = [...savedSearches, currentHash];
-    setSavedSearches(updatedSearches);
-    localStorage.setItem('savedSearches', JSON.stringify(updatedSearches));
+    const searchState = {
+      query: occupationSearch,
+      filters: appliedFilters
+    };
+    const updatedSearches = [...recentSearches, searchState];
+    console.log("Search state before saving:", searchState);
+    console.log("Updated searches before saving:", updatedSearches);
+    
+    setRecentSearches(updatedSearches);
+    localStorage.setItem('recentSearches', JSON.stringify(updatedSearches));
+    
+    console.log("Search state saved to local storage:", localStorage.getItem('recentSearches'));
+    
+    setSaveConfirmation(true);
+    setTimeout(() => setSaveConfirmation(false), 3000); 
   };
 
   return (
@@ -70,6 +70,7 @@ function App() {
         <FilterButton options={allRoutes} onApply={handleApplyFilters} />
         <SaveSearchButton onClick={handleSaveSearch} />
       </div>
+      {saveConfirmation && <div className="save-confirmation">Search saved successfully!</div>}
       {searchResults && (
         <div style={{ width: "100dvw" }}>
           <OccupationsList occupationsArray={searchResults.results} />
