@@ -6,15 +6,12 @@ export default function FilterContainer({ allRoutes, appliedFilters, setAppliedF
   const [recentSearches, setRecentSearches] = useState([]);
 
   useEffect(() => {
-
     const savedSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
-    console.log("Loaded searches from local storage:", savedSearches);
     setRecentSearches(savedSearches);
   }, []);
 
   const handleApplyFilters = (selectedOptions) => {
     setAppliedFilters(selectedOptions);
-    console.log("Applied Filters:", selectedOptions);
     window.location.hash = `${occupationSearch}&filter=${selectedOptions.join(",")}`;
   };
 
@@ -24,13 +21,8 @@ export default function FilterContainer({ allRoutes, appliedFilters, setAppliedF
       filters: appliedFilters
     };
     const updatedSearches = [...recentSearches, searchState];
-    console.log("Search state before saving:", searchState);
-    console.log("Updated searches before saving:", updatedSearches);
-    
     setRecentSearches(updatedSearches);
     localStorage.setItem('recentSearches', JSON.stringify(updatedSearches));
-    
-    console.log("Search state saved to local storage:", localStorage.getItem('recentSearches'));
   };
 
   const handleUnsaveSearch = () => {
@@ -42,13 +34,8 @@ export default function FilterContainer({ allRoutes, appliedFilters, setAppliedF
       search.query !== searchState.query || 
       JSON.stringify(search.filters) !== JSON.stringify(searchState.filters)
     );
-    console.log("Search state before unsaving:", searchState);
-    console.log("Updated searches before unsaving:", updatedSearches);
-    
     setRecentSearches(updatedSearches);
     localStorage.setItem('recentSearches', JSON.stringify(updatedSearches));
-    
-    console.log("Search state removed from local storage:", localStorage.getItem('recentSearches'));
   };
 
   return (
