@@ -20,22 +20,26 @@ export default async function getOccupationByQuery(query) {
 
     const data = await response.json()
 
-    const tLevels = data.results.map(occupation => {
-      if (occupation.products !== undefined) {
-        return {
-          ...occupation,
-          products: occupation.products.filter(
-            product => product.typeName === "TLevel"
-          ),
+    const tLevels = data.results
+      .map(occupation => {
+        if (occupation.products !== undefined) {
+          return {
+            ...occupation,
+            products: occupation.products.filter(
+              product => product.typeName === "TLevel"
+            ),
+          }
         }
-      } else {
-        return {
-          ...occupation,
-        }
-      }
-    })
 
-    console.log(tLevels)
+        return {
+          ...occupation,
+        }
+      })
+      .filter(
+        occupation =>
+          occupation.products !== undefined &&
+          occupation.products.length > 0
+      )
 
     return tLevels
   } catch (error) {
