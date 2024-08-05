@@ -16,7 +16,7 @@ function App() {
 
   const handleSearch = async query => {
     const data = await fetchOccupationByQuery(query)
-    setSearchResults(data.results)
+    setSearchResults(data)
     navigate("/search")
   }
 
