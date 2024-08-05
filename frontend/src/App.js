@@ -11,21 +11,29 @@ import "./style/globals.css"
 import "./App.css"
 
 function App() {
-  const [isLoading, setIsLoading] = useState(false)
+  const [searchStatus, setSearchStatus] = useState("idle")
   const [searchQuery, setSearchQuery] = useState(undefined)
   const [searchResults, setSearchResults] = useState(undefined)
   const navigate = useNavigate()
 
   useEffect(() => {
     const handleSearch = async () => {
-      setIsLoading(true)
-      const data = await fetchOccupationByQuery(searchQuery)
-      setSearchResults(data)
-      setIsLoading(false)
-      navigate("/search")
+      try {
+        setSearchStatus("loading")
+        const data = await fetchOccupationByQuery(searchQuery)
+        setSearchResults(data)
+        setSearchStatus("fulfilled")
+        navigate("/search")
+      } catch (error) {
+        setSearchStatus("idle")
+      }
     }
 
-    handleSearch()
+    if (searchQuery) {
+      handleSearch()
+    } else {
+      setSearchStatus("idle")
+    }
   }, [searchQuery])
 
   const handleQuery = input => {
@@ -40,7 +48,12 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route
           path="/search"
-          element={<Search searchResults={searchResults} isLoading={isLoading}/>}
+          element={
+            <Search
+              searchResults={searchResults}
+              searchStatus={searchStatus}
+            />
+          }
         />
         <Route
           path="/occupation-details/:occupation"
