@@ -1,12 +1,16 @@
-export default function Search( {searchResults} ) {
+import OccupationsList from "../components/OccupationsList"
+
+export default function Search({ searchResults, isLoading }) {
   return (
     <>
       <h1>Search Page</h1>
-      <ul>
-        {searchResults && searchResults.map(result => (
-          <li>{result.name}</li>
-        ))}
-      </ul>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        searchResults && (
+          <OccupationsList occupationsArray={searchResults} />
+        )
+      )}
     </>
   )
 }

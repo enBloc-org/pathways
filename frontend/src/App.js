@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, usEffect, useEffect } from "react"
 import { Routes, Route, useNavigate } from "react-router-dom"
 
 import fetchOccupationByQuery from "./utils/fetchOccupationByQuery"
@@ -11,24 +11,36 @@ import "./style/globals.css"
 import "./App.css"
 
 function App() {
+  const [isLoading, setIsLoading] = useState(false)
+  const [searchQuery, setSearchQuery] = useState(undefined)
   const [searchResults, setSearchResults] = useState(undefined)
   const navigate = useNavigate()
 
-  const handleSearch = async query => {
-    const data = await fetchOccupationByQuery(query)
-    setSearchResults(data)
-    navigate("/search")
+  useEffect(() => {
+    const handleSearch = async () => {
+      setIsLoading(true)
+      const data = await fetchOccupationByQuery(searchQuery)
+      setSearchResults(data)
+      setIsLoading(false)
+      navigate("/search")
+    }
+
+    handleSearch()
+  }, [searchQuery])
+
+  const handleQuery = input => {
+    setSearchQuery(input)
   }
 
   return (
     <div className="app">
-      <Header searchHandler={handleSearch} />
+      <Header searchHandler={handleQuery} />
 
       <Routes>
         <Route path="/about" element={<About />} />
         <Route
           path="/search"
-          element={<Search searchResults={searchResults} />}
+          element={<Search searchResults={searchResults} isLoading={isLoading}/>}
         />
         <Route
           path="/occupation-details/:occupation"
@@ -36,7 +48,7 @@ function App() {
         />
       </Routes>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
