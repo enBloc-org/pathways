@@ -27,7 +27,7 @@ export default function RecentSearches({ recentSearches }) {
           {todaySearches.length > 0 && (
             <div className="dropdown-section">
              <div>
-                <h4>Today</h4> 
+                <h4><i>Today</i></h4> 
                 <div className='divider'/> 
               </div>
               {todaySearches.map((search, index) => (
@@ -36,7 +36,7 @@ export default function RecentSearches({ recentSearches }) {
                   key={`today-${index}`}
                   className="dropdown-item"
                 >
-                  {search.name}
+                  <p>{search.name}</p>
                 </a>
               ))}
             </div>
@@ -45,7 +45,7 @@ export default function RecentSearches({ recentSearches }) {
           {pastSearches.length > 0 && (
             <div className="dropdown-section">
               <div>
-              <h4>Past</h4> 
+              <h4> <i>Past</i></h4> 
               <div className='divider'/> 
             </div>
               {pastSearches.map((search, index) => (
@@ -54,7 +54,7 @@ export default function RecentSearches({ recentSearches }) {
                   key={`past-${index}`}
                   className="dropdown-item"
                 >
-                  {search.name}
+                  <p>{search.name}</p>
                 </a>
               ))}
             </div>

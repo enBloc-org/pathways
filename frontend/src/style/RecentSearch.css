@@ -25,7 +25,6 @@
   border: 1px solid #e0e0e0;
   border-top: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  
 }
 
 .dropdown-section {
@@ -34,14 +33,28 @@
   flex-direction: column;
   align-items: flex-start;
   width: 16rem;
+  
 }
 
 .dropdown-section h4 {
   margin: 0;
   padding: 10px;
   font-size: 0.9rem;
-  color: #333;
+  color: #333; 
+  padding-left: 1rem;
+  font-weight: lighter;
   
+
+  
+}
+
+a {
+margin-left: 2rem;
+}
+
+a p{
+  text-decoration: underline;
+
 }
 
 .divider {
