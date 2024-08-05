@@ -20,10 +20,11 @@ export default async function fetchOccupationByQuery(givenQuery) {
   const queryArray = givenQuery.split(",")
 
   const result = []
-  queryArray.forEach(async query => {
+
+  for (let i = 0; i < queryArray.length; i++) {
     try {
       const data = await fetch(
-        `${process.env.REACT_APP_SERVER}/getOccupationByQuery/${query}`
+        `${process.env.REACT_APP_SERVER}/getOccupationByQuery/${queryArray[i]}`
       )
       const parsedData = await data.json()
       result.push(...parsedData.results)
@@ -31,7 +32,6 @@ export default async function fetchOccupationByQuery(givenQuery) {
       console.error(`Error fetching data: ${error}`)
       throw error
     }
-  })
-
+  }
   return result
 }
