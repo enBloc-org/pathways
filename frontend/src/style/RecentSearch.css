@@ -1,53 +1,67 @@
 .recent-searches-container {
-    position: relative;
-    display: inline-block;
-  }
-  .recent-searches-toggle {
-    background: none;
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #333;
-    font-weight: bold;
-  }
-  .dropdown-menu {
-    position: absolute;
-    top: 2rem; 
-    right: 0;
-    background-color: #ffffff;
-    border-radius: 5px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    width: 200px; 
-    padding: 10px;
-    z-index: 10;
-  }
-  
-  .dropdown-section {
-    margin-bottom: 10px;
-  }
+  font-family: Arial, sans-serif;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+}
 
-  .dropdown-section h4 {
-    margin: 0 0 5px;
-    font-size: 0.9rem;
-    color: #888;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 2px;
-  }
-  .dropdown-item {
-    display: block;
-    color: #333;
-    text-decoration: none;
-    padding: 5px 0;
-    transition: background-color 0.2s;
-  }
+.recent-searches-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  font-weight: bold;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.clock-icon {
+  font-size: 1.2rem;
+}
+
+.dropdown-menu {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-top: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   
-  .dropdown-item:hover {
-    background-color: #f2f2f2;
-  }
-  .clock-icon {
-    font-size: 1.2rem;
-  }
+}
+
+.dropdown-section {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 16rem;
+}
+
+.dropdown-section h4 {
+  margin: 0;
+  padding: 10px;
+  font-size: 0.9rem;
+  color: #333;
   
+}
+
+.divider {
+  margin: 12px;
+  padding: 1px;
+  font-size: 10px;
+  border-top: 1px solid #ff9999;
+  height: 0rem;
+  width: 11rem;
+
+
+}
+
+.dropdown-item {
+  display: block;
+  color: #666;
+  text-decoration: none;
+  padding: 8px 10px;
+}
+
+.dropdown-item:hover {
+  text-decoration: underline;
+}

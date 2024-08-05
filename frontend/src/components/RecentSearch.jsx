@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import "../style/RecentSearch.css"; 
+import "../style/RecentSearch.css";
+
 export default function RecentSearches({ recentSearches }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+    setIsDropdownOpen((prev) => !prev);
   };
 
   const todaySearches = recentSearches.filter(
@@ -16,27 +17,48 @@ export default function RecentSearches({ recentSearches }) {
 
   return (
     <div className="recent-searches-container">
-      <button className="recent-searches-toggle" onClick={toggleDropdown}>
-        Recent Searches <span className="clock-icon">🕒</span>
-      </button>
+      <div className="recent-searches-header" onClick={toggleDropdown}>
+        Saved Searches
+        <span className="clock-icon">🕒</span>
+      </div>
+
       {isDropdownOpen && (
         <div className="dropdown-menu">
-          <div className="dropdown-section">
-            <h4>Today</h4>
-            {todaySearches.map((search, index) => (
-              <a href={`#search-${index}`} key={index} className="dropdown-item">
-                {search.name}
-              </a>
-            ))}
-          </div>
-          <div className="dropdown-section">
-            <h4>Past</h4>
-            {pastSearches.map((search, index) => (
-              <a href={`#search-${index}`} key={index} className="dropdown-item">
-                {search.name}
-              </a>
-            ))}
-          </div>
+          {todaySearches.length > 0 && (
+            <div className="dropdown-section">
+             <div>
+                <h4>Today</h4> 
+                <div className='divider'/> 
+              </div>
+              {todaySearches.map((search, index) => (
+                <a
+                  href={`#search-${index}`}
+                  key={`today-${index}`}
+                  className="dropdown-item"
+                >
+                  {search.name}
+                </a>
+              ))}
+            </div>
+          )}
+
+          {pastSearches.length > 0 && (
+            <div className="dropdown-section">
+              <div>
+              <h4>Past</h4> 
+              <div className='divider'/> 
+            </div>
+              {pastSearches.map((search, index) => (
+                <a
+                  href={`#search-${index}`}
+                  key={`past-${index}`}
+                  className="dropdown-item"
+                >
+                  {search.name}
+                </a>
+              ))}
+            </div>
+          )}
         </div>
       )}
     </div>
