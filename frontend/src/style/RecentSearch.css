@@ -9,14 +9,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding-bottom: 10px;
   font-weight: bold;
   border-bottom: 1px solid #e0e0e0;
 }
 
-.clock-icon {
-  font-size: 1.2rem;
+.recent-searches-header img {
+  padding-left: 10px;
 }
+
 
 .dropdown-menu {
   display: flex;
@@ -25,6 +26,7 @@
   border: 1px solid #e0e0e0;
   border-top: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding-top: 15px;
 }
 
 .dropdown-section {
