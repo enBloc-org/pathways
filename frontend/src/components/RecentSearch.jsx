@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../style/RecentSearch.css";
+import ClockIcon from "../images/Clock.svg"
 
 export default function RecentSearches({ recentSearches }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -19,7 +20,7 @@ export default function RecentSearches({ recentSearches }) {
     <div className="recent-searches-container">
       <div className="recent-searches-header" onClick={toggleDropdown}>
         Saved Searches
-        <span className="clock-icon">🕒</span>
+        <img src={ClockIcon} alt="Clock Icon" className="clock-icon" />
       </div>
 
       {isDropdownOpen && (
