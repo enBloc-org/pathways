@@ -1,0 +1,53 @@
+
+.main-section {
+    position: relative;
+    height: 100dvh; 
+    background: url('../images/HomeBackground.jpg') center center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85dvw;
+    padding: 1rem 1rem;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+  }
+  
+  .main-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0,0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0.5rem 1rem; 
+  }
+  
+  .overlay h1, p {
+    background-color: rgba(126, 126, 126, 0.5) ;
+    padding: 0.3rem 5rem;
+    height: fit-content;
+
+  }
+
+
+  
+  .main-section .overlay h1 {
+    font-size: 5rem;
+
+    margin: 0;
+    align-content: center;
+    height: 12rem;
+  
+  }
+  
+  .main-section .overlay p {
+    font-size: 2rem;
+    margin: 4rem 0 0;
+  }
+  

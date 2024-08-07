@@ -1,3 +1,4 @@
+
 import express from "express"
 import cors from "cors"
 
@@ -46,16 +47,5 @@ server.get(
         }
     }
 )
-
-server.get("/getTechnicalProgression/:productCode", async (req, res) => {
-    try {
-        const { productCode } = req.params
-        const data = await getTechnicalProgression(productCode)
-
-        res.status(200).json(data)
-    } catch (error) {
-        res.status(500).json(error)
-    }
-})
 
 export default server
