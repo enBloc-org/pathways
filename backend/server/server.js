@@ -5,7 +5,6 @@ import cors from "cors"
 import getAllRoutes from "./routes/getAllRoutes.js"
 import getRouteById from "./routes/getRouteById.js"
 import getOccupationByQuery from "./routes/getOccupationByQuery.js"
-import getTechnicalProgression from "./routes/getTechnicalProgression.js"
 
 const server = express()
 
