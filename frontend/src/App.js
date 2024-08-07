@@ -1,4 +1,4 @@
-import { useState, usEffect, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { Routes, Route, useNavigate } from "react-router-dom"
 
 import fetchOccupationByQuery from "./utils/fetchOccupationByQuery"
