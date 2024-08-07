@@ -1,11 +1,13 @@
 import OccupationsList from "../components/OccupationsList"
+import spinner from "../images/loadingSpinner.svg"
+
 export default function Search({ searchResults, searchStatus }) {
   const renderStatusResults = () => {
     switch (searchStatus) {
       case "idle":
         return <p>Enter search terms</p>
       case "loading":
-        return <p>Loading...</p>
+        return <img src={spinner}></img>
       case "fulfilled":
         return <OccupationsList occupationsArray={searchResults} />
     }
