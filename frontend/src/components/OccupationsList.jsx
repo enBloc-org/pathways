@@ -7,7 +7,7 @@ export default function OccupationsList({ occupationsArray }) {
       {occupationsArray.length === 0 ? (
         <p>There are no occupations matching your search terms</p>
       ) : (
-          occupationsArray.map(occupation => (
+        occupationsArray.map(occupation => (
           <OccupationCard
             name={occupation.name}
             level={occupation.level}
