@@ -34,7 +34,7 @@ export default function RecentSearches({ recentSearches }) {
               </div>
               {todaySearches.map((search, index) => (
                  <Link
-                 to={`/search?query=${encodeURIComponent(search.name)}`}
+                 to={search.url}
                  key={`today-${index}`}
                  className="dropdown-item"
                >
@@ -52,7 +52,7 @@ export default function RecentSearches({ recentSearches }) {
             </div>
               {pastSearches.map((search, index) => (
                 <Link
-                to={`/search?query=${encodeURIComponent(search.name)}`}
+                to={search.url}
                 key={`past-${index}`}
                 className="dropdown-item"
               >
