@@ -1,5 +1,10 @@
 import { useState, useEffect } from "react"
-import { Routes, Route, useNavigate } from "react-router-dom"
+import {
+  Routes,
+  Route,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom"
 
 import fetchOccupationByQuery from "./utils/fetchOccupationByQuery"
 import Header from "./components/Header"
@@ -14,6 +19,7 @@ function App() {
   const [searchStatus, setSearchStatus] = useState("idle")
   const [searchQuery, setSearchQuery] = useState(undefined)
   const [searchResults, setSearchResults] = useState(undefined)
+  const [searchParams, setSearchParams] = useSearchParams()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -24,6 +30,7 @@ function App() {
         setSearchResults(data)
         setSearchStatus("fulfilled")
         navigate("/search")
+        setSearchParams({ query: searchQuery})
       } catch (error) {
         setSearchStatus("idle")
       }
