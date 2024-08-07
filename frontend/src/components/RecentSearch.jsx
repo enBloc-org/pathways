@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../style/RecentSearch.css";
 import ClockIcon from "../images/Clock.svg"
+import { Link } from "react-router-dom";
 
 export default function RecentSearches({ recentSearches }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -32,13 +33,13 @@ export default function RecentSearches({ recentSearches }) {
                 <div className='divider'/> 
               </div>
               {todaySearches.map((search, index) => (
-                <a
-                  href={`#search-${index}`}
-                  key={`today-${index}`}
-                  className="dropdown-item"
-                >
-                  <p>{search.name}</p>
-                </a>
+                 <Link
+                 to={`/search?query=${encodeURIComponent(search.name)}`}
+                 key={`today-${index}`}
+                 className="dropdown-item"
+               >
+                 <p>{search.name}</p>
+               </Link>
               ))}
             </div>
           )}
@@ -50,13 +51,13 @@ export default function RecentSearches({ recentSearches }) {
               <div className='divider'/> 
             </div>
               {pastSearches.map((search, index) => (
-                <a
-                  href={`#search-${index}`}
-                  key={`past-${index}`}
-                  className="dropdown-item"
-                >
-                  <p>{search.name}</p>
-                </a>
+                <Link
+                to={`/search?query=${encodeURIComponent(search.name)}`}
+                key={`past-${index}`}
+                className="dropdown-item"
+              >
+                <p>{search.name}</p>
+              </Link>
               ))}
             </div>
           )}
