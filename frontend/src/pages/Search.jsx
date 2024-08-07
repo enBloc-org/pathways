@@ -1,11 +1,10 @@
-import React, { useState } from "react";
-
-import FilterButton from '../components/FilterButton'
-import fetchAllRoutes from '../utils/fetchAllRoutes'
+import React, { useState, useEffect } from "react";
+import FilterButton from '../components/FilterButton';
+import fetchAllRoutes from '../utils/fetchAllRoutes';
 
 export default function Search({ searchResults }) {
+  const [allRoutes, setAllRoutes] = useState([]);
   const [filteredResults, setFilteredResults] = useState(searchResults);
-  const [allRoutes, setAllRoutes] = useState()
 
   const handleApplyFilters = (selectedOptions) => {
     if (selectedOptions.length === 0) {
@@ -17,20 +16,23 @@ export default function Search({ searchResults }) {
     }
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     const fetchOptions = async () => {
-      const filterOptions = await fetchAllRoutes()
-      setAllRoutes(filterOptions)
-    }
+      const filterOptions = await fetchAllRoutes();
+      setAllRoutes(filterOptions);
+    };
 
-    fetchOptions()
-  }, [])
+    fetchOptions();
+  }, []);
 
   return (
     <>
       <h1>Search Page</h1>
-      <FilterButton options={allRoutes} onApply={handleApplyFilters} />
-      
+      {allRoutes.length > 0 ? (
+        <FilterButton options={allRoutes} onApply={handleApplyFilters} />
+      ) : (
+        <p>Loading filters...</p>
+      )}
       <ul>
         {filteredResults && filteredResults.map(result => (
           <li key={result.routeId}>{result.name}</li>
@@ -39,4 +41,3 @@ export default function Search({ searchResults }) {
     </>
   );
 }
-
