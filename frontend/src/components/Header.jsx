@@ -10,7 +10,10 @@ export default function Header({ searchHandler }) {
       <div className="logo-container">
         <img src={gatsbyLogo} alt="Gatsby Logo" className="logo" />
       </div>
-      <TextSearch searchHandler={searchHandler} />
+      <div>
+        <TextSearch searchHandler={searchHandler} />
+        <p className="information" >ℹ</p>
+      </div>
       <div className="button-container">
         <Link className="header-button" to="/about">
           About
