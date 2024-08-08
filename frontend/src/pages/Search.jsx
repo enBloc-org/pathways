@@ -39,14 +39,8 @@ export default function Search({ searchResults, searchStatus }) {
 
     const previousSearches = JSON.parse(
       localStorage.getItem("pathways-search")
-    )
+    ) ?? []
     setIsSaved(previous => !previous)
-
-    if (!previousSearches)
-      return localStorage.setItem(
-        "pathways-search",
-        JSON.stringify([currentEntry])
-      )
 
     if (isSaved) {
       return localStorage.setItem(
