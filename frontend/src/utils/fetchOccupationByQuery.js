@@ -28,7 +28,7 @@ export default async function fetchOccupationByQuery(givenQuery) {
       )
       const parsedData = await data.json()
 
-      result.push(...parsedData.results)
+      result.push(...parsedData)
     } catch (error) {
       console.error(`Error fetching data: ${error}`)
       throw error

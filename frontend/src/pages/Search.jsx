@@ -25,7 +25,7 @@ export default function Search({ searchResults, searchStatus }) {
   }
 
   const saveHandler = () => {
-    const currentUrl = new URL(window.location.href)
+    const currentUrl = window.location.href
     const currentQuery = searchParams.get("query")
     const currentEntry = {
       name: currentQuery,
@@ -37,12 +37,22 @@ export default function Search({ searchResults, searchStatus }) {
     )
 
     if (!previousSearches)
-      return localStorage.setItem("pathways-search", JSON.stringify([currentEntry]))
-
-    if (previousSearches(currentEntry) >= 0) {
       return localStorage.setItem(
         "pathways-search",
-        previousSearches.filter(search => search !== JSON.stringify(currentEntry))
+        JSON.stringify([currentEntry])
+      )
+
+    const matchingEntry = previousSearches.find(
+      search => search.url === currentEntry.url
+    )
+    if (matchingEntry) {
+      return localStorage.setItem(
+        "pathways-search",
+        JSON.stringify(
+          previousSearches.filter(
+            search => search.url !== currentEntry.url
+          )
+        )
       )
     }
 
