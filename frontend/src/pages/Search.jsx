@@ -48,10 +48,7 @@ export default function Search({ searchResults, searchStatus }) {
         JSON.stringify([currentEntry])
       )
 
-    const matchingEntry = previousSearches.find(
-      search => search.url === currentEntry.url
-    )
-    if (matchingEntry) {
+    if (isSaved) {
       return localStorage.setItem(
         "pathways-search",
         JSON.stringify(
