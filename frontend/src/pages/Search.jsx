@@ -10,9 +10,17 @@ export default function Search({ searchResults, searchStatus }) {
   const [isSaved, setIsSaved] = useState(false)
 
   useEffect(() => {
-    setIsSaved(false)
-  }, [searchResults])
+    const currentUrl = window.location.href
+    const allUrls = new Set(
+      JSON.parse(localStorage.getItem("pathways-search")).map(
+        search => search.url
+      )
+    )
 
+    console.log(allUrls.has(currentUrl))
+    setIsSaved(allUrls.has(currentUrl))
+  }, [searchResults])
+  
   const renderStatusResults = () => {
     switch (searchStatus) {
       case "idle":
@@ -35,6 +43,7 @@ export default function Search({ searchResults, searchStatus }) {
     const previousSearches = JSON.parse(
       localStorage.getItem("pathways-search")
     )
+    setIsSaved(previous => !previous)
 
     if (!previousSearches)
       return localStorage.setItem(
@@ -61,19 +70,13 @@ export default function Search({ searchResults, searchStatus }) {
       "pathways-search",
       JSON.stringify(previousSearches)
     )
-
-    setIsSaved(previous => !previous)
   }
 
   return (
     <>
       <h1>Search Page</h1>
       <div>
-        <SaveSearchButton
-          onSave={saveHandler}
-          onUnsave={saveHandler}
-          isSaved={isSaved}
-        />
+        <SaveSearchButton onSave={saveHandler} isSaved={isSaved} />
       </div>
       {renderStatusResults()}
     </>
