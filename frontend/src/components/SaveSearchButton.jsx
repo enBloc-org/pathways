@@ -3,7 +3,9 @@ import "../style/Heart.css"
 export default function SaveSearchButton({ onSave, isSaved }) {
   return (
     <button className="save-search-button" onClick={onSave}>
-      <span className="save-search-text">Save search</span>
+      <span className="save-search-text">
+        {isSaved ? "Remove search" : "Save search"}
+      </span>
       <svg
         width="28px"
         height="28px"
