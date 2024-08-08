@@ -17,14 +17,22 @@ export default async function fetchOccupationByQuery(givenQuery) {
   if (typeof givenQuery !== "string" || givenQuery.length === 0)
     throw new Error("No search parameter found")
 
-  try {
-    const data = await fetch(
-      `${process.env.REACT_APP_SERVER}/getOccupationByQuery/${givenQuery}`
-    )
-    const parsedData = await data.json()
-    return parsedData
-  } catch (error) {
-    console.error(`Error fetching data: ${error}`)
-    throw error
+  const queryArray = givenQuery.split(",")
+
+  const result = []
+
+  for (let i = 0; i < queryArray.length; i++) {
+    try {
+      const data = await fetch(
+        `${process.env.REACT_APP_SERVER}/getOccupationByQuery/${queryArray[i]}`
+      )
+      const parsedData = await data.json()
+
+      result.push(...parsedData)
+    } catch (error) {
+      console.error(`Error fetching data: ${error}`)
+      throw error
+    }
   }
+  return result
 }
