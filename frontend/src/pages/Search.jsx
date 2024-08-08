@@ -11,16 +11,13 @@ export default function Search({ searchResults, searchStatus }) {
 
   useEffect(() => {
     const currentUrl = window.location.href
-    const allUrls = new Set(
-      JSON.parse(localStorage.getItem("pathways-search")).map(
-        search => search.url
-      )
-    )
+    const allSaved =
+      JSON.parse(localStorage.getItem("pathways-search")) ?? []
+    const allUrls = new Set(allSaved.map(search => search.url))
 
-    console.log(allUrls.has(currentUrl))
     setIsSaved(allUrls.has(currentUrl))
   }, [searchResults])
-  
+
   const renderStatusResults = () => {
     switch (searchStatus) {
       case "idle":
