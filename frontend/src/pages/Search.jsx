@@ -5,9 +5,17 @@ import SaveSearchButton from "../components/SaveSearchButton"
 import OccupationsList from "../components/OccupationsList"
 import spinner from "../images/loadingSpinner.svg"
 
-export default function Search({ searchResults, searchStatus }) {
-  const [searchParams] = useSearchParams()
+export default function Search({
+  searchResults,
+  searchStatus,
+  searchQuery,
+}) {
+  const [searchParams, setSearchParams] = useSearchParams()
   const [isSaved, setIsSaved] = useState(false)
+
+  useEffect(() => {
+    searchQuery && setSearchParams({ query: searchQuery })
+  }, [])
 
   useEffect(() => {
     const currentUrl = window.location.href
@@ -37,9 +45,8 @@ export default function Search({ searchResults, searchStatus }) {
       url: currentUrl,
     }
 
-    const previousSearches = JSON.parse(
-      localStorage.getItem("pathways-search")
-    ) ?? []
+    const previousSearches =
+      JSON.parse(localStorage.getItem("pathways-search")) ?? []
     setIsSaved(previous => !previous)
 
     if (isSaved) {

@@ -19,7 +19,6 @@ function App() {
   const [searchStatus, setSearchStatus] = useState("idle")
   const [searchQuery, setSearchQuery] = useState(undefined)
   const [searchResults, setSearchResults] = useState(undefined)
-  const [searchParams, setSearchParams] = useSearchParams()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -30,7 +29,6 @@ function App() {
         setSearchResults(data)
         setSearchStatus("fulfilled")
         navigate("/search")
-        setSearchParams({ query: searchQuery})
       } catch (error) {
         setSearchStatus("idle")
       }
@@ -59,6 +57,7 @@ function App() {
             <Search
               searchResults={searchResults}
               searchStatus={searchStatus}
+              searchQuery={searchQuery}
             />
           }
         />
