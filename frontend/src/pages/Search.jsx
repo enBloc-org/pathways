@@ -5,9 +5,19 @@ import spinner from "../images/loadingSpinner.svg"
 import FilterButton from "../components/FilterButton"
 import fetchAllRoutes from "../utils/fetchAllRoutes"
 
-export default function Search( {searchResults} ) {
+export default function Search({ searchResults, searchStatus }) {
   const [allRoutes, setAllRoutes] = useState([])
   const [filteredResults, setFilteredResults] = useState([])
+
+  useEffect(() => {
+    const fetchOptions = async () => {
+      const filterOptions = await fetchAllRoutes()
+      setAllRoutes(filterOptions)
+    }
+    fetchOptions()
+
+    setFilteredResults(searchResults)
+  }, [searchResults])
 
   const handleApplyFilters = selectedOptions => {
     if (selectedOptions.length > 0) {
@@ -20,16 +30,6 @@ export default function Search( {searchResults} ) {
     setFilteredResults(searchResults)
   }
 
-  useEffect(() => {
-    const fetchOptions = async () => {
-      const filterOptions = await fetchAllRoutes()
-      setAllRoutes(filterOptions)
-    }
-    fetchOptions()
-
-    setFilteredResults(searchResults)
-  }, [searchResults])
-
   const renderStatusResults = () => {
     switch (searchStatus) {
       case "idle":
@@ -39,12 +39,13 @@ export default function Search( {searchResults} ) {
       case "fulfilled":
         return <OccupationsList occupationsArray={filteredResults} />
     }
+  }
 
   return (
     <>
       <h1>Search Page</h1>
       <div>
-        <FilterButton 
+        <FilterButton
           options={allRoutes}
           onApply={handleApplyFilters}
         />
