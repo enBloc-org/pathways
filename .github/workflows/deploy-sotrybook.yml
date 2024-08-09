@@ -23,7 +23,6 @@ jobs:
           node-version: "16.x"
 
       - name: Install dependencies
-        working-directory: frontend
         run: npm ci
 
       - name: Build Storybook
