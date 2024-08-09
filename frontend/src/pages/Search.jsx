@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react"
+
+import OccupationsList from "../components/OccupationsList"
+import spinner from "../images/loadingSpinner.svg"
 import FilterButton from "../components/FilterButton"
 import fetchAllRoutes from "../utils/fetchAllRoutes"
 
-export default function Search({ searchResults }) {
+export default function Search( {searchResults} ) {
   const [allRoutes, setAllRoutes] = useState([])
   const [filteredResults, setFilteredResults] = useState([])
 
@@ -27,22 +30,26 @@ export default function Search({ searchResults }) {
     setFilteredResults(searchResults)
   }, [searchResults])
 
+  const renderStatusResults = () => {
+    switch (searchStatus) {
+      case "idle":
+        return <p>Enter search terms</p>
+      case "loading":
+        return <img src={spinner}></img>
+      case "fulfilled":
+        return <OccupationsList occupationsArray={filteredResults} />
+    }
+
   return (
     <>
       <h1>Search Page</h1>
       <div>
-        <FilterButton
+        <FilterButton 
           options={allRoutes}
           onApply={handleApplyFilters}
         />
       </div>
-
-      <ul>
-        {filteredResults &&
-          filteredResults.map(result => (
-            <li key={result.routeId}>{result.name}</li>
-          ))}
-      </ul>
+      {renderStatusResults()}
     </>
   )
 }

@@ -1,12 +1,20 @@
-import Header from './Header';
-import { action } from '@storybook/addon-actions';
+import Header from "./Header"
+import { fn } from "@storybook/test"
+import { BrowserRouter } from "react-router-dom"
 
 export default {
-  title: 'Header',
+  title: "Header",
   component: Header,
   args: {
-    searchHandler: action('searchHandler')
-  }
-};
+    searchHandler: fn(),
+  },
+  decorators: [
+    Story => (
+      <BrowserRouter>
+        <Story />
+      </BrowserRouter>
+    ),
+  ],
+}
 
-export const DefaultHeader = {};
+export const DefaultHeader = {}
