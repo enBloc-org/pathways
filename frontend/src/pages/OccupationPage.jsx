@@ -46,9 +46,9 @@ export default function OccupationPage() {
         </button>
       </section>
       <div className="pathway-name">
-        <p className="pathway-name__paragraph">
+        <p>
           <strong>Pathway name: </strong>
-          <span className="pathway-name__span">
+          <span>
             {occupationData.mapHierarchy.pathwayName}
           </span>
         </p>
