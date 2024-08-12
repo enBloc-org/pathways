@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import TLevelContainer from "../components/TLevelContaier"
 import "../style/globals.css"
 import "../style/OccupationPage.css"
 
@@ -7,7 +7,6 @@ export default function OccupationPage() {
     /<\/?p>/g,
     ""
   )
-
   return (
     <main className="occupation-page__main">
       <div className="flex-col occupation-header">
@@ -27,18 +26,15 @@ export default function OccupationPage() {
       <section className="occupation-page__section">
         <h3>In Depth</h3>
         <div />
-        <p
-          className="occupation-page__summary"
-        >
+        <p className="occupation-page__summary">
           {occupationSummary}
         </p>
       </section>
+      <TLevelContainer products={occupationData.products} />
       <div className="pathway-name">
         <p>
           <strong>Pathway name: </strong>
-          <span>
-            {occupationData.mapHierarchy.pathwayName}
-          </span>
+          <span>{occupationData.mapHierarchy.pathwayName}</span>
         </p>
       </div>
     </main>
