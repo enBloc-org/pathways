@@ -15,12 +15,9 @@ export default function Search({
   const [allSaved, setAllSaved] = useState(
     JSON.parse(localStorage.getItem("pathways-search")) ?? []
   )
-
+  
   useEffect(() => {
     searchQuery && setSearchParams({ query: searchQuery })
-  }, [searchResults])
-
-  useEffect(() => {
     const currentUrl = window.location.href
     const allUrls = new Set(allSaved.map(search => search.url))
     setIsSaved(allUrls.has(currentUrl))
