@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react"
-import {
-  Routes,
-  Route,
-  useNavigate,
-} from "react-router-dom"
+import { Routes, Route, useNavigate } from "react-router-dom"
 
 import fetchOccupationByQuery from "./utils/fetchOccupationByQuery"
 import Header from "./components/Header"
@@ -38,7 +34,7 @@ function App() {
     } else {
       setSearchStatus("idle")
     }
-  }, [searchQuery, navigate])
+  }, [searchQuery])
 
   const handleQuery = input => {
     setSearchQuery(input)
