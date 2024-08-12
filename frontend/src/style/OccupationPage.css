@@ -9,7 +9,7 @@
 
 .occupation-page__main {
   display: grid;
-  grid-template-rows: auto;
+  grid-template-columns: 1fr;
   gap: 1rem;
 }
 
@@ -28,14 +28,6 @@
   color: var(--pink);
 }
 
-.occupation-page__banner h3 {
-  padding-left: 1rem;
-}
-
-.occupation-page__banner p {
-  padding: 0 1.25rem 0rem;
-}
-
 .occupation-page__banner {
   align-items: flex-start;
   gap: 0.5rem;
@@ -46,6 +38,14 @@
   width: 100%;
   min-height: 5rem;
   padding: 1rem 0;
+}
+
+.occupation-page__banner h3 {
+  padding-left: 1rem;
+}
+
+.occupation-page__banner p {
+  padding: 0 1.25rem 0rem;
 }
 
 .occupation-page__section {
