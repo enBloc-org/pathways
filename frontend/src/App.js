@@ -52,6 +52,7 @@ function App() {
             <Search
               searchResults={searchResults}
               searchStatus={searchStatus}
+              searchQuery={searchQuery}
             />
           }
         />
