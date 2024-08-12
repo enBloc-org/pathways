@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import "../style/globals.css"
-import "../style/OccupationDetails.css"
+import "../style/OccupationPage.css"
 
 export default function OccupationPage() {
   const [isExpanded, setIsExpanded] = useState(false)
