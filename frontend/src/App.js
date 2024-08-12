@@ -6,6 +6,7 @@ import Header from "./components/Header"
 import About from "./pages/About"
 import Search from "./pages/Search"
 import OccupationPage from "./pages/OccupationPage"
+import InfoPage from "./components/InfoPage"
 
 import "./style/globals.css"
 import "./App.css"
@@ -45,6 +46,7 @@ function App() {
       <Header searchHandler={handleQuery} />
 
       <Routes>
+        <Route path='/' element={<InfoPage />} />
         <Route path="/about" element={<About />} />
         <Route
           path="/search"
