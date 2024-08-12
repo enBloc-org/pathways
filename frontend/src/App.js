@@ -7,6 +7,7 @@ import About from "./pages/About"
 import Search from "./pages/Search"
 import OccupationPage from "./pages/OccupationPage"
 
+import "./style/normalize.css"
 import "./style/globals.css"
 import "./App.css"
 
