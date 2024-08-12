@@ -3,7 +3,6 @@ import {
   Routes,
   Route,
   useNavigate,
-  useSearchParams,
 } from "react-router-dom"
 
 import fetchOccupationByQuery from "./utils/fetchOccupationByQuery"
