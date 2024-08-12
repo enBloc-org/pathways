@@ -12,6 +12,9 @@ export default function Search({
 }) {
   const [searchParams, setSearchParams] = useSearchParams()
   const [isSaved, setIsSaved] = useState(false)
+  const [allSaved, setAllSaved] = useState(
+    JSON.parse(localStorage.getItem("pathways-search")) ?? []
+  )
 
   useEffect(() => {
     searchQuery && setSearchParams({ query: searchQuery })
@@ -19,12 +22,14 @@ export default function Search({
 
   useEffect(() => {
     const currentUrl = window.location.href
-    const allSaved =
-      JSON.parse(localStorage.getItem("pathways-search")) ?? []
     const allUrls = new Set(allSaved.map(search => search.url))
-
     setIsSaved(allUrls.has(currentUrl))
   }, [searchResults])
+
+  useEffect(() => {
+    const newValue = JSON.stringify(allSaved)
+    localStorage.setItem("pathways-search", newValue)
+  }, [allSaved])
 
   const renderStatusResults = () => {
     switch (searchStatus) {
@@ -45,26 +50,16 @@ export default function Search({
       url: currentUrl,
     }
 
-    const previousSearches =
-      JSON.parse(localStorage.getItem("pathways-search")) ?? []
     setIsSaved(previous => !previous)
 
     if (isSaved) {
-      return localStorage.setItem(
-        "pathways-search",
-        JSON.stringify(
-          previousSearches.filter(
-            search => search.url !== currentEntry.url
-          )
-        )
+      const newSavedHistory = allSaved.filter(
+        search => search.url !== currentEntry.url
       )
+      return setAllSaved(newSavedHistory)
     }
 
-    previousSearches.push(currentEntry)
-    localStorage.setItem(
-      "pathways-search",
-      JSON.stringify(previousSearches)
-    )
+    setAllSaved(previous => [...previous, currentEntry])
   }
 
   return (
