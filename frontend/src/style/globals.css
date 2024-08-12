@@ -2,12 +2,14 @@
   --grey: #9a928f;
   --brown: #9b4c10;
   --pink: #d6606d;
-  --blue: #7796B2
+  --blue: #7796b2;
+  --font-medium: 1.25rem;
+  --font-large: 1.5rem;
 }
 
 * {
-  font-family: 'Gill Sans', 'Gill Sans MT', sans-serif;
-  box-sizing:border-box;
+  font-family: "Gill Sans", "Gill Sans MT", sans-serif;
+  box-sizing: border-box;
 }
 
 .grey-header-text {
@@ -18,4 +20,34 @@
 .white-header-text {
   color: white;
   font-size: 52pt;
+}
+
+@media (min-width: 800px) {
+  p,
+  span,
+  i,
+  strong {
+    font-size: var(--font-medium);
+  }
+}
+
+@media (min-width: 1400px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1.85rem;
+  }
+
+  h3 {
+    font-size: 1.7rem;
+  }
+
+  p,
+  span,
+  i,
+  strong {
+    font-size: var(--font-large);
+  }
 }

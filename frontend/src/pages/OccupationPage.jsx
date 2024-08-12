@@ -3,12 +3,6 @@ import "../style/globals.css"
 import "../style/OccupationPage.css"
 
 export default function OccupationPage() {
-  const [isExpanded, setIsExpanded] = useState(false)
-
-  const handleReadMore = () => {
-    setIsExpanded(!isExpanded)
-  }
-
   const occupationSummary = occupationData.summary.replace(
     /<\/?p>/g,
     ""
@@ -18,10 +12,10 @@ export default function OccupationPage() {
     <main className="occupation-page__main">
       <div className="flex-col occupation-header">
         <h1>{occupationData.name}</h1>
-        <p>
+        <h2>
           Level {occupationData.level} -{" "}
           <i>{occupationData.mapHierarchy.technicalLevelName}</i>
-        </p>
+        </h2>
         <p className="route-name">
           {occupationData.mapHierarchy.routeName}
         </p>
@@ -34,16 +28,10 @@ export default function OccupationPage() {
         <h3>In Depth</h3>
         <div />
         <p
-          className={`occupation-summary ${isExpanded ? "expanded" : ""}`}
+          className="occupation-page__summary"
         >
           {occupationSummary}
         </p>
-        <button
-          className="read-more__button"
-          onClick={handleReadMore}
-        >
-          {isExpanded ? "Read Less" : "Read More"}
-        </button>
       </section>
       <div className="pathway-name">
         <p>

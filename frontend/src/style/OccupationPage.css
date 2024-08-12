@@ -9,44 +9,43 @@
 
 .occupation-page__main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
+  gap: 1rem;
 }
 
-.occupation-header h1,
-p {
+.occupation-header h1 {
   margin: 0;
 }
 
 .occupation-header {
   align-items: flex-start;
-  gap: 0.75rem;
+  gap: 0.5rem;
   grid-column: 1 / span 2;
-  margin: 2rem 1.5rem 3rem;
+  margin: 2rem 1.5rem;
 }
 
 .route-name {
-  font-size: 1.3rem;
   color: var(--pink);
 }
 
 .occupation-page__banner h3 {
   padding-left: 1rem;
-  margin-bottom: 0.5rem;
 }
 
 .occupation-page__banner p {
-  padding: 0 1.25rem 2rem;
+  padding: 0 1.25rem 0rem;
 }
 
 .occupation-page__banner {
   align-items: flex-start;
+  gap: 0.5rem;
   background-color: var(--brown);
   color: white;
   overflow: hidden;
   grid-column: 1 / 3;
   width: 100%;
   min-height: 5rem;
+  padding: 1rem 0;
 }
 
 .occupation-page__section {
@@ -82,12 +81,8 @@ p {
   grid-column: 1 / 3;
   width: 100%;
   justify-content: flex-end;
-  margin-top: 1rem;
+  margin: 1rem 0;
   padding-right: 1rem;
-}
-
-.pathway-name p {
-  font-size: 1rem;
 }
 
 .pathway-name span {
@@ -102,13 +97,11 @@ p {
   }
 
   .occupation-header {
-    grid-column: 1 / span 3;
+    grid-column: 1 / span 4;
   }
 
   .occupation-page__banner {
-    grid-column: 1 / span 5;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
+    grid-column: 1 / span 6;
   }
 
   .occupation-page__section {
@@ -119,10 +112,39 @@ p {
   .pathway-name {
     grid-column: 1 / 6;
     padding-right: 0;
+    margin-bottom: 1rem;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
+  .occupation-page__main {
+    grid-template-columns: repeat(12, 1fr);
+    margin-top: 5rem;
+  }
+
+  .occupation-header {
+    grid-column: 2 / span 4;
+    margin: 0;
+  }
+
+  .occupation-page__banner {
+    grid-column: 2 / 12;
+    border-bottom-right-radius: 60px;
+    border-top-right-radius: 60px;
+  }
+
+  .occupation-page__section {
+    margin-top: 4rem;
+    grid-column: 2 / 12;
+    padding: 0 6rem;
+  }
+
+  .pathway-name {
+    grid-column: 1 / 11;
+  }
+}
+
+@media (min-width: 2200px) {
   .occupation-page__main {
     grid-template-columns: repeat(12, 1fr);
     margin-top: 5rem;
@@ -133,25 +155,15 @@ p {
   }
 
   .occupation-page__banner {
-    flex-direction: row;
-    grid-column: 2 / 9;
-    align-items: center;
-  }
-
-  .occupation-page__banner p {
-    padding-bottom: 0;
-  }
-  
-  .occupation-page__banner h3 {
-    margin: 0;
+    grid-column: 2 / 10;
   }
 
   .occupation-page__section {
-    grid-column: 3 / 9;
+    grid-column: 3 / 10;
     padding: 0 6rem;
   }
 
   .pathway-name {
-    grid-column: 1 / 8;
+    grid-column: 1 / 9;
   }
 }
