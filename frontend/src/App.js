@@ -39,7 +39,7 @@ function App() {
     } else {
       setSearchStatus("idle")
     }
-  }, [searchQuery])
+  }, [searchQuery, navigate])
 
   const handleQuery = input => {
     setSearchQuery(input)
