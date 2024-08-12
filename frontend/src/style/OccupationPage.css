@@ -32,10 +32,11 @@ p {
 
 .occupation-page__banner h3 {
   padding-left: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .occupation-page__banner p {
-  padding: 0 1.25rem 1rem;
+  padding: 0 1.25rem 2rem;
 }
 
 .occupation-page__banner {
@@ -44,6 +45,8 @@ p {
   color: white;
   overflow: hidden;
   grid-column: 1 / 3;
+  width: 100%;
+  min-height: 5rem;
 }
 
 .occupation-page__section {
@@ -77,9 +80,10 @@ p {
 
 .pathway-name {
   grid-column: 1 / 3;
-  width: 95%;
+  width: 100%;
   justify-content: flex-end;
   margin-top: 1rem;
+  padding-right: 1rem;
 }
 
 .pathway-name p {
@@ -92,9 +96,62 @@ p {
 
 /****Media Queries *****/
 
-@media (min-width: 1000px) {
+@media (min-width: 800px) {
+  .occupation-page__main {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .occupation-header {
+    grid-column: 1 / span 3;
+  }
+
   .occupation-page__banner {
+    grid-column: 1 / span 5;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
+  }
+
+  .occupation-page__section {
+    grid-column: 1 / 7;
+    padding: 0 4rem;
+  }
+
+  .pathway-name {
+    grid-column: 1 / 6;
+    padding-right: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .occupation-page__main {
+    grid-template-columns: repeat(12, 1fr);
+    margin-top: 5rem;
+  }
+
+  .occupation-header {
+    grid-column: 2 / span 4;
+  }
+
+  .occupation-page__banner {
+    flex-direction: row;
+    grid-column: 2 / 9;
+    align-items: center;
+  }
+
+  .occupation-page__banner p {
+    padding-bottom: 0;
+  }
+  
+  .occupation-page__banner h3 {
+    margin: 0;
+  }
+
+  .occupation-page__section {
+    grid-column: 3 / 9;
+    padding: 0 6rem;
+  }
+
+  .pathway-name {
+    grid-column: 1 / 8;
   }
 }
