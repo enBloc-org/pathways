@@ -15,7 +15,7 @@ export default function Search({
 
   useEffect(() => {
     searchQuery && setSearchParams({ query: searchQuery })
-  }, [])
+  }, [searchQuery, searchParams])
 
   useEffect(() => {
     const currentUrl = window.location.href
