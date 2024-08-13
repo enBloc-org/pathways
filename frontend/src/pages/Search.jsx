@@ -28,10 +28,7 @@ export default function Search({
       setAllRoutes(filterOptions)
     }
     fetchOptions()
-    console.log({ filteredResults })
-  }, [])
 
-  useEffect(() => {
     searchQuery &&
       setSearchParams({ query: searchQuery, filter: filterOptions })
     const currentUrl = window.location.href
