@@ -21,6 +21,7 @@ export default function Search({
     const currentUrl = window.location.href
     const allUrls = new Set(allSaved.map(search => search.url))
     setIsSaved(allUrls.has(currentUrl))
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchResults])
 
   useEffect(() => {
@@ -29,11 +30,15 @@ export default function Search({
   }, [allSaved])
 
   const renderStatusResults = () => {
+    // eslint-disable-next-line default-case
     switch (searchStatus) {
       case "idle":
         return <p>Enter search terms</p>
       case "loading":
-        return <img src={spinner}></img>
+        return <img 
+                  src={spinner}
+                  alt="Loading spinner"
+                  ></img>
       case "fulfilled":
         return <OccupationsList occupationsArray={searchResults} />
     }
