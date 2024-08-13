@@ -1,0 +1,5 @@
+.about-page__image {
+  object-fit: cover;
+  height: 40dvh;
+  width: 40dvw;
+}
