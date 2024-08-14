@@ -3,8 +3,7 @@ import "../style/About.css"
 
 export default function About() {
   return (
-    <>
-      <div className="about-page-container">
+    <main className="about-page-container">
         <img
           className="about-page__image about-page-container__element"
           src={youngProfessionals}
@@ -38,7 +37,6 @@ export default function About() {
             Level industry placements in these
           </p>
         </div>
-      </div>
-    </>
+    </main>
   )
 }
