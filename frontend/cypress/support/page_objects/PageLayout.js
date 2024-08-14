@@ -5,4 +5,18 @@ export default class PageLayout {
   searchButton() {
     return cy.get("button").should("be.visible")
   }
+
+  linkToAbout() {
+    return cy
+      .get('[href="/about"]')
+      .contains(/about/i)
+      .should("be.visible")
+  }
+
+  linkToSearch() {
+    return cy
+      .get('[href="/search"]')
+      .contains(/search/i)
+      .should("be.visible")
+  }
 }
