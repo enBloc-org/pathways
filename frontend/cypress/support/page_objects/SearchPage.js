@@ -11,7 +11,6 @@ class SearchPage extends PageLayout {
   heartIcon() {
     return cy
       .get('svg[class="heart-icon"]')
-      .contains(/(remove search)|(save search)/i)
       .should("be.visible")
   }
 }
