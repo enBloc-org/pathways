@@ -29,9 +29,12 @@ describe("Save search feature", () => {
 
   it("remembers a search that was previously saved", () => {
     SearchPage.heartIcon()
-      .invoke("attr", "fill")
-      .then(color => expect(color).to.match(/#ff0000/))
+    .invoke("attr", "fill")
+    .then(color => expect(color).to.match(/#ff0000/))
     SearchPage.searchBar().clear().type(input.searchMultiple)
     SearchPage.searchButton().click()
+    SearchPage.heartIcon()
+      .invoke("attr", "fill")
+      .then(color => expect(color).to.match(/#bebebe/))
   })
 })
