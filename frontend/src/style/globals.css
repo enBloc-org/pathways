@@ -3,7 +3,7 @@
   --brown: #9b4c10;
   --pink: #d6606d;
   --blue: #7796b2;
-  --secondary-grey:  #D9D9D9;
+  --secondary-grey: #d9d9d9;
   --font-medium: 1.25rem;
   --font-large: 1.5rem;
 }
@@ -27,7 +27,8 @@
   p,
   span,
   i,
-  strong {
+  strong,
+  a {
     font-size: var(--font-medium);
   }
 }
@@ -48,7 +49,8 @@
   p,
   span,
   i,
-  strong {
+  strong,
+  a {
     font-size: var(--font-large);
   }
 }
