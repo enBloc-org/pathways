@@ -20,6 +20,14 @@ describe("Search flow", () => {
       .should("be.visible")
   })
 
+  it("prompts the user for input if there is no query available", () => {
+    cy.visit(page.home)
+    HomePage.searchButton().click()
+    cy.get("p")
+      .contains(/enter search terms/i)
+      .should("be.visible")
+  })
+
   it("allows the user to search multiple job titles at once", () => {
     cy.visit(page.home)
     HomePage.searchBar().type("teacher, developer")
