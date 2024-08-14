@@ -90,5 +90,14 @@ const occupationData = {
       careerStarter: false,
       productCode: "TL0010a",
     },
+    {
+      object: "Product",
+      name: "Finance - Retail and commercial banking analyst",
+      level: 3,
+      type: 3,
+      typeName: "TLevel",
+      careerStarter: false,
+      productCode: "TL0010a",
+    },
   ],
 }
