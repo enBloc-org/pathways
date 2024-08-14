@@ -16,6 +16,11 @@ export default function TLevelContainer({ products }) {
           )
         }
       })}
+      <div className="links">
+        <h3>Learn More:</h3>
+        <a href="https://employers.tlevels.gov.uk/hc/en-gb">T-level Placements</a>
+        <a href="https://www.tlevels.gov.uk/students/find">Find Partners</a>
+      </div>
     </div>
   )
 }
