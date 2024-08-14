@@ -12,7 +12,7 @@ import "./App.css"
 
 function App() {
   const [searchStatus, setSearchStatus] = useState("idle")
-  const [searchQuery, setSearchQuery] = useState(undefined)
+  const [searchQuery, setSearchQuery] = useState('')
   const [searchResults, setSearchResults] = useState(undefined)
   const navigate = useNavigate()
 
@@ -26,10 +26,11 @@ function App() {
         navigate("/search")
       } catch (error) {
         setSearchStatus("idle")
+        navigate("/search")
       }
     }
 
-    if (searchQuery) {
+    if (searchQuery !== '') {
       handleSearch()
     } else {
       setSearchStatus("idle")
