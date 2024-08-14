@@ -5,7 +5,7 @@ function InfoPage() {
   
 
   return (
-    <section className="main-section" style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <main className="main-section" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <div className="info-page__wrapper">
         <h1 className='info-page__text'> 
           T-Level stuff
@@ -14,7 +14,7 @@ function InfoPage() {
           All In One Place
         </p>
       </div>
-    </section>
+    </main>
   );
 }
 
