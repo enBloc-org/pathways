@@ -13,8 +13,8 @@ import "./App.css"
 
 function App() {
   const [searchStatus, setSearchStatus] = useState("idle")
-  const [searchQuery, setSearchQuery] = useState(undefined)
-  const [searchResults, setSearchResults] = useState(undefined)
+  const [searchQuery, setSearchQuery] = useState('')
+  const [searchResults, setSearchResults] = useState([])
   const navigate = useNavigate()
 
   useEffect(() => {
