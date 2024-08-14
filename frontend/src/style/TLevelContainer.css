@@ -22,6 +22,7 @@
 
 @media (min-width: 800px) {
   .t-level-container {
+    margin-top: 4rem;
     grid-column: 2 / 6;
   }
 }
