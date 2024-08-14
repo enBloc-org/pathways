@@ -1,4 +1,4 @@
-import { useState, usEffect, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { Routes, Route, useNavigate } from "react-router-dom"
 
 import fetchOccupationByQuery from "./utils/fetchOccupationByQuery"
@@ -59,7 +59,10 @@ function App() {
         />
         <Route
           path="/occupation-details/:occupation"
-          element={<OccupationPage />}
+          element={
+            <OccupationPage
+              searchResults={searchResults}
+            />}
         />
       </Routes>
     </div>
