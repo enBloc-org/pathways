@@ -9,4 +9,16 @@
   padding: 3rem;
 }
 
+.links {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.links a {
+  color: var(--brown);
+  
+}
+
 
