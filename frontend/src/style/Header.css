@@ -19,10 +19,6 @@
   height: auto;
 }
 
-.bold {
-  font-weight: bold;
-}
-
 .button-container {
   display: flex;
   flex-direction: row;
