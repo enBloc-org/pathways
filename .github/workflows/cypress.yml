@@ -1,0 +1,59 @@
+name: Cypress
+on:
+  pull_request:
+  push:
+    branches:
+      - dev
+      - main
+jobs:
+  e2e:
+    name: End to End tests
+    runs-on: ubuntu-latest
+    # container:
+    #   image: cypress/browsers:latest
+    #   options: --user 1001
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies on frontend
+        working-directory: frontend
+        run: npm install
+
+      - name: Install dependencies on backend
+        working-directory: backend
+        run: npm install
+
+      - name: Install system dependencies for Cypress
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            xvfb \
+            libnss3 \
+            libgconf-2-4 \
+            libgtk-3-0 \
+            libxss1 \
+            libasound2 \
+            libgbm1
+
+      - name: Run the backend
+        working-directory: backend
+        run: npm run dev &
+
+      - name: Run E2E tests
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run dev
+          working-directory: frontend
+          wait-on: "http://localhost:3000"
+          install: false
+          browser: chrome
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          # CYPRESS_INSTALL_BINARY: 0
