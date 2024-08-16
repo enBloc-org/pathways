@@ -27,10 +27,11 @@ function App() {
         navigate("/search")
       } catch (error) {
         setSearchStatus("idle")
+        navigate("/search")
       }
     }
 
-    if (searchQuery) {
+    if (searchQuery !== '') {
       handleSearch()
     } else {
       setSearchStatus("idle")
@@ -54,6 +55,7 @@ function App() {
             <Search
               searchResults={searchResults}
               searchStatus={searchStatus}
+              searchQuery={searchQuery}
             />
           }
         />
