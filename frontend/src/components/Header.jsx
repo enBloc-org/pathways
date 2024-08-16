@@ -14,6 +14,7 @@ export default function Header({ searchHandler }) {
     const match = page.match(pageRegex)
 
     setCurrentPage(match ? match[0] : "/")
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [window.location.href])
 
   return (
