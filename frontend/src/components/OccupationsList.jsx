@@ -5,7 +5,7 @@ export default function OccupationsList({ occupationsArray }) {
   return (
     <div className="container">
       {occupationsArray.length === 0 ? (
-        <p>There are no occupations matching your search terms</p>
+        <p name='no-results'>There are no occupations matching your search terms</p>
       ) : (
         occupationsArray.map(occupation => (
           <OccupationCard
