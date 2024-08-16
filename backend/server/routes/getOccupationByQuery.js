@@ -38,8 +38,7 @@ export default async function getOccupationByQuery(query) {
       .filter(
         occupation =>
           occupation.products !== undefined &&
-          occupation.products.length > 0 &&
-          occupation.level === 3
+          occupation.products.length > 0
       )
 
     return tLevels
