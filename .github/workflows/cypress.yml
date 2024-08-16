@@ -48,7 +48,12 @@ jobs:
         with:
           start: npm run dev
           working-directory: frontend
-          wait-on: "http://localhost:3000"
+          wait-on: ${{secrets.FRONTEND}}
           install: false
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          PORT: ${{secrets.PORT}}
+          BASE_URL: ${{secrets.BASE_URL}}
+          FRONTEND: ${{secrets.FRONTEND}}
+          REACT_APP_SERVER: ${{secrets.REACT_APP_SERVER}}
+          API_KEY: ${{secrets.API_KEY}}
