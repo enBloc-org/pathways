@@ -5,16 +5,16 @@ function InfoPage() {
   
 
   return (
-    <section className="main-section" style={{ backgroundImage: `url(${backgroundImage})` }}>
-      <div className="overlay">
-        <h1> 
+    <main className="main-section" style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <div className="info-page__wrapper">
+        <h1 className='info-page__text'> 
           T-Level stuff
         </h1>
-        <p>
+        <p className="info-page__text">
           All In One Place
         </p>
       </div>
-    </section>
+    </main>
   );
 }
 
