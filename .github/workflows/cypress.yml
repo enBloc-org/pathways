@@ -41,7 +41,9 @@ jobs:
 
       - name: Run the backend
         working-directory: backend
-        run: npm run dev &
+        run: |
+          npm run dev &
+          npx wait-on ${{secrets.REACT_APP_SERVER}}
 
       - name: Run E2E tests
         uses: cypress-io/github-action@v6
