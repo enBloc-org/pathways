@@ -55,6 +55,13 @@ async function getOccupationByQueryTest() {
     )
   })
   console.groupEnd()
+
+  console.groupCollapsed(
+    "Result should only include occupations with products associated to them"
+  )
+  result.forEach(object => {
+    assert.notEqual(object.products.length, 0)
+  })
   console.log("All tests passed")
 }
 
