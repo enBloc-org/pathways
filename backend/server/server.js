@@ -9,7 +9,7 @@ import getOccupationByQuery from "./routes/getOccupationByQuery.js"
 const server = express()
 
 const corsOptions = {
-    origin: "http://localhost:3000",
+    origin: process.env.FRONTEND,
     optionsSuccessStatus: 200,
 }
 
