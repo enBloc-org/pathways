@@ -1,9 +1,9 @@
 import "../style/TLevelCard.css"
 
-const TLevelCard = ({ name, key, productCode }) => {
+const TLevelCard = ({ name, key}) => {
   return (
     <div className="t-level-card" key={key}>
-      <h2>T-Level Product</h2>
+      <h2>Placement</h2>
       <p>{name}</p>
     </div>
   )
