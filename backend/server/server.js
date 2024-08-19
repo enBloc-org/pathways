@@ -9,7 +9,7 @@ import getOccupationByQuery from "./routes/getOccupationByQuery.js"
 const server = express()
 
 const corsOptions = {
-    origin: [process.env.FRONTEND, process.env.PREVIEW],
+    origin: [process.env.FRONTEND, 'https://deploy-preview-144--pathways-front.netlify.app'],
     optionsSuccessStatus: 200,
 }
 
