@@ -2,7 +2,10 @@
   --grey: #9a928f;
   --brown: #9b4c10;
   --pink: #d6606d;
-  --blue: #7796B2
+  --blue: #7796b2;
+  --secondary-grey: #d9d9d9;
+  --font-medium: 1.15rem;
+  --font-large: 1.3rem;
 }
 
 * {
@@ -18,4 +21,45 @@
 .white-header-text {
   color: white;
   font-size: 52pt;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex {
+  display: flex;
+}
+
+@media (min-width: 800px) {
+  p,
+  span,
+  i,
+  strong,
+  a {
+    font-size: var(--font-medium);
+  }
+}
+
+@media (min-width: 1400px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1.85rem;
+  }
+
+  h3 {
+    font-size: 1.7rem;
+  }
+
+  p,
+  span,
+  i,
+  strong,
+  a {
+    font-size: var(--font-large);
+  }
 }
