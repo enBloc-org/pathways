@@ -9,9 +9,11 @@ class SearchPage extends PageLayout {
   }
 
   heartIcon() {
-    return cy
-      .get('svg[class="heart-icon"]')
-      .should("be.visible")
+    return cy.get('svg[class="heart-icon"]').should("be.visible")
+  }
+
+  occupationCard() {
+    return cy.get("div[class='occupation-card']").should("be.visible")
   }
 }
 
