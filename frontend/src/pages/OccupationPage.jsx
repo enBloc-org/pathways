@@ -6,8 +6,6 @@ import { useParams } from "react-router-dom"
 export default function OccupationPage({ searchResults }) {
   const params = useParams()
 
-  console.log(params.occupation)
-
   const index = searchResults.findIndex(
     occupation => occupation.stdCode === params.occupation
   )

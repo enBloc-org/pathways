@@ -23,6 +23,15 @@
   font-size: 52pt;
 }
 
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex {
+  display: flex;
+}
+
 @media (min-width: 800px) {
   p,
   span,
