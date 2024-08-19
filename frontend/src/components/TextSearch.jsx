@@ -17,6 +17,7 @@ export default function TextSearch({ searchHandler }) {
     <div>
       <form onSubmit={event => submitHandler(event)}>
         <input
+          name="search-query"
           value={searchParameter}
           onChange={inputHandler}
           placeholder="Search job title"
