@@ -1,10 +1,17 @@
 import PageLayout from "./PageLayout"
 
 class AboutPage extends PageLayout {
-  header() {
+  stockPhoto() {
     return cy
-      .get("h1")
-      .contains(/about page/i)
+      .get("main")
+      .find("img")
+      .should("be.visible")
+      .and("have.prop", "src")
+  }
+
+  textCopy() {
+    return cy
+      .get("div[class='about-page-container__element'] > p")
       .should("be.visible")
   }
 }
