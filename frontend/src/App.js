@@ -17,6 +17,13 @@ function App() {
   const [searchResults, setSearchResults] = useState([])
   const navigate = useNavigate()
 
+  const handleSavedSearchClick= (url) =>{
+    setSearchQuery('');
+    console.log(url)
+    window.location.href = url;
+;
+    }
+
   useEffect(() => {
     const handleSearch = async () => {
       try {
@@ -57,6 +64,7 @@ function App() {
               searchStatus={searchStatus}
               searchQuery={searchQuery}
               setSearchQuery={setSearchQuery}
+              handleSavedSearchClick={handleSavedSearchClick}
             />
           }
         />

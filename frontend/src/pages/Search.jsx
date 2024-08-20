@@ -6,13 +6,14 @@ import OccupationsList from "../components/OccupationsList"
 import spinner from "../images/loadingSpinner.svg"
 import FilterButton from "../components/FilterButton"
 import fetchAllRoutes from "../utils/fetchAllRoutes"
-import RecentSearches from "../components/RecentSearch"
+import SavedSearches from "../components/SavedSearch"
 
 export default function Search({
   searchResults,
   searchStatus,
   searchQuery,
   setSearchQuery,
+  handleSavedSearchClick,
 }) {
   const [searchParams, setSearchParams] = useSearchParams()
   const [isSaved, setIsSaved] = useState(false)
@@ -98,7 +99,10 @@ export default function Search({
       <h1>Search Page</h1>
       <div>
         <SaveSearchButton onSave={saveHandler} isSaved={isSaved} />
-        <RecentSearches recentSearches={allSaved}/>
+        <SavedSearches savedSearches={allSaved}
+        setSearchQuery={setSearchQuery}
+        handleSavedSearchClick={handleSavedSearchClick}
+        />
         <FilterButton
           options={allRoutes}
           onApply={handleApplyFilters}
