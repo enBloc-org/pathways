@@ -6,11 +6,13 @@ import OccupationsList from "../components/OccupationsList"
 import spinner from "../images/loadingSpinner.svg"
 import FilterButton from "../components/FilterButton"
 import fetchAllRoutes from "../utils/fetchAllRoutes"
+import RecentSearches from "../components/RecentSearch"
 
 export default function Search({
   searchResults,
   searchStatus,
   searchQuery,
+  setSearchQuery,
 }) {
   const [searchParams, setSearchParams] = useSearchParams()
   const [isSaved, setIsSaved] = useState(false)
@@ -21,7 +23,21 @@ export default function Search({
   const [filteredResults, setFilteredResults] =
     useState(searchResults)
   const [filterOptions, setFilterOptions] = useState([])
+  useEffect(() => {
+   if(!searchQuery){
+    const currentUrl = window.location.href
+    const queryRegex = /[?&]query=([^&]+)/;
+    const filterRegex = /[?&]filter=(\d+)/g;
+    setFilterOptions([...currentUrl.matchAll(filterRegex)].map(match => parseInt(match[1])));
+const match = currentUrl.match(queryRegex);
+console.log(searchQuery)
+setSearchQuery(match ? decodeURIComponent(match[1]) : null);
 
+   }
+
+  }, [])
+
+  console.log(searchQuery)
   useEffect(() => {
     const fetchOptions = async () => {
       const filterOptions = await fetchAllRoutes()
@@ -56,13 +72,15 @@ export default function Search({
       return setFilterOptions(selectedOptions)
     }
     setFilterOptions([])
+    setIsSaved(false);
   }
 
   const saveHandler = () => {
+    const currentFilterLength = filterOptions.length
     const currentUrl = window.location.href
     const currentQuery = searchParams.get("query")
     const currentEntry = {
-      name: currentQuery,
+      name: `${currentQuery} filters(${currentFilterLength})`,
       url: currentUrl,
     }
     setIsSaved(previous => !previous)
@@ -70,8 +88,11 @@ export default function Search({
       const newSavedHistory = allSaved.filter(
         search => search.url !== currentEntry.url
       )
+     
       return setAllSaved(newSavedHistory)
     }
+    console.log("data to be saved")
+    console.log(currentEntry)
     setAllSaved(previous => [...previous, currentEntry])
   }
 
@@ -92,6 +113,7 @@ export default function Search({
       <h1>Search Page</h1>
       <div>
         <SaveSearchButton onSave={saveHandler} isSaved={isSaved} />
+        <RecentSearches recentSearches={allSaved}/>
         <FilterButton
           options={allRoutes}
           onApply={handleApplyFilters}

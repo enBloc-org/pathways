@@ -56,6 +56,7 @@ function App() {
               searchResults={searchResults}
               searchStatus={searchStatus}
               searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
             />
           }
         />

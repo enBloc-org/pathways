@@ -10,12 +10,8 @@ export default function RecentSearches({ recentSearches }) {
     setIsDropdownOpen((prev) => !prev);
   };
 
-  const todaySearches = recentSearches.filter(
-    (search) => search.category === "Today"
-  );
-  const pastSearches = recentSearches.filter(
-    (search) => search.category === "Past"
-  );
+  const todaySearches = recentSearches
+
 
   return (
     <div className="recent-searches-container">
@@ -29,7 +25,7 @@ export default function RecentSearches({ recentSearches }) {
           {todaySearches.length > 0 && (
             <div className="dropdown-section">
              <div>
-                <h4><i>Today</i></h4> 
+               
                 <div className='divider'/> 
               </div>
               {todaySearches.map((search, index) => (
@@ -44,23 +40,7 @@ export default function RecentSearches({ recentSearches }) {
             </div>
           )}
 
-          {pastSearches.length > 0 && (
-            <div className="dropdown-section">
-              <div>
-              <h4> <i>Past</i></h4> 
-              <div className='divider'/> 
-            </div>
-              {pastSearches.map((search, index) => (
-                <Link
-                to={search.url}
-                key={`past-${index}`}
-                className="dropdown-item"
-              >
-                <p>{search.name}</p>
-              </Link>
-              ))}
-            </div>
-          )}
+
         </div>
       )}
     </div>
