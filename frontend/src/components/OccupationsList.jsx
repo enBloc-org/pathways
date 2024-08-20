@@ -15,7 +15,8 @@ export default function OccupationsList({ occupationsArray }) {
             technicalLevelName={
               occupation.mapHierarchy.technicalLevelName
             }
-          />
+            stdCode={occupation.stdCode}
+        />
         ))
       )}
     </div>
