@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import "../style/Filterbutton.css";
 import filterIcon from '../images/filter.svg';
 
-export default function FilterButton({ options, onApply }) {
+export default function FilterButton({ options, onApply,searchQuery, setSearchQuery, setFilterOptions }) {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
@@ -22,7 +22,23 @@ export default function FilterButton({ options, onApply }) {
   const toggleDropdown = () => {
     setIsDropdownOpen((prevIsDropdownOpen) => !prevIsDropdownOpen);
   };
-
+  useEffect(() => {
+    if(!searchQuery){
+     const currentUrl = window.location.href
+     const queryRegex = /[?&]query=([^&]+)/;
+     
+ const match = currentUrl.match(queryRegex);
+ setSearchQuery(match ? decodeURIComponent(match[1]) : null);
+ const filterRegex = /[?&]filter=(\d+)/g;
+ const newOptions = [...currentUrl.matchAll(filterRegex)].map(match => parseInt(match[1]))
+ console.log(newOptions)
+ 
+     setFilterOptions(newOptions);
+     setSelectedOptions(newOptions)
+    }
+   
+ console.log(searchQuery)
+   }, [])
   return (
     <div className="filter-container">
       <button className="filter-toggle-button" onClick={toggleDropdown}>

@@ -23,19 +23,23 @@ export default function Search({
   const [filteredResults, setFilteredResults] =
     useState(searchResults)
   const [filterOptions, setFilterOptions] = useState([])
-  useEffect(() => {
-   if(!searchQuery){
-    const currentUrl = window.location.href
-    const queryRegex = /[?&]query=([^&]+)/;
-    const filterRegex = /[?&]filter=(\d+)/g;
-    setFilterOptions([...currentUrl.matchAll(filterRegex)].map(match => parseInt(match[1])));
-const match = currentUrl.match(queryRegex);
-console.log(searchQuery)
-setSearchQuery(match ? decodeURIComponent(match[1]) : null);
+//   useEffect(() => {
+//    if(!searchQuery){
+//     const currentUrl = window.location.href
+//     const queryRegex = /[?&]query=([^&]+)/;
+    
+// const match = currentUrl.match(queryRegex);
+// setSearchQuery(match ? decodeURIComponent(match[1]) : null);
+// const filterRegex = /[?&]filter=(\d+)/g;
+// const newOptions = [...currentUrl.matchAll(filterRegex)].map(match => parseInt(match[1]))
+// console.log(newOptions)
 
-   }
-
-  }, [])
+//     setFilterOptions(newOptions);
+//    }
+  
+// console.log(searchQuery)
+// console.log(filterOptions)
+//   }, [])
 
   console.log(searchQuery)
   useEffect(() => {
@@ -117,6 +121,9 @@ setSearchQuery(match ? decodeURIComponent(match[1]) : null);
         <FilterButton
           options={allRoutes}
           onApply={handleApplyFilters}
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          setFilterOptions={setFilterOptions}
         />
       </div>
       {renderStatusResults()}
