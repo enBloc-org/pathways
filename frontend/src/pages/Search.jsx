@@ -23,25 +23,7 @@ export default function Search({
   const [filteredResults, setFilteredResults] =
     useState(searchResults)
   const [filterOptions, setFilterOptions] = useState([])
-//   useEffect(() => {
-//    if(!searchQuery){
-//     const currentUrl = window.location.href
-//     const queryRegex = /[?&]query=([^&]+)/;
-    
-// const match = currentUrl.match(queryRegex);
-// setSearchQuery(match ? decodeURIComponent(match[1]) : null);
-// const filterRegex = /[?&]filter=(\d+)/g;
-// const newOptions = [...currentUrl.matchAll(filterRegex)].map(match => parseInt(match[1]))
-// console.log(newOptions)
 
-//     setFilterOptions(newOptions);
-//    }
-  
-// console.log(searchQuery)
-// console.log(filterOptions)
-//   }, [])
-
-  console.log(searchQuery)
   useEffect(() => {
     const fetchOptions = async () => {
       const filterOptions = await fetchAllRoutes()
@@ -95,8 +77,7 @@ export default function Search({
      
       return setAllSaved(newSavedHistory)
     }
-    console.log("data to be saved")
-    console.log(currentEntry)
+
     setAllSaved(previous => [...previous, currentEntry])
   }
 
