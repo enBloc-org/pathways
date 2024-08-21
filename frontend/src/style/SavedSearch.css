@@ -1,11 +1,11 @@
-.recent-searches-container {
+.saved-searches-container {
   font-family: Arial, sans-serif;
   width: 250px;
   display: flex;
   flex-direction: column;
 }
 
-.recent-searches-header {
+.saved-searches-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,7 +14,7 @@
   border-bottom: 1px solid #e0e0e0;
 }
 
-.recent-searches-header img {
+.saved-searches-header img {
   padding-left: 10px;
 }
 

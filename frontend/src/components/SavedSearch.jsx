@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../style/RecentSearch.css";
+import "../style/SavedSearch.css";
 import ClockIcon from "../images/Clock.svg"
 export default function SavedSearches({ savedSearches, setSearchQuery,handleSavedSearchClick }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -12,8 +12,8 @@ export default function SavedSearches({ savedSearches, setSearchQuery,handleSave
 
 
   return (
-    <div className="recent-searches-container">
-      <div className="recent-searches-header" onClick={toggleDropdown}>
+    <div className="saved-searches-container">
+      <div className="saved-searches-header" onClick={toggleDropdown}>
         Saved Searches
         <img src={ClockIcon} alt="Clock Icon" className="clock-icon" />
       </div>
