@@ -13,7 +13,7 @@ class SearchPage extends PageLayout {
   }
 
   occupationCard() {
-    return cy.get("div[class='occupation-card']").should("be.visible")
+    return cy.get(".occupation-card > h2").should("be.visible")
   }
 }
 

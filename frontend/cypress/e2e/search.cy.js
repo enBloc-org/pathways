@@ -26,9 +26,9 @@ describe("Search feature", () => {
     HomePage.searchBar().type("web developer")
     HomePage.searchButton().click()
     cy.url().should("include", "/search")
-    cy.get("div[class='occupation-card']")
-      .contains(/software development technician/i)
-      .should("be.visible")
+    SearchPage.occupationCard().contains(
+      /software development technician/i
+    )
   })
 
   it("allows the user to search multiple job titles at once", () => {
