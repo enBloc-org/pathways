@@ -40,16 +40,8 @@ jobs:
             libgbm1
 
       - name: Run the backend
-        working-directory: backend
-        run: npm run dev &
-
-      - name: Run E2E tests
-        uses: cypress-io/github-action@v6
-        with:
-          start: npm run dev
-          working-directory: frontend
-          wait-on: ${{secrets.FRONTEND}}
-          install: false
+        working-directory: frontend
+        run: cd ../backend && npm run dev & cd ../frontend && npm run dev & npx cypress run
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           PORT: ${{secrets.PORT}}
