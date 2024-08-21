@@ -9,7 +9,8 @@
   box-shadow: 0 0 10px black;
   border-radius: 0 7vmin 7vmin 0;
   font-size: 2vmin;
-  background-image:linear-gradient(var(--brown) 20%, white 0%) ;
+  cursor: pointer;
+  background-image: linear-gradient(var(--brown) 20%, white 0%);
 }
 
 .occupation-card h2 {

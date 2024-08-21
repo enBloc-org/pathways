@@ -8,6 +8,7 @@ import Search from "./pages/Search"
 import OccupationPage from "./pages/OccupationPage"
 import InfoPage from "./components/InfoPage"
 
+import "./style/normalize.css"
 import "./style/globals.css"
 import "./App.css"
 
@@ -61,7 +62,10 @@ function App() {
         />
         <Route
           path="/occupation-details/:occupation"
-          element={<OccupationPage />}
+          element={
+            <OccupationPage
+              searchResults={searchResults}
+            />}
         />
       </Routes>
     </div>

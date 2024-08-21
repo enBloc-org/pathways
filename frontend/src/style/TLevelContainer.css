@@ -1,0 +1,34 @@
+.t-level-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.t-level-container__links {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: center;
+  padding: 0 2rem;
+}
+
+.t-level-container__links a {
+  color: var(--brown);
+}
+
+@media (min-width: 800px) {
+  .t-level-container {
+    margin-top: 4rem;
+    grid-column: 2 / 6;
+  }
+}
+
+@media (min-width: 1400px) {
+  .t-level-container {
+    grid-column: 9 / 12;
+  }
+}
