@@ -2,13 +2,13 @@ import "../style/Heart.css"
 
 export default function SaveSearchButton({ onSave, isSaved }) {
   return (
-    <button className="save-search-button" onClick={onSave}>
-      <span>{isSaved ? "Remove search" : "Save search"}</span>
+    <button className="search-page--options-button" onClick={onSave}>
+      <span>Save Search</span>
       <svg
         width="28px"
         height="28px"
         viewBox="0 0 24 24"
-        fill={isSaved ? "#ff0000" : "#bebebe"}
+        fill={isSaved ? "var(--pink)" : "var(--grey)"}
         xmlns="http://www.w3.org/2000/svg"
         className="heart-icon"
         alt="heart icon"

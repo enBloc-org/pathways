@@ -55,14 +55,3 @@
   color: #ffffff;
   border-radius: 4px;
 }
-
-.filter-toggle-button {
-  margin-right: -23rem;
-  margin-top: 0.1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-}

@@ -92,11 +92,11 @@ export default function Search({
     <>
       <h1>Search Page</h1>
       <div className="search-page--options-bar">
-        <SaveSearchButton onSave={saveHandler} isSaved={isSaved} />
         <FilterButton
           options={allRoutes}
           onApply={handleApplyFilters}
         />
+        <SaveSearchButton onSave={saveHandler} isSaved={isSaved} />
       </div>
       {renderStatusResults()}
     </>

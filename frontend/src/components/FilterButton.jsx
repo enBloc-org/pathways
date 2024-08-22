@@ -30,10 +30,10 @@ export default function FilterButton({ options, onApply }) {
   return (
     <div className="filter-container">
       <button
-        className="filter-toggle-button"
+        className="search-page--options-button"
         onClick={toggleDropdown}
       >
-        <span>{isActive ? "Edit Filters" : "Filter Results"}</span>
+        <span>Filter Results</span>
         <svg
           height="28px"
           fill={isActive ? "var(--pink)" : "var(--grey)"}
