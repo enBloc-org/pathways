@@ -92,11 +92,18 @@ export default function Search({
     <>
       <h1>Search Page</h1>
       <div className="search-page--options-bar">
-        <FilterButton
-          options={allRoutes}
-          onApply={handleApplyFilters}
-        />
-        <SaveSearchButton onSave={saveHandler} isSaved={isSaved} />
+        <div>
+          <FilterButton
+            options={allRoutes}
+            onApply={handleApplyFilters}
+          />
+          <SaveSearchButton onSave={saveHandler} isSaved={isSaved} />
+        </div>
+        {searchQuery && (
+          <p>
+            {filteredResults.length} matched results for {searchQuery}
+          </p>
+        )}
       </div>
       {renderStatusResults()}
     </>
