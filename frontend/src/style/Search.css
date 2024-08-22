@@ -1,8 +1,9 @@
 .search-page--options-bar {
   display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+  flex-direction: row-reverse;
+  justify-content: space-between;
   align-items: center;
+  width: 70dvw;
 }
 
 .search-page--options-button {
