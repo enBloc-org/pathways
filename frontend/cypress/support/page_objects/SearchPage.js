@@ -18,6 +18,13 @@ class SearchPage extends PageLayout {
       .first()
       .should("be.visible")
   }
+
+  resultsLabel() {
+    return cy
+      .get("p")
+      .contains(/matched results/gi)
+      .should("be.visible")
+  }
 }
 
 export default new SearchPage()
