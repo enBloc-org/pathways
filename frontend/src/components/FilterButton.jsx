@@ -28,7 +28,7 @@ export default function FilterButton({ options, onApply }) {
   }
 
   return (
-    <div>
+    <div className="filter-container">
       <button
         className="filter-toggle-button"
         onClick={toggleDropdown}
@@ -47,7 +47,7 @@ export default function FilterButton({ options, onApply }) {
         </svg>
       </button>
       {isDropdownOpen && (
-        <div className="dropdown">
+        <div className="filter--dropdown">
           <div className="filter-options">
             {options.map(route => (
               <div key={route.routeId} className="filter-option">

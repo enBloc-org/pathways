@@ -6,6 +6,7 @@ import OccupationsList from "../components/OccupationsList"
 import spinner from "../images/loadingSpinner.svg"
 import FilterButton from "../components/FilterButton"
 import fetchAllRoutes from "../utils/fetchAllRoutes"
+import "../style/Search.css"
 
 export default function Search({
   searchResults,
@@ -90,7 +91,7 @@ export default function Search({
   return (
     <>
       <h1>Search Page</h1>
-      <div>
+      <div className="search-page--options-bar">
         <SaveSearchButton onSave={saveHandler} isSaved={isSaved} />
         <FilterButton
           options={allRoutes}
