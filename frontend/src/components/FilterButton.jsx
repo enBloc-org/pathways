@@ -36,7 +36,7 @@ export default function FilterButton({ options, onApply,searchQuery, setSearchQu
      setSelectedOptions(newOptions)
     }
    
-   }, [])
+   }, [searchQuery])
   return (
     <div className="filter-container">
       <button className="filter-toggle-button" onClick={toggleDropdown}>

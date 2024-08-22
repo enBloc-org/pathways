@@ -20,7 +20,8 @@ function App() {
   const handleSavedSearchClick= (url) =>{
     setSearchQuery('');
     console.log(url)
-    window.location.href = url;
+    const route = url.match(/^https?:\/\/[^/]+(\/.*)$/)[1];
+    navigate(route);
 ;
     }
 
