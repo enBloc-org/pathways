@@ -14,7 +14,7 @@ export default function SavedSearches({ savedSearches, setSearchQuery,handleSave
   return (
     <div className="saved-searches-container">
       <div className="saved-searches-header" onClick={toggleDropdown}>
-        Saved Searches
+        <p>Saved Searches</p>
         <img src={ClockIcon} alt="Clock Icon" className="clock-icon" />
       </div>
 
