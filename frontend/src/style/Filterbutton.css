@@ -21,7 +21,7 @@
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 1px;
   padding: 42px;
-  background-color: #bebebe;
+  background-color: var(--secondary-grey);
 }
 
 .filter-option {
@@ -50,7 +50,8 @@
   padding: 0.5rem 1rem;
   font-size: 1rem;
   cursor: pointer;
-  background-color: #f97f7f;
+  background-color: var(--pink);
+  border:none;
   color: #ffffff;
   border-radius: 4px;
 }

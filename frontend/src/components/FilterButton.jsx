@@ -36,7 +36,7 @@ export default function FilterButton({ options, onApply }) {
         <span>{isActive ? "Edit Filters" : "Filter Results"}</span>
         <svg
           height="28px"
-          fill={isActive ? "#ff0000" : "#bebebe"}
+          fill={isActive ? "var(--pink)" : "var(--grey)"}
           viewBox="0 0 2000 1500"
           width="28px"
           xmlns="http://www.w3.org/2000/svg"
