@@ -1,5 +1,6 @@
 /** @type { import('@storybook/react').Preview } */
 import "../src/style/globals.css"
+import "../src/style/Search.css"
 
 import { BrowserRouter } from "react-router-dom"
 
@@ -14,9 +15,9 @@ const preview = {
   },
   decorators: [
     Story => (
-      <BrowserRouter>
-        <Story />
-      </BrowserRouter>
+        <BrowserRouter>
+          <Story />
+        </BrowserRouter>
     ),
   ],
 }
