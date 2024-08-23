@@ -14,7 +14,7 @@ import "./App.css"
 
 function App() {
   const [searchStatus, setSearchStatus] = useState("idle")
-  const [searchQuery, setSearchQuery] = useState('')
+  const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState([])
   const navigate = useNavigate()
 
@@ -32,7 +32,7 @@ function App() {
       }
     }
 
-    if (searchQuery !== '') {
+    if (searchQuery !== "") {
       handleSearch()
     } else {
       setSearchStatus("idle")
@@ -45,29 +45,30 @@ function App() {
 
   return (
     <div className="app">
-      <Header searchHandler={handleQuery} />
+      <div className="app--header">
+        <Header searchHandler={handleQuery} />
+      </div>
 
-      <Routes>
-        <Route path='/' element={<InfoPage />} />
-        <Route path="/about" element={<About />} />
-        <Route
-          path="/search"
-          element={
-            <Search
-              searchResults={searchResults}
-              searchStatus={searchStatus}
-              searchQuery={searchQuery}
-            />
-          }
-        />
-        <Route
-          path="/occupation-details/:occupation"
-          element={
-            <OccupationPage
-              searchResults={searchResults}
-            />}
-        />
-      </Routes>
+      <div className="app--routes">
+        <Routes>
+          <Route path="/" element={<InfoPage />} />
+          <Route path="/about" element={<About />} />
+          <Route
+            path="/search"
+            element={
+              <Search
+                searchResults={searchResults}
+                searchStatus={searchStatus}
+                searchQuery={searchQuery}
+              />
+            }
+          />
+          <Route
+            path="/occupation-details/:occupation"
+            element={<OccupationPage searchResults={searchResults} />}
+          />
+        </Routes>
+      </div>
     </div>
   )
 }

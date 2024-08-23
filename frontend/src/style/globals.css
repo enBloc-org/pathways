@@ -32,6 +32,12 @@
   display: flex;
 }
 
+.main {
+  grid-row:2;
+  height: 100%;
+  width: 100dvw;
+}
+
 @media (min-width: 800px) {
   p,
   span,
