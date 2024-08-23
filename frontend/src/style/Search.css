@@ -11,7 +11,8 @@
   flex-direction: row-reverse;
   justify-content: space-between;
   align-items: center;
-  width: 70dvw;
+  width: 100dvw;
+  padding:15px;
   grid-row: 1;
 }
 
