@@ -8,8 +8,11 @@ describe("Save search button", () => {
     SearchPage.searchBar().type(input.searchSingle)
     SearchPage.searchButton().click()
     SearchPage.saveButton().contains(/save search/i)
+    cy.wait(4000)
+
     SearchPage.saveButton().click()
-    cy.wait(20000)
+    cy.wait(4000)
+
     SearchPage.saveButton().contains(/remove search/i).should('exist').and("be.visible")
     SearchPage.heartIcon()
       .invoke("attr", "fill")
@@ -22,14 +25,14 @@ describe("visit saved search button", () => {
       
     SearchPage.searchBar().type(input.searchSingle)
     SearchPage.searchButton().click()
+    cy.wait(4000)
     SearchPage.saveButton().click()
     SearchPage.savedSearchButton().contains(/Saved Searches/i)   
     SearchPage.searchBar().type(input.searchSingleAlt)
     SearchPage.searchButton().click()
-    cy.window().then((win) => {
-      win.localStorage.setItem('pathways-search',  '[{"name":"web developer filters(0)","url":"http://localhost:3000/search?query=web+developer"}]')
-    }) 
-    cy.wait(4000)
+    // cy.window().then((win) => {
+    //   win.localStorage.setItem('pathways-search',  '[{"name":"web developer filters(0)","url":"http://localhost:3000/search?query=web+developer"}]')
+    // }) 
 
     SearchPage.savedSearchButton().click() 
     
@@ -45,11 +48,8 @@ describe("visit saved search button", () => {
       .should('be.visible')
       .click()
     
-    // Check for the result after clicking
-    
-    // cy.contains('software development technician', { timeout: 10000 })
-    //   .should('be.visible') 
-    //   cy
+      cy.wait(4000)
+
     cy.get("div").contains(/software development technician/i).should("exist").and("be.visible")
 
 
