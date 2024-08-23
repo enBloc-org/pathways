@@ -104,7 +104,9 @@ export default function Search({
           </p>
         )}
       </div>
-      <div className="search-page--results">{renderStatusResults()}</div>
+      <div className="search-page--results">
+        {renderStatusResults()}
+      </div>
     </div>
   )
 }
