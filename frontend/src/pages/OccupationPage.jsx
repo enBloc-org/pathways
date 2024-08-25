@@ -15,7 +15,7 @@ export default function OccupationPage({ searchResults }) {
     ""
   )
   return (
-    <main className="occupation-page__main">
+    <main className="occupation-page__main main">
       <div className="flex-col occupation-header">
         <h1>{searchResults[index].name}</h1>
         <h2>

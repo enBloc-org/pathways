@@ -89,8 +89,7 @@ export default function Search({
   }
 
   return (
-    <>
-      <h1>Search Page</h1>
+    <div className="search-page main">
       <div className="search-page--options-bar">
         <div>
           <FilterButton
@@ -105,7 +104,9 @@ export default function Search({
           </p>
         )}
       </div>
-      {renderStatusResults()}
-    </>
+      <div className="search-page--results">
+        {renderStatusResults()}
+      </div>
+    </div>
   )
 }
