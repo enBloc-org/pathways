@@ -1,9 +1,17 @@
 import "../style/Heart.css"
 
-export default function SaveSearchButton({ onSave, isSaved }) {
+export default function SaveSearchButton({
+  onSave,
+  isSaved,
+  isDisabled,
+}) {
   return (
-    <button className="search-page--options-button" onClick={onSave}>
-      <span>Save Search</span>
+    <button
+      className="search-page--options-button"
+      onClick={onSave}
+      disabled={isDisabled}
+    >
+      Save Search
       <svg
         width="28px"
         height="28px"

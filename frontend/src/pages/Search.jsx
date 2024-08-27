@@ -94,7 +94,7 @@ export default function Search({
             options={allRoutes}
             onApply={handleApplyFilters}
           />
-          <SaveSearchButton onSave={saveHandler} isSaved={isSaved} />
+          <SaveSearchButton onSave={saveHandler} isSaved={isSaved} isDisabled={!searchQuery} />
         </div>
         {searchQuery && (
           <p>
