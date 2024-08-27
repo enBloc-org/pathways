@@ -1,9 +1,40 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  gap:1rem;
-  width: 28dvw;
-  height: 85dvh;
-  padding: 5px;
-  overflow: auto;
+.occupations-list--container {
+  display: grid;
+  grid-template: repeat(3, auto) / repeat(3, auto);
+  gap: 1rem;
+  height: 100%;
+  width: fit-content;
+  padding: 5px 15px;
+}
+
+.occupations-list--container > .occupation-card {
+  opacity: 0;
+  animation: fadeIn 0.2s ease-in-out forwards;
+}
+
+.occupations-list__empty {
+  grid-row: 2;
+  grid-column: 2;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1400px) {
+  .occupations-list--container {
+    border: 2px solid pink;
+    display: grid;
+    grid-template: repeat(2, auto) / repeat(2, auto);
+  }
+}
+
+@media (max-width: 800px) {
+  .occupations-list--container {
+    border: 2px solid pink;
+    display: grid;
+    grid-template: repeat(1, auto) / repeat(1, auto);
+  }
 }

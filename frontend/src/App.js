@@ -6,14 +6,16 @@ import Header from "./components/Header"
 import About from "./pages/About"
 import Search from "./pages/Search"
 import OccupationPage from "./pages/OccupationPage"
+import InfoPage from "./components/InfoPage"
 
+import "./style/normalize.css"
 import "./style/globals.css"
 import "./App.css"
 
 function App() {
   const [searchStatus, setSearchStatus] = useState("idle")
-  const [searchQuery, setSearchQuery] = useState(undefined)
-  const [searchResults, setSearchResults] = useState(undefined)
+  const [searchQuery, setSearchQuery] = useState("")
+  const [searchResults, setSearchResults] = useState([])
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -26,10 +28,11 @@ function App() {
         navigate("/search")
       } catch (error) {
         setSearchStatus("idle")
+        navigate("/search")
       }
     }
 
-    if (searchQuery) {
+    if (searchQuery !== "") {
       handleSearch()
     } else {
       setSearchStatus("idle")
@@ -42,24 +45,30 @@ function App() {
 
   return (
     <div className="app">
-      <Header searchHandler={handleQuery} />
+      <div className="app--header">
+        <Header searchHandler={handleQuery} />
+      </div>
 
-      <Routes>
-        <Route path="/about" element={<About />} />
-        <Route
-          path="/search"
-          element={
-            <Search
-              searchResults={searchResults}
-              searchStatus={searchStatus}
-            />
-          }
-        />
-        <Route
-          path="/occupation-details/:occupation"
-          element={<OccupationPage />}
-        />
-      </Routes>
+      <div className="app--routes">
+        <Routes>
+          <Route path="/" element={<InfoPage />} />
+          <Route path="/about" element={<About />} />
+          <Route
+            path="/search"
+            element={
+              <Search
+                searchResults={searchResults}
+                searchStatus={searchStatus}
+                searchQuery={searchQuery}
+              />
+            }
+          />
+          <Route
+            path="/occupation-details/:occupation"
+            element={<OccupationPage searchResults={searchResults} />}
+          />
+        </Routes>
+      </div>
     </div>
   )
 }
