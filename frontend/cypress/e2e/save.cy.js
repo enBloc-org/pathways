@@ -20,4 +20,12 @@ describe("Save search feature", () => {
       .invoke("attr", "fill")
       .then(color => expect(color).to.match(/--pink/))
   })
+
+  it("stops the user from saving a search with no query", () => {
+    cy.visit(page.search)
+    SearchPage.saveButton().should("be.disabled")
+    SearchPage.searchBar().type(input.searchMultiple)
+    SearchPage.searchButton().click()
+    SearchPage.saveButton().should("not.be.disabled")
+  })
 })
