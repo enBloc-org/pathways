@@ -22,7 +22,7 @@ export default function TextSearch({ searchHandler }) {
           onChange={inputHandler}
           placeholder="Search job title"
         />
-        <button>⏎</button>
+        <button className="text-search__button">⏎</button>
       </form>
     </div>
   )

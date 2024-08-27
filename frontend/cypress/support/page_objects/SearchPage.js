@@ -3,8 +3,8 @@ import PageLayout from "./PageLayout"
 class SearchPage extends PageLayout {
   saveButton() {
     return cy
-      .get('button[class="save-search-button"]')
-      .contains(/(remove search)|(save search)/i)
+      .get('button[class="search-page--options-button"]')
+      .contains(/save search/i)
       .should("be.visible")
   }
   savedSearchButton() {
@@ -14,8 +14,20 @@ class SearchPage extends PageLayout {
       .should("be.visible");
   }
   heartIcon() {
+    return cy.get('svg[alt="heart icon"]').should("be.visible")
+  }
+
+  occupationCard() {
     return cy
-      .get('svg[class="heart-icon"]')
+      .get("button[class='occupation-card']")
+      .first()
+      .should("be.visible")
+  }
+
+  resultsLabel() {
+    return cy
+      .get("p")
+      .contains(/matched results/gi)
       .should("be.visible")
   }
 }

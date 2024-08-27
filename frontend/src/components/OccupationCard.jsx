@@ -1,17 +1,24 @@
 import "../style/OccupationCard.css"
 import expandButton from "../images/expand.svg"
+import { useNavigate } from "react-router-dom"
 
 export default function OccupationCard({
   name,
   overview,
   technicalLevelName,
+  stdCode,
 }) {
+  const navigate = useNavigate()
+
   if (!name || !overview || !technicalLevelName) {
     return <div>Loading...</div>
   }
 
   return (
-    <div className="occupation-card">
+    <button
+      className="occupation-card"
+      onClick={() => navigate(`/occupation-details/${stdCode}`)}
+    >
       <h2>{name}</h2>
       <div>
         <p className="overview">
@@ -27,9 +34,9 @@ export default function OccupationCard({
           {technicalLevelName}
         </p>
         <div>
-          <img src={expandButton} />
+          <img src={expandButton} alt="Expand icon" />
         </div>
       </div>
-    </div>
+    </button>
   )
 }

@@ -16,7 +16,7 @@ input {
   font-weight: bold;
 }
 
-button {
+.text-search__button {
   background: none;
   border: none;
   text-align: center;

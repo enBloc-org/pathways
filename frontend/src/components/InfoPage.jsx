@@ -2,20 +2,21 @@ import "../style/InfoPage.css"
 import backgroundImage from "../images/HomeBackground.jpg"
 
 function InfoPage() {
-  
-
   return (
-    <main className="main-section" style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <main
+      className="info-page main"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
       <div className="info-page__wrapper">
-        <h1 className='info-page__text'> 
-          T-Level stuff
-        </h1>
-        <p className="info-page__text">
-          All In One Place
-        </p>
+        <div className="info-page__box info-page__box--pathways">
+          <h1 className="info-page__text">Pathways</h1>
+        </div>
+        <div className="info-page__box info-page__box--tlevel">
+          <p className="info-page__text-2">Explore T-Level placements for team</p>
+        </div>
       </div>
     </main>
-  );
+  )
 }
 
-export default InfoPage;
+export default InfoPage

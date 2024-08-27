@@ -7,6 +7,7 @@ import spinner from "../images/loadingSpinner.svg"
 import FilterButton from "../components/FilterButton"
 import fetchAllRoutes from "../utils/fetchAllRoutes"
 import SavedSearches from "../components/SavedSearch"
+import "../style/Search.css"
 
 export default function Search({
   searchResults,
@@ -95,9 +96,9 @@ export default function Search({
   }
 
   return (
-    <>
-      <h1>Search Page</h1>
-      <div>
+    <div className="search-page main">
+      <div className="search-page--options-bar">
+        <div>
         <SaveSearchButton onSave={saveHandler} isSaved={isSaved} />
         <SavedSearches savedSearches={allSaved}
         setSearchQuery={setSearchQuery}
@@ -110,8 +111,16 @@ export default function Search({
           setSearchQuery={setSearchQuery}
           setFilterOptions={setFilterOptions}
         />
+        </div>
+        {searchQuery && (
+          <p>
+            {filteredResults.length} matched results for {searchQuery}
+          </p>
+        )}
       </div>
-      {renderStatusResults()}
-    </>
+      <div className="search-page--results">
+        {renderStatusResults()}
+      </div>
+    </div>
   )
 }
