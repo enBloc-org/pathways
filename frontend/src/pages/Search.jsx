@@ -7,6 +7,7 @@ import spinner from "../images/loadingSpinner.svg"
 import FilterButton from "../components/FilterButton"
 import fetchAllRoutes from "../utils/fetchAllRoutes"
 import "../style/Search.css"
+import retrieveLocalStorage from "../utils/retrieveLocalStorage"
 
 export default function Search({
   searchResults,
@@ -60,12 +61,9 @@ export default function Search({
   }
 
   const saveHandler = () => {
-    const currentUrl = window.location.href
-    const currentQuery = searchParams.get("query")
-    const currentEntry = {
-      name: currentQuery,
-      url: currentUrl,
-    }
+    const currentEntry = retrieveLocalStorage(searchParams)
+    if (!currentEntry) return
+
     setIsSaved(previous => !previous)
     if (isSaved) {
       const newSavedHistory = allSaved.filter(
