@@ -1,6 +1,4 @@
 import "../style/OccupationCard.css"
-import expandButton from "../images/expand.svg"
-
 export default function OccupationCard({
   name,
   overview,

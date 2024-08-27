@@ -1,13 +1,13 @@
 .occupation-card {
-  height: 28dvh;
-  width: 25dvw;
+  height: 32vh;
+  width: 30dvw;
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: space-between;
   border: 1px solid var(--brown);
   box-shadow: 0 0 10px black;
-  border-radius: 0 7vmin 7vmin 0;
+  border-radius: 15px;
   font-size: 2vmin;
   background-image:linear-gradient(var(--brown) 20%, white 0%) ;
 }
@@ -42,10 +42,4 @@
   width: 95%;
   padding: 0 1em;
   font-size: 2vmin;
-}
-
-.technical-level-name div > img {
-  object-fit: contain;
-  height: 2.5vmin;
-  width: 2.5vmin;
 }
