@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: var(--grey);
+  background-color: var(--white);
   color: white;
 }
 
@@ -30,7 +30,7 @@
 .header-button {
   background: none;
   border: none;
-  color: white;
+  color: grey;
   cursor: pointer;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .information {
-  background-color: white;
+  background-color: grey;
   height: 1rem;
   width: 1rem;
   border-radius: 50%;

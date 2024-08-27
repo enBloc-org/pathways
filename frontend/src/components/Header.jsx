@@ -27,6 +27,7 @@ export default function Header({ searchHandler }) {
         <p className="information">ℹ</p>
       </div>
       <div className="button-container">
+        
         <Link
           className={`header-button ${currentPage === "about" && "bold"}`}
           to="/about"
