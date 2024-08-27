@@ -3,6 +3,10 @@ import * as input from "../fixtures/inputs.json"
 import SearchPage from "../support/page_objects/SearchPage"
 
 describe("Save search feature", () => {
+  beforeEach(() => {
+    cy.clearAllLocalStorage()
+  })
+
   it("allows user to save any search", () => {
     cy.visit(page.search)
     SearchPage.searchBar().type(input.searchSingle)
