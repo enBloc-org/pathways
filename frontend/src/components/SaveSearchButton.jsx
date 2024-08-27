@@ -16,7 +16,7 @@ export default function SaveSearchButton({
         width="28px"
         height="28px"
         viewBox="0 0 24 24"
-        fill={isSaved ? "var(--pink)" : "var(--grey)"}
+        fill={isDisabled ? "var(--secondary-grey)" : isSaved ? "var(--pink)" : "var(--grey)"}
         xmlns="http://www.w3.org/2000/svg"
         className="heart-icon"
         alt="heart icon"
