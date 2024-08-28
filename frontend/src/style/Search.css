@@ -42,10 +42,18 @@
   justify-content: center;
 }
 
-
 @media (max-width: 800px) {
-  .search-page--options-bar > *{
-    flex-direction:column;
+  .search-page--options-bar > * {
+    flex-direction: column;
     align-items: end;
+  }
+
+  .filter-container .search-page--options__dropdown {
+    right: 100%;
+    top:0;
+  }
+
+  .saved-searches--container .dropdown-section {
+    align-items: flex-end;
   }
 }

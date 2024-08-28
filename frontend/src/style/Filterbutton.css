@@ -45,3 +45,14 @@
   color: #ffffff;
   border-radius: 4px;
 }
+
+@media (max-width: 800px) {
+  
+
+  .filter-options{
+    width:70dvw;
+    height: 60dvh;
+    grid-template-columns:auto;   
+    overflow:scroll;
+  }
+}
