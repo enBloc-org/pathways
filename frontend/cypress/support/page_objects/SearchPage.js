@@ -7,7 +7,12 @@ class SearchPage extends PageLayout {
       .contains(/save search/i)
       .should("be.visible")
   }
-
+  savedSearchButton() {
+    return cy
+      .get('.saved-searches-header')
+      .contains('p', /Saved Searches/i)
+      .should("be.visible");
+  }
   heartIcon() {
     return cy.get('svg[alt="heart icon"]').should("be.visible")
   }

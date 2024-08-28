@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react"
-import "../style/Filterbutton.css"
+import { useState, useEffect} from "react";
+import "../style/Filterbutton.css";
 
-export default function FilterButton({ options, onApply }) {
-  const [selectedOptions, setSelectedOptions] = useState([])
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+export default function FilterButton({ options, onApply,searchQuery, setSearchQuery, setFilterOptions }) {
+  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isActive, setIsActive] = useState(false)
 
   useEffect(() => {
@@ -24,9 +24,23 @@ export default function FilterButton({ options, onApply }) {
   }
 
   const toggleDropdown = () => {
-    setIsDropdownOpen(prevIsDropdownOpen => !prevIsDropdownOpen)
-  }
-
+    setIsDropdownOpen((prevIsDropdownOpen) => !prevIsDropdownOpen);
+  };
+  useEffect(() => {
+    if(!searchQuery){
+     const currentUrl = window.location.href
+     const queryRegex = /[?&]query=([^&]+)/;
+     
+ const match = currentUrl.match(queryRegex);
+ setSearchQuery(match ? decodeURIComponent(match[1]) : null);
+ const filterRegex = /[?&]filter=(\d+)/g;
+ const newOptions = [...currentUrl.matchAll(filterRegex)].map(match => parseInt(match[1]))
+ 
+     setFilterOptions(newOptions);
+     setSelectedOptions(newOptions)
+    }
+   
+   }, [searchQuery])
   return (
     <div className="filter-container">
       <button
