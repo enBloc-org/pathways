@@ -20,14 +20,15 @@ export default function Header({ searchHandler }) {
   return (
     <nav className="header">
       <div className="logo-container">
-        <img src={gatsbyLogo} alt="Gatsby Logo" className="logo" />
+        <Link to="http://localhost:3000/">
+          <img src={gatsbyLogo} alt="Gatsby Logo" className="logo" />
+        </Link>
       </div>
       <div>
         <TextSearch searchHandler={searchHandler} />
         <p className="information">ℹ</p>
       </div>
       <div className="button-container">
-        
         <Link
           className={`header-button ${currentPage === "about" && "bold"}`}
           to="/about"
