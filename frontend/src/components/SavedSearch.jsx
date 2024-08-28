@@ -2,7 +2,6 @@ import React, { useState } from "react"
 import "../style/SavedSearch.css"
 export default function SavedSearches({
   savedSearches,
-  setSearchQuery,
   handleSavedSearchClick,
 }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
@@ -11,19 +10,24 @@ export default function SavedSearches({
     setIsDropdownOpen(prev => !prev)
   }
 
-  const displaySearches = savedSearches
-
   return (
     <div className="saved-searches--container">
       <button
         className="search-page--options-button"
         onClick={toggleDropdown}
+        disabled={savedSearches.length === 0}
       >
         <p>Saved Searches</p>
         <svg
           version="1.1"
           width="28px"
-          fill={isDropdownOpen ? "var(--pink)" : "var(--grey)"}
+          fill={
+            savedSearches.length === 0
+              ? "var(--secondary-grey)"
+              : isDropdownOpen
+                ? "var(--pink)"
+                : "var(--grey)"
+          }
           height="28px"
           viewBox="-10 0 120 80"
           xmlns="http://www.w3.org/2000/svg"
@@ -36,20 +40,18 @@ export default function SavedSearches({
 
       {isDropdownOpen && (
         <div className="search-page--options__dropdown saved-searches__dropdown">
-          {displaySearches.length > 0 && (
-            <div className="dropdown-section">
-                <div className="divider" />
-              {displaySearches.map((search, index) => (
-                <div
-                  key={`today-${index}`}
-                  className="dropdown-item"
-                  onClick={() => handleSavedSearchClick(search.url)}
-                >
-                  <p>{search.name}</p>
-                </div>
-              ))}
-            </div>
-          )}
+          <div className="dropdown-section">
+            <div className="divider" />
+            {savedSearches.map((search, index) => (
+              <div
+                key={`today-${index}`}
+                className="dropdown-item"
+                onClick={() => handleSavedSearchClick(search.url)}
+              >
+                <p>{search.name}</p>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>
