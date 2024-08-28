@@ -6,16 +6,6 @@
   display: block;
 }
 
-.filter--dropdown {
-  border-radius: 10px;
-  z-index: 1;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: absolute;
-}
-
 .filter-options {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

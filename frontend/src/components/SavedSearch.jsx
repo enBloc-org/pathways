@@ -19,7 +19,7 @@ export default function SavedSearches({ savedSearches, setSearchQuery,handleSave
       </button>
 
       {isDropdownOpen && (
-        <div className="dropdown-menu">
+        <div className="search-page--options__dropdown saved-searches__dropdown">
           {displaySearches.length > 0 && (
             <div className="dropdown-section">
              <div>
