@@ -40,14 +40,14 @@
 
 .information {
   background-color: white;
-  height: 1.5rem; 
-  width: 1.5rem; 
+  height: 1.3rem; 
+  width: 1.3rem; 
   border-radius: 50%;
   border: 1px solid var(--grey);
   margin: 0 1rem;
   color: var(--grey);
   text-align: center;
-  line-height: 1.5rem; 
+  line-height: 1.1rem; 
   font-size: 0.9rem; 
   position: relative;
   z-index: 10;
