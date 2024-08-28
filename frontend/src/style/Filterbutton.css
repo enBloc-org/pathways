@@ -41,18 +41,25 @@
   font-size: 1rem;
   cursor: pointer;
   background-color: var(--pink);
-  border:none;
+  border: none;
   color: #ffffff;
   border-radius: 4px;
 }
 
 @media (max-width: 800px) {
-  
-
-  .filter-options{
-    width:70dvw;
+  .filter-options {
+    width: 70dvw;
     height: 60dvh;
-    grid-template-columns:auto;   
-    overflow:scroll;
+    grid-template-columns: auto;
+    overflow: scroll;
+  }
+}
+
+@media (max-width: 1400px) and (min-width: 800px) {
+  .filter-options {
+    width: 60dvw;
+    height: 60dvh;
+    grid-template-columns: repeat(2, 1fr);
+    overflow: scroll;
   }
 }
