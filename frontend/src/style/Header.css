@@ -40,15 +40,15 @@
 
 .information {
   background-color: white;
-  height: 1rem;
-  width: 1rem;
+  height: 1.3rem; 
+  width: 1.3rem; 
   border-radius: 50%;
   border: 1px solid var(--grey);
   margin: 0 1rem;
   color: var(--grey);
   text-align: center;
-  line-height: 0.8rem;
-  justify-content: center;
+  line-height: 1.1rem; 
+  font-size: 0.9rem; 
   position: relative;
   z-index: 10;
 }
@@ -56,15 +56,19 @@
 .information:after {
   display: none;
   position: absolute;
-  top: 50%;
+  top: 120%; 
   left: 50%;
-  padding: 1rem;
-  z-index: -10;
-  height: 3rem;
-  width: 10rem;
+  transform: translateX(-50%); 
+  padding: 0.5rem;
+  z-index: 20;
+  height: auto; 
+  width: 15rem; 
   background-color: white;
-  box-shadow: 0 5px 5px var(--grey);
+  box-shadow: 0 5px 10px var(--grey);
   content: 'You can search multiple job titles by separating them with a comma ","';
+  font-size: 0.9rem; 
+  line-height: 1.4; 
+  text-align: center; 
 }
 
 .information:hover:after {
