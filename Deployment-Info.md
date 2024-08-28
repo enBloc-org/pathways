@@ -8,7 +8,6 @@
 5. [Deployment Process](#deployment-process)
 6. [Configuration](#configuration)
 7. [Backup and Recovery](#backup-and-recovery)
-8. [Contact Information](#contact-information)
 
 ## Overview
 A project to let employers search for T-Level programs. For more detail look [here](https://github.com/enBloc-org/pathways/blob/dev/README.md)
@@ -39,12 +38,5 @@ Backend API_KEY the key for accessing the occupational maps API, BASE_URL the pa
 - **Backup Schedule:** Back up was created at handoff
 - **Backup Location:** Rollback Branch
 - **Recovery Process:** Replace Dev or Main Branch with Rollback Branch and the product will work in the state it was handed off in.
-
-
-
-## Contact Information
-- **Primary Contact:** [Name, Role, Email, Phone]
-- **Secondary Contact:** [Name, Role, Email, Phone]
-- **Emergency Contact:** [Name, Role, Email, Phone]
 
 Last Updated: 2024-08-28
