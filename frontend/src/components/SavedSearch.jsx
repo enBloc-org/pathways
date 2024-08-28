@@ -23,7 +23,7 @@ export default function SavedSearches({
         <svg
           version="1.1"
           width="28px"
-          fill="var(--grey)"
+          fill={isDropdownOpen ? "var(--pink)" : "var(--grey)"}
           height="28px"
           viewBox="-10 0 120 80"
           xmlns="http://www.w3.org/2000/svg"
