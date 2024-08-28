@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Routes, Route, useNavigate } from "react-router-dom"
 
 import fetchOccupationByQuery from "./utils/fetchOccupationByQuery"
@@ -6,37 +6,81 @@ import Header from "./components/Header"
 import About from "./pages/About"
 import Search from "./pages/Search"
 import OccupationPage from "./pages/OccupationPage"
+import InfoPage from "./components/InfoPage"
 
+import "./style/normalize.css"
 import "./style/globals.css"
 import "./App.css"
 
 function App() {
-  const [searchResults, setSearchResults] = useState(undefined)
+  const [searchStatus, setSearchStatus] = useState("idle")
+  const [searchQuery, setSearchQuery] = useState("")
+  const [searchResults, setSearchResults] = useState([])
   const navigate = useNavigate()
 
-  const handleSearch = async query => {
-    const data = await fetchOccupationByQuery(query)
-    setSearchResults(data.results)
-    navigate("/search")
+  const handleSavedSearchClick= (url) =>{
+    setSearchQuery('');
+    console.log(url)
+    const route = url.match(/^https?:\/\/[^/]+(\/.*)$/)[1];
+    navigate(route);
+;
+    }
+
+  useEffect(() => {
+    const handleSearch = async () => {
+      try {
+        setSearchStatus("loading")
+        const data = await fetchOccupationByQuery(searchQuery)
+        setSearchResults(data)
+        setSearchStatus("fulfilled")
+        navigate("/search")
+      } catch (error) {
+        setSearchStatus("idle")
+        navigate("/search")
+      }
+    }
+
+    if (searchQuery !== "") {
+      handleSearch()
+    } else {
+      setSearchStatus("idle")
+    }
+  }, [searchQuery])
+
+  const handleQuery = input => {
+    setSearchQuery(input)
   }
 
   return (
     <div className="app">
-      <Header searchHandler={handleSearch} />
+      <div className="app--header">
+        <Header searchHandler={handleQuery} />
+      </div>
 
-      <Routes>
-        <Route path="/about" element={<About />} />
-        <Route
-          path="/search"
-          element={<Search searchResults={searchResults} />}
-        />
-        <Route
-          path="/occupation-details/:occupation"
-          element={<OccupationPage />}
-        />
-      </Routes>
+      <div className="app--routes">
+        <Routes>
+          <Route path="/" element={<InfoPage />} />
+          <Route path="/about" element={<About />} />
+          <Route
+            path="/search"
+            element={
+              <Search
+              searchResults={searchResults}
+              searchStatus={searchStatus}
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+              handleSavedSearchClick={handleSavedSearchClick}
+              />
+            }
+          />
+          <Route
+            path="/occupation-details/:occupation"
+            element={<OccupationPage searchResults={searchResults} />}
+          />
+        </Routes>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

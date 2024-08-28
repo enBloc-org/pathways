@@ -19,8 +19,32 @@ export default async function getOccupationByQuery(query) {
     if (!response.ok) throw new Error("Error fetching data")
 
     const data = await response.json()
-    return data
+
+    const tLevels = data.results
+      .map(occupation => {
+        if (occupation.products !== undefined) {
+          return {
+            ...occupation,
+            products: occupation.products.filter(
+              product => product.typeName === "TLevel"
+            ),
+          }
+        }
+
+        return {
+          ...occupation,
+        }
+      })
+      .filter(
+        occupation =>
+          occupation.products !== undefined &&
+          occupation.products.length > 0 &&
+          occupation.level === 3
+      )
+
+    return tLevels
   } catch (error) {
+    console.error(error)
     throw error
   }
 }

@@ -1,6 +1,8 @@
 .occupation-card {
   height: 43dvh;
   width: 30dvw;
+  min-height: 200px;
+  min-width: 350px;
   display: flex;
   flex-direction: column;
   align-items: start;

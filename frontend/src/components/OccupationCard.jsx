@@ -1,15 +1,22 @@
+import {useNavigate} from 'react-router-dom'
 import "../style/OccupationCard.css"
 export default function OccupationCard({
   name,
   overview,
   technicalLevelName,
+  stdCode,
 }) {
+  const navigate = useNavigate()
+
   if (!name || !overview || !technicalLevelName) {
     return <div>Loading...</div>
   }
 
   return (
-    <div className="occupation-card">
+    <button
+      className="occupation-card"
+      onClick={() => navigate(`/occupation-details/${stdCode}`)}
+    >
       <h2>{name}</h2>
       <div>
         <p className="overview">
@@ -24,6 +31,6 @@ export default function OccupationCard({
           <strong>Technical Level:</strong> {technicalLevelName} <br />{" "}
         </p>
       </div>
-    </div>
+    </button>
   )
 }

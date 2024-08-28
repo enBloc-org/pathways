@@ -1,9 +1,8 @@
 import { useState } from "react"
 import "../style/TextSearch.css"
 
-export default function TextSearch({searchHandler}) {
-  const [searchParameter, setSearchParameter] =
-    useState(undefined)
+export default function TextSearch({ searchHandler }) {
+  const [searchParameter, setSearchParameter] = useState(undefined)
 
   const inputHandler = event => {
     setSearchParameter(event.target.value)

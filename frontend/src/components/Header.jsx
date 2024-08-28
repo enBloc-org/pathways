@@ -28,10 +28,16 @@ export default function Header({ searchHandler }) {
         <p className="information">ℹ</p>
       </div>
       <div className="button-container">
-        <Link className="header-button" to="/about">
+        <Link
+          className={`header-button ${currentPage === "about" && "bold"}`}
+          to="/about"
+        >
           About
         </Link>
-        <Link className="header-button" to="/search">
+        <Link
+          className={`header-button ${currentPage === "search" && "bold"}`}
+          to="/search"
+        >
           Search
         </Link>
       </div>
