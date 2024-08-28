@@ -55,5 +55,7 @@
 
   .saved-searches--container .dropdown-section {
     align-items: flex-end;
+    width: 120px;
+    text-align: end;
   }
 }

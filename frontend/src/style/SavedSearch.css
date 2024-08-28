@@ -53,12 +53,11 @@ a p {
 }
 
 .divider {
-  margin: 12px;
-  padding: 1px;
-  font-size: 10px;
   border-top: 4px solid var(--pink);
   height: 0rem;
-  width: 11rem;
+  width: 80%;
+  position:absolute;
+  left:5px;
 }
 
 .dropdown-item {

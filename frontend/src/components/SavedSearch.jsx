@@ -38,9 +38,7 @@ export default function SavedSearches({
         <div className="search-page--options__dropdown saved-searches__dropdown">
           {displaySearches.length > 0 && (
             <div className="dropdown-section">
-              <div>
                 <div className="divider" />
-              </div>
               {displaySearches.map((search, index) => (
                 <div
                   key={`today-${index}`}
