@@ -50,12 +50,15 @@
 
   .filter-container .search-page--options__dropdown {
     right: 100%;
-    top:0;
+    top: 0;
   }
 
   .saved-searches--container .dropdown-section {
     align-items: flex-end;
     width: 120px;
-    text-align: end;
+  }
+
+  .saved-searches--container .dropdown-section button {
+    text-align: end;  
   }
 }

@@ -43,13 +43,13 @@ export default function SavedSearches({
           <div className="dropdown-section">
             <div className="divider" />
             {savedSearches.map((search, index) => (
-              <div
+              <button
                 key={`today-${index}`}
                 className="dropdown-item"
                 onClick={() => handleSavedSearchClick(search.url)}
               >
-                <p>{search.name}</p>
-              </div>
+                {search.name}
+              </button>
             ))}
           </div>
         </div>

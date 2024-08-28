@@ -65,6 +65,10 @@ a p {
   color: var(--grey);
   text-decoration: none;
   padding: 8px 10px;
+  background: none;
+  border:none;
+  text-wrap:wrap;
+  cursor:pointer;
 }
 
 .dropdown-item:hover {
