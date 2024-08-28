@@ -1,14 +1,19 @@
 .occupation-card {
-  height: 28dvh;
-  width: 25dvw;
+  height: 43dvh;
+  width: 30dvw;
+  min-height: 200px;
+  min-width: 350px;
+  max-height: 250px;
+  max-width: 400px;
+
   display: flex;
   flex-direction: column;
   align-items: start;
   justify-content: space-between;
   border: 1px solid var(--brown);
   box-shadow: 0 0 10px black;
-  border-radius: 0 7vmin 7vmin 0;
-  font-size: 2vmin;
+  border-radius: 20px;
+  font-size: 20px;
   cursor: pointer;
   background-image: linear-gradient(var(--brown) 20%, white 0%);
 }
@@ -20,11 +25,11 @@
   text-justify: center;
   margin-top: 0;
   border-radius: 0 7vmin 0 0;
-  font-size: 2vmin;
+  font-size: 20px;
 }
 
 .overview {
-  padding-left: 2em;
+  padding-left: 1em;
   margin: 0;
   overflow: auto;
   text-wrap: wrap;
@@ -42,11 +47,7 @@
   text-align: center;
   width: 95%;
   padding: 0 1em;
-  font-size: 2vmin;
+  font-size: 15px;
 }
 
-.technical-level-name div > img {
-  object-fit: contain;
-  height: 2.5vmin;
-  width: 2.5vmin;
-}
+
