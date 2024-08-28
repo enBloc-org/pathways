@@ -30,7 +30,7 @@
 .header-button {
   background: none;
   border: none;
-  color: grey;
+  color: var (--grey);
   cursor: pointer;
 }
 
@@ -39,7 +39,7 @@
 }
 
 .information {
-  background-color: grey;
+  background-color: white;
   height: 1rem;
   width: 1rem;
   border-radius: 50%;
