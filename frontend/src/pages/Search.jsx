@@ -114,7 +114,7 @@ export default function Search({
         </div>
         {searchQuery && (
           <p>
-            {filteredResults.length} matched results for {searchQuery}
+            {filteredResults.length} matched results for {searchQuery.replace(",+", " and ").replace(",", " and ")}
           </p>
         )}
       </div>
