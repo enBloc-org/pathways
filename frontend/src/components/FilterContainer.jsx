@@ -3,11 +3,11 @@ import FilterButton from "./FilterButton";
 import SaveSearchButton from "./SaveSearchButton.jsx";
 
 export default function FilterContainer({ allRoutes, appliedFilters, setAppliedFilters, occupationSearch }) {
-  const [recentSearches, setRecentSearches] = useState([]);
+  const [savedSearches, setSavedSearches] = useState([]);
 
   useEffect(() => {
-    const savedSearches = JSON.parse(localStorage.getItem('recentSearches')) || [];
-    setRecentSearches(savedSearches);
+    const storedSearches = JSON.parse(localStorage.getItem('savedSearches')) || [];
+    setSavedSearches(storedSearches);
   }, []);
 
   const handleApplyFilters = (selectedOptions) => {
@@ -20,9 +20,9 @@ export default function FilterContainer({ allRoutes, appliedFilters, setAppliedF
       query: occupationSearch,
       filters: appliedFilters
     };
-    const updatedSearches = [...recentSearches, searchState];
-    setRecentSearches(updatedSearches);
-    localStorage.setItem('recentSearches', JSON.stringify(updatedSearches));
+    const updatedSearches = [...savedSearches, searchState];
+    setSavedSearches(updatedSearches);
+    localStorage.setItem('savedSearches', JSON.stringify(updatedSearches));
   };
 
   const handleUnsaveSearch = () => {
@@ -30,12 +30,12 @@ export default function FilterContainer({ allRoutes, appliedFilters, setAppliedF
       query: occupationSearch,
       filters: appliedFilters
     };
-    const updatedSearches = recentSearches.filter(search => 
+    const updatedSearches = savedSearches.filter(search => 
       search.query !== searchState.query || 
       JSON.stringify(search.filters) !== JSON.stringify(searchState.filters)
     );
-    setRecentSearches(updatedSearches);
-    localStorage.setItem('recentSearches', JSON.stringify(updatedSearches));
+    setSavedSearches(updatedSearches);
+    localStorage.setItem('savedSearches', JSON.stringify(updatedSearches));
   };
 
   return (

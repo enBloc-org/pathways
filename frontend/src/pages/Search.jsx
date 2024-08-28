@@ -6,6 +6,7 @@ import OccupationsList from "../components/OccupationsList"
 import spinner from "../images/loadingSpinner.svg"
 import FilterButton from "../components/FilterButton"
 import fetchAllRoutes from "../utils/fetchAllRoutes"
+import SavedSearches from "../components/SavedSearch"
 import "../style/Search.css"
 import retrieveLocalStorage from "../utils/retrieveLocalStorage"
 
@@ -13,6 +14,8 @@ export default function Search({
   searchResults,
   searchStatus,
   searchQuery,
+  setSearchQuery,
+  handleSavedSearchClick,
 }) {
   const [searchParams, setSearchParams] = useSearchParams()
   const [isSaved, setIsSaved] = useState(false)
@@ -58,19 +61,26 @@ export default function Search({
       return setFilterOptions(selectedOptions)
     }
     setFilterOptions([])
+    setIsSaved(false);
   }
 
   const saveHandler = () => {
-    const currentEntry = retrieveLocalStorage(searchParams)
-    if (!currentEntry) return
-
+    const currentFilterLength = filterOptions.length
+    const currentUrl = window.location.href
+    const currentQuery = searchParams.get("query")
+    const currentEntry = {
+      name: `${currentQuery} filters(${currentFilterLength})`,
+      url: currentUrl,
+    }
     setIsSaved(previous => !previous)
     if (isSaved) {
       const newSavedHistory = allSaved.filter(
         search => search.url !== currentEntry.url
       )
+     
       return setAllSaved(newSavedHistory)
     }
+
     setAllSaved(previous => [...previous, currentEntry])
   }
 
@@ -90,11 +100,18 @@ export default function Search({
     <div className="search-page main">
       <div className="search-page--options-bar">
         <div>
-          <FilterButton
-            options={allRoutes}
-            onApply={handleApplyFilters}
-          />
-          <SaveSearchButton onSave={saveHandler} isSaved={isSaved} isDisabled={!searchQuery} />
+        <SaveSearchButton onSave={saveHandler} isSaved={isSaved} />
+        <SavedSearches savedSearches={allSaved}
+        setSearchQuery={setSearchQuery}
+        handleSavedSearchClick={handleSavedSearchClick}
+        />
+        <FilterButton
+          options={allRoutes}
+          onApply={handleApplyFilters}
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          setFilterOptions={setFilterOptions}
+        />
         </div>
         {searchQuery && (
           <p>
