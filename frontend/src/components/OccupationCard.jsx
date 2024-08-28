@@ -21,12 +21,8 @@ export default function OccupationCard({
       </div>
       <div className="technical-level-name">
         <p>
-          <strong>Technical Level:</strong> <br />{" "}
-          {technicalLevelName}
+          <strong>Technical Level:</strong> {technicalLevelName} <br />{" "}
         </p>
-        <div>
-          <img src={expandButton} />
-        </div>
       </div>
     </div>
   )

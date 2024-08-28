@@ -1,5 +1,4 @@
-import RecentSearches from "./RecentSearch";
-
+import RecentSearches from "./RecentSearch"
 export default {
   title: 'RecentSearches',
   component: RecentSearches,

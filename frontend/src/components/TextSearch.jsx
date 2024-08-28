@@ -17,12 +17,15 @@ export default function TextSearch({searchHandler}) {
   return (
     <div>
       <form onSubmit={event => submitHandler(event)}>
-        <input
-          value={searchParameter}
-          onChange={inputHandler}
-          placeholder="Search job title"
-        />
-        <button>⏎</button>
+        <div className="search-container"> 
+          <input
+            name="search-query"
+            value={searchParameter}
+            onChange={inputHandler}
+            placeholder="Search job title"
+          />
+          <button className="text-search__button">⏎</button>
+        </div>
       </form>
     </div>
   )
