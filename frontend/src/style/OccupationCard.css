@@ -25,7 +25,10 @@
   text-justify: center;
   margin-top: 0;
   border-radius: 0 7vmin 0 0;
-  font-size: 20px;
+  font-size: 17px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .overview {
