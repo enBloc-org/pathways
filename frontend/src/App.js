@@ -20,7 +20,6 @@ function App() {
 
   const handleSavedSearchClick= (url) =>{
     setSearchQuery('');
-    console.log(url)
     const route = url.match(/^https?:\/\/[^/]+(\/.*)$/)[1];
     navigate(route);
 ;
@@ -48,7 +47,7 @@ function App() {
   }, [searchQuery])
 
   const handleQuery = input => {
-    setSearchQuery(input)
+    setSearchQuery(input.replace(/^\s+/g, ''))
   }
 
   return (
