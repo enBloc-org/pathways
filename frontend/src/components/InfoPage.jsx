@@ -12,7 +12,7 @@ function InfoPage() {
           <h1 className="info-page__text">Pathways</h1>
         </div>
         <div className="info-page__box info-page__box--tlevel">
-          <p className="info-page__text-2">Explore T-Level placements for team</p>
+          <p className="info-page__text-2">Explore T-Level placements for your team</p>
         </div>
       </div>
     </main>
