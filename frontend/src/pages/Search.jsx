@@ -61,23 +61,21 @@ export default function Search({
       return setFilterOptions(selectedOptions)
     }
     setFilterOptions([])
-    setIsSaved(false);
+    setIsSaved(false)
   }
 
   const saveHandler = () => {
-    const currentFilterLength = filterOptions.length
-    const currentUrl = window.location.href
     const currentQuery = searchParams.get("query")
-    const currentEntry = {
-      name: `${currentQuery} filters(${currentFilterLength})`,
-      url: currentUrl,
-    }
+    const currentEntry = retrieveLocalStorage(currentQuery)
+
+    if (currentEntry === null) return
+
     setIsSaved(previous => !previous)
     if (isSaved) {
       const newSavedHistory = allSaved.filter(
         search => search.url !== currentEntry.url
       )
-     
+
       return setAllSaved(newSavedHistory)
     }
 
@@ -100,18 +98,23 @@ export default function Search({
     <div className="search-page main">
       <div className="search-page--options-bar">
         <div>
-        <FilterButton
-          options={allRoutes}
-          onApply={handleApplyFilters}
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-          setFilterOptions={setFilterOptions}
-        />
-        <SaveSearchButton onSave={saveHandler} isSaved={isSaved} isDisabled={!searchQuery} />
-        <SavedSearches savedSearches={allSaved}
-        setSearchQuery={setSearchQuery}
-        handleSavedSearchClick={handleSavedSearchClick}
-        />
+          <FilterButton
+            options={allRoutes}
+            onApply={handleApplyFilters}
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            setFilterOptions={setFilterOptions}
+          />
+          <SaveSearchButton
+            onSave={saveHandler}
+            isSaved={isSaved}
+            isDisabled={!searchQuery}
+          />
+          <SavedSearches
+            savedSearches={allSaved}
+            setSearchQuery={setSearchQuery}
+            handleSavedSearchClick={handleSavedSearchClick}
+          />
         </div>
         {searchQuery && (
           <p>
