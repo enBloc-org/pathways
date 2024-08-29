@@ -27,7 +27,7 @@ describe("Save search feature", () => {
       .then(color => expect(color).to.match(/--pink/))
   })
 })
-describe("visit saved search button", () => {
+describe("allows the user to view previously saved searches", () => {
   it("allows users to change the search results to something they saved", () => {
     cy.visit(page.search)
 
@@ -37,22 +37,24 @@ describe("visit saved search button", () => {
       .contains(/software development technician/i)
       .should("exist")
       .and("be.visible")
+    cy.get("div")
+      .contains(/software development technician/i)
+      .should("exist")
+      .and("be.visible")
     SearchPage.saveButton().click()
-    SearchPage.savedSearchButton().contains(/Saved Searches/i)
-    SearchPage.searchBar().type(input.searchSingleAlt)
+    SearchPage.savedSearchButton()
+    SearchPage.searchBar().clear().type(input.searchSingleAlt)
     SearchPage.searchButton().click()
 
     SearchPage.savedSearchButton().click()
 
-    cy.get(".dropdown-menu").should("be.visible")
+    cy.get(".saved-searches__dropdown").should("be.visible")
 
     cy.get(".dropdown-item")
       .contains("web developer filters(0)")
       .should("exist")
       .should("be.visible")
       .click()
-
-    // cy.wait(4000)
 
     cy.get("div")
       .contains(/software development technician/i)

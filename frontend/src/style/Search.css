@@ -24,10 +24,41 @@
   cursor: pointer;
 }
 
+.search-page--options__dropdown {
+  border-radius: 10px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  right: 0;
+}
+
 .search-page--results {
   grid-row: 2;
   height: 100%;
   width: 100%;
   overflow-y: auto;
   justify-content: center;
+}
+
+@media (max-width: 800px) {
+  .search-page--options-bar > * {
+    flex-direction: column;
+    align-items: end;
+  }
+
+  .filter-container .search-page--options__dropdown {
+    right: 100%;
+    top: 0;
+  }
+
+  .saved-searches--container .dropdown-section {
+    align-items: flex-end;
+    width: 120px;
+  }
+
+  .saved-searches--container .dropdown-section button {
+    text-align: end;  
+  }
 }
