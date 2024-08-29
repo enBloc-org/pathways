@@ -25,7 +25,6 @@
 
 @media (max-width: 1400px) {
   .occupations-list--container {
-    border: 2px solid pink;
     display: grid;
     grid-template: repeat(2, auto) / repeat(2, auto);
   }
@@ -33,7 +32,6 @@
 
 @media (max-width: 800px) {
   .occupations-list--container {
-    border: 2px solid pink;
     display: grid;
     grid-template: repeat(1, auto) / repeat(1, auto);
   }

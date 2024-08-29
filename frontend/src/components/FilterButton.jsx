@@ -61,7 +61,7 @@ export default function FilterButton({ options, onApply,searchQuery, setSearchQu
         </svg>
       </button>
       {isDropdownOpen && (
-        <div className="filter--dropdown">
+        <div className="search-page--options__dropdown">
           <div className="filter-options">
             {options.map(route => (
               <div key={route.routeId} className="filter-option">
