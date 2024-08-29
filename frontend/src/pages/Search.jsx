@@ -8,6 +8,7 @@ import FilterButton from "../components/FilterButton"
 import fetchAllRoutes from "../utils/fetchAllRoutes"
 import SavedSearches from "../components/SavedSearch"
 import "../style/Search.css"
+import retrieveLocalStorage from "../utils/retrieveLocalStorage"
 
 export default function Search({
   searchResults,
@@ -106,7 +107,7 @@ export default function Search({
           setSearchQuery={setSearchQuery}
           setFilterOptions={setFilterOptions}
         />
-        <SaveSearchButton onSave={saveHandler} isSaved={isSaved} />
+        <SaveSearchButton onSave={saveHandler} isSaved={isSaved} isDisabled={!searchQuery} />
         <SavedSearches savedSearches={allSaved}
         setSearchQuery={setSearchQuery}
         handleSavedSearchClick={handleSavedSearchClick}
