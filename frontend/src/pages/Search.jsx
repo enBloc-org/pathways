@@ -100,7 +100,7 @@ export default function Search({
     <div className="search-page main">
       <div className="search-page--options-bar">
         <div>
-        <SaveSearchButton onSave={saveHandler} isSaved={isSaved} />
+        <SaveSearchButton onSave={saveHandler} isSaved={isSaved} isDisabled={!searchQuery}/>
         <SavedSearches savedSearches={allSaved}
         setSearchQuery={setSearchQuery}
         handleSavedSearchClick={handleSavedSearchClick}
