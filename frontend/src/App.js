@@ -35,6 +35,7 @@ function App() {
         navigate("/search")
       } catch (error) {
         setSearchStatus("idle")
+        setSearchResults([])
         navigate("/search")
       }
     }
