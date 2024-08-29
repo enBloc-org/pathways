@@ -32,7 +32,7 @@ export default function SavedSearches({ savedSearches, setSearchQuery,handleSave
                  className="dropdown-item"
                  onClick={() => handleSavedSearchClick(search.url)}
                >
-                 <p>{search.name.replace(",+", " and ").replace(",", " and ")}</p>
+                 <p>{search.name.replaceAll(",+", " and ").replaceAll(",", " and ")}</p>
                </div>
               ))}
             </div>
