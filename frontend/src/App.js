@@ -18,12 +18,17 @@ function App() {
   const [searchResults, setSearchResults] = useState([])
   const navigate = useNavigate()
 
-  const handleSavedSearchClick= (url) =>{
-    setSearchQuery('');
-    const route = url.match(/^https?:\/\/[^/]+(\/.*)$/)[1];
-    navigate(route);
-;
-    }
+  const handleSavedSearchClick = url => {
+    setSearchQuery("")
+    const route = url.match(/^https?:\/\/[^/]+(\/.*)$/)[1]
+    navigate(route)
+  }
+
+  const handleEmptyQuery = () => {
+    setSearchStatus("idle")
+    setSearchResults([])
+    navigate("/search")
+  }
 
   useEffect(() => {
     const handleSearch = async () => {
@@ -34,9 +39,7 @@ function App() {
         setSearchStatus("fulfilled")
         navigate("/search")
       } catch (error) {
-        setSearchStatus("idle")
-        setSearchResults([])
-        navigate("/search")
+        handleEmptyQuery()
       }
     }
 
@@ -48,7 +51,10 @@ function App() {
   }, [searchQuery])
 
   const handleQuery = input => {
-    setSearchQuery(input.replace(/^\s+/g, ''))
+    if (!input) {
+      return handleEmptyQuery()
+    }
+    setSearchQuery(input.replace(/^\s+/g, ""))
   }
 
   return (
@@ -65,11 +71,11 @@ function App() {
             path="/search"
             element={
               <Search
-              searchResults={searchResults}
-              searchStatus={searchStatus}
-              searchQuery={searchQuery}
-              setSearchQuery={setSearchQuery}
-              handleSavedSearchClick={handleSavedSearchClick}
+                searchResults={searchResults}
+                searchStatus={searchStatus}
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                handleSavedSearchClick={handleSavedSearchClick}
               />
             }
           />
