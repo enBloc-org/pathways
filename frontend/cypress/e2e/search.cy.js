@@ -12,6 +12,13 @@ describe("Search feature", () => {
       .contains(/there are no occupations/i)
       .should("be.visible")
     SearchPage.resultsLabel().contains(0)
+
+    SearchPage.searchBar().clear().type('.')
+    SearchPage.searchButton().click()
+    cy.get('p')
+      .contains(/enter search terms/i)
+      .should("be.visible")
+    SearchPage.resultsLabel().contains('.')
   })
 
   it("prompts the user for input if there is no query available", () => {
