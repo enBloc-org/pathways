@@ -23,7 +23,7 @@
   align-items: flex-start;
   gap: 0.5rem;
   background-color: var(--brown);
-  color: white;
+  color: var(--white);
   overflow: hidden;
   grid-column: 1 / 3;
   width: 100%;

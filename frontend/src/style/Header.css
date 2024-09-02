@@ -6,7 +6,7 @@
   align-items: center;
   padding: 1rem 2rem;
   background-color: var(--white);
-  color: white;
+  color: var(--white);
 }
 
 .logo-container {
@@ -42,7 +42,7 @@
 }
 
 .information {
-  background-color: white;
+  background-color: var(--white);
   height: 1.5rem;
   width: 1.5rem;
   border-radius: 50%;
@@ -67,7 +67,7 @@
   height: auto;
   width: 80vw;
   max-width: 15rem;
-  background-color: white;
+  background-color: var(--white);
   box-shadow: 0 5px 10px var(--grey);
   content: 'You can search multiple job titles by separating them with a comma ","';
   font-size: 0.8rem;
