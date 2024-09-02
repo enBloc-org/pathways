@@ -20,7 +20,7 @@
 }
 
 .saved-searches__dropdown {
-  background-color: white;
+  background-color: var(--white);
   border: 1px solid var(--secondary-grey);
   border-top: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);

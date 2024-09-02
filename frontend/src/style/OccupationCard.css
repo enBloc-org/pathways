@@ -11,15 +11,15 @@
   align-items: start;
   justify-content: space-between;
   border: 1px solid var(--brown);
-  box-shadow: 0 0 10px black;
+  box-shadow: 0 0 10px var(--black);
   border-radius: 20px;
   font-size: 20px;
   cursor: pointer;
-  background-image: linear-gradient(var(--brown) 20%, white 0%);
+  background-image: linear-gradient(var(--brown) 20%, var(--white) 0%);
 }
 
 .occupation-card h2 {
-  color: white;
+  color: var(--white);
   padding: 1.2vmin;
   height: 20%;
   text-justify: center;
