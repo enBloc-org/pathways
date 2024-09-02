@@ -13,13 +13,21 @@ export default function TLevelContainer({ products }) {
       })}
       <div className="t-level-container__links">
         <p>Learn More:</p>
-        <a href="https://employers.tlevels.gov.uk/hc/en-gb">
+        <a 
+        href="https://employers.tlevels.gov.uk/hc/en-gb" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        >
           T-level Placements
-        </a>
-        <a href="https://www.tlevels.gov.uk/students/find">
-          Find Partners
-        </a>
-      </div>
-    </aside>
-  )
-}
+          </a>
+          <a 
+          href="https://www.tlevels.gov.uk/students/find" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          >
+            Find Partners
+            </a>
+          </div>
+        </aside>
+        );
+      }
