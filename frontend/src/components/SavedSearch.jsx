@@ -48,7 +48,7 @@ export default function SavedSearches({
                 className="dropdown-item"
                 onClick={() => handleSavedSearchClick(search.url)}
               >
-                {search.name}
+                {search.name.replaceAll(",+", " and ").replaceAll(",", " and ")}
               </button>
             ))}
           </div>
