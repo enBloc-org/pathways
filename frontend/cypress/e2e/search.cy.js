@@ -42,6 +42,6 @@ describe("Search feature", () => {
     cy.get("div")
       .contains(/teaching assistant/i)
       .should("be.visible")
-    SearchPage.resultsLabel().contains(/teacher and web developer/i)
+    SearchPage.resultsLabel().contains(/teacher and web developer/i).contains(3)
   })
 })
