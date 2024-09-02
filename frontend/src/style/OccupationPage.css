@@ -15,7 +15,6 @@
 }
 
 .route-name {
-  color: var(--pink);
   font-size: var(--font-medium);
 }
 
@@ -54,9 +53,6 @@
   padding-right: 1rem;
 }
 
-.pathway-name span {
-  color: var(--pink);
-}
 
 
 @media (min-width: 800px) {
