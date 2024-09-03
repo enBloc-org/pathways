@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { Routes, Route, useNavigate } from "react-router-dom"
 
 import { useSearchContext } from "./context/searchContext"
@@ -15,7 +15,7 @@ import "./App.css"
 
 function App() {
   const {
-    searchState: { searchStatus, searchQuery, searchResults },
+    searchState: { searchQuery},
     dispatch,
   } = useSearchContext()
   const navigate = useNavigate()
