@@ -3,6 +3,8 @@ import "../style/globals.css"
 import "../style/OccupationPage.css"
 import { useParams } from "react-router-dom"
 
+import sanitize from "../utils/sanitize"
+
 export default function OccupationPage({ searchResults }) {
   const params = useParams()
 
@@ -10,10 +12,7 @@ export default function OccupationPage({ searchResults }) {
     occupation => occupation.stdCode === params.occupation
   )
 
-  const occupationSummary = searchResults[index].summary.replace(
-    /<\/?p>/g,
-    ""
-  )
+  const occupationSummary = sanitize(searchResults[index].summary)
   return (
     <main className="occupation-page__main main">
       <div className="flex-col occupation-header">
