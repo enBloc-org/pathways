@@ -1,20 +1,20 @@
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom"
+import { useEffect, useState } from "react"
 
-import TextSearch from "./TextSearch";
-import gatsbyLogo from "../images/GATSBY.jpeg";
-import "../style/Header.css";
+import TextSearch from "./TextSearch"
+import gatsbyLogo from "../images/GATSBY.jpeg"
+import "../style/Header.css"
 
 export default function Header({ searchHandler }) {
-  const [currentPage, setCurrentPage] = useState();
+  const [currentPage, setCurrentPage] = useState()
 
   useEffect(() => {
-    const page = window.location.href;
-    const pageRegex = /(about)|(search)/g;
-    const match = page.match(pageRegex);
+    const page = window.location.href
+    const pageRegex = /(about)|(search)/g
+    const match = page.match(pageRegex)
 
-    setCurrentPage(match ? match[0] : "/");
-  }, [window.location.href]);
+    setCurrentPage(match ? match[0] : "/")
+  }, [window.location.href])
 
   return (
     <nav className="header">
@@ -23,24 +23,26 @@ export default function Header({ searchHandler }) {
           <img src={gatsbyLogo} alt="Gatsby Logo" className="logo" />
         </Link>
       </div>
-      <div className="search-and-info">
-        <TextSearch searchHandler={searchHandler} />
-        <p className="information">ℹ</p>
-      </div>
-      <div className="button-container">
-        <Link
-          className={`header-button ${currentPage === "about" && "bold"}`}
-          to="/about"
-        >
-          About
-        </Link>
-        <Link
-          className={`header-button ${currentPage === "search" && "bold"}`}
-          to="/search"
-        >
-          Search
-        </Link>
+      <div>
+        <div>
+          <TextSearch searchHandler={searchHandler} />
+          <p className="information">ℹ</p>
+        </div>
+        <div className="nav-links">
+          <Link
+            className={`header-button ${currentPage === "about" && "bold"}`}
+            to="/about"
+          >
+            About
+          </Link>
+          <Link
+            className={`header-button ${currentPage === "search" && "bold"}`}
+            to="/search"
+          >
+            Search
+          </Link>
+        </div>
       </div>
     </nav>
-  );
+  )
 }

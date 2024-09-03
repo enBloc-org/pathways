@@ -4,7 +4,7 @@
   --pink: #d6606d;
   --blue: #7796b2;
   --black: #333333;
-  --white: #FFFFFF; 
+  --white: #ffffff;
   --secondary-grey: #d9d9d9;
   --font-medium: 1.15rem;
   --font-large: 1.3rem;
@@ -25,6 +25,10 @@
   font-size: 52pt;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .flex-col {
   display: flex;
   flex-direction: column;
@@ -35,7 +39,7 @@
 }
 
 .main {
-  grid-row:2;
+  grid-row: 2;
   height: 100%;
   width: 100dvw;
 }

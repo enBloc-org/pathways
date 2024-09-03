@@ -1,10 +1,11 @@
 .header {
+  z-index: 30;
   width: 100dvw;
   height: 15vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  padding: 5rem 5rem;
   background-color: var(--white);
   color: var(--white);
 }
@@ -16,25 +17,24 @@
 
 .logo {
   width: 10vw;
-  max-width: 100px;
+  max-width: 90px;
   height: auto;
 }
 
-.button-container {
+.nav-links {
   display: flex;
   flex-direction: row;
   align-items: center;
+  gap: 2rem;
   justify-content: space-between;
-  width: 220px;
-  max-width: 10rem;
+}
+
+.nav-links a:visited {
+  color: var(--black);
 }
 
 .header-button {
-  background: none;
-  border: none;
-  color: var (--grey);
-  cursor: pointer;
-  font-size: 1vw;
+  text-decoration: none;
 }
 
 .header-button:hover {
@@ -79,7 +79,6 @@
   display: block;
 }
 
-
 @media (max-width: 1024px) {
   .header {
     flex-direction: column;
@@ -109,7 +108,6 @@
     width: 90vw;
   }
 }
-
 
 @media (max-width: 768px) {
   .header {
