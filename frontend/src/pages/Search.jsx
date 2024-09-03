@@ -8,11 +8,9 @@ import FilterButton from "../components/FilterButton"
 import fetchAllRoutes from "../utils/fetchAllRoutes"
 import SavedSearches from "../components/SavedSearch"
 import "../style/Search.css"
+import { useSearchContext } from "../context/searchContext"
 
 export default function Search({
-  searchResults,
-  searchStatus,
-  searchQuery,
   handleSavedSearchClick,
 }) {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -21,6 +19,9 @@ export default function Search({
     JSON.parse(localStorage.getItem("pathways-search")) ?? []
   )
   const [allRoutes, setAllRoutes] = useState([])
+  const {
+    searchState: { searchResults, searchQuery, searchStatus },
+  } = useSearchContext()
   const [filteredResults, setFilteredResults] =
     useState(searchResults)
   const [filterOptions, setFilterOptions] = useState([])
@@ -102,7 +103,6 @@ export default function Search({
             options={allRoutes}
             onApply={handleApplyFilters}
             searchQuery={searchQuery}
-            
             setFilterOptions={setFilterOptions}
           />
           <SaveSearchButton
@@ -112,7 +112,6 @@ export default function Search({
           />
           <SavedSearches
             savedSearches={allSaved}
-            
             handleSavedSearchClick={handleSavedSearchClick}
           />
         </div>
