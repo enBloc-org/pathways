@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { Routes, Route, useNavigate } from "react-router-dom"
 
+import { useSearchContext } from "./context/searchContext"
 import fetchOccupationByQuery from "./utils/fetchOccupationByQuery"
 import Header from "./components/Header"
 import About from "./pages/About"
@@ -13,29 +14,33 @@ import "./style/globals.css"
 import "./App.css"
 
 function App() {
-  const [searchStatus, setSearchStatus] = useState("idle")
+  const {
+    searchState: { searchStatus },
+    dispatch,
+  } = useSearchContext()
   const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState([])
   const navigate = useNavigate()
 
-  const handleSavedSearchClick= (url) =>{
-    setSearchQuery('');
-    console.log(url)
-    const route = url.match(/^https?:\/\/[^/]+(\/.*)$/)[1];
-    navigate(route);
-;
-    }
+  const handleSavedSearchClick = url => {
+    setSearchQuery("")
+    const route = url.match(/^https?:\/\/[^/]+(\/.*)$/)[1]
+    navigate(route)
+  }
 
   useEffect(() => {
     const handleSearch = async () => {
       try {
-        setSearchStatus("loading")
+        dispatch({ type: "SET_SEARCH_STATUS", payload: "loading" })
         const data = await fetchOccupationByQuery(searchQuery)
         setSearchResults(data)
-        setSearchStatus("fulfilled")
+        dispatch({
+          type: "SET_SEARCH_STATUS",
+          payload: "fulfilled",
+        })
         navigate("/search")
       } catch (error) {
-        setSearchStatus("idle")
+        dispatch({ type: "SET_SEARCH_STATUS", payload: "idle" })
         navigate("/search")
       }
     }
@@ -43,7 +48,7 @@ function App() {
     if (searchQuery !== "") {
       handleSearch()
     } else {
-      setSearchStatus("idle")
+      dispatch({ type: "SET_SEARCH_STATUS", payload: "idle" })
     }
   }, [searchQuery])
 
@@ -65,11 +70,11 @@ function App() {
             path="/search"
             element={
               <Search
-              searchResults={searchResults}
-              searchStatus={searchStatus}
-              searchQuery={searchQuery}
-              setSearchQuery={setSearchQuery}
-              handleSavedSearchClick={handleSavedSearchClick}
+                searchResults={searchResults}
+                searchStatus={searchStatus}
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                handleSavedSearchClick={handleSavedSearchClick}
               />
             }
           />
