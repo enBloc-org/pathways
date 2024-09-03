@@ -21,6 +21,12 @@
   height: auto;
 }
 
+.header-content {
+  display: flex;
+  gap: 4rem;
+  justify-content: space-between;
+}
+
 .nav-links {
   display: flex;
   flex-direction: row;

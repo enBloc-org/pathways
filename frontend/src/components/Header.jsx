@@ -14,6 +14,7 @@ export default function Header({ searchHandler }) {
     const match = page.match(pageRegex)
 
     setCurrentPage(match ? match[0] : "/")
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [window.location.href])
 
   return (
@@ -23,7 +24,7 @@ export default function Header({ searchHandler }) {
           <img src={gatsbyLogo} alt="Gatsby Logo" className="logo" />
         </Link>
       </div>
-      <div>
+      <div className="header-content">
         <div>
           <TextSearch searchHandler={searchHandler} />
           <p className="information">ℹ</p>
