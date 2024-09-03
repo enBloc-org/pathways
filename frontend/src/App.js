@@ -15,15 +15,14 @@ import "./App.css"
 
 function App() {
   const {
-    searchState: { searchStatus },
+    searchState: { searchStatus, searchQuery },
     dispatch,
   } = useSearchContext()
-  const [searchQuery, setSearchQuery] = useState("")
   const [searchResults, setSearchResults] = useState([])
   const navigate = useNavigate()
 
   const handleSavedSearchClick = url => {
-    setSearchQuery("")
+    dispatch({ type: "SET_SEARCH_QUERY", payload: "" })
     const route = url.match(/^https?:\/\/[^/]+(\/.*)$/)[1]
     navigate(route)
   }
@@ -52,14 +51,10 @@ function App() {
     }
   }, [searchQuery])
 
-  const handleQuery = input => {
-    setSearchQuery(input)
-  }
-
   return (
     <div className="app">
       <div className="app--header">
-        <Header searchHandler={handleQuery} />
+        <Header />
       </div>
 
       <div className="app--routes">
@@ -73,7 +68,6 @@ function App() {
                 searchResults={searchResults}
                 searchStatus={searchStatus}
                 searchQuery={searchQuery}
-                setSearchQuery={setSearchQuery}
                 handleSavedSearchClick={handleSavedSearchClick}
               />
             }

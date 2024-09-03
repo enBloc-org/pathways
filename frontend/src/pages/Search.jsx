@@ -8,13 +8,11 @@ import FilterButton from "../components/FilterButton"
 import fetchAllRoutes from "../utils/fetchAllRoutes"
 import SavedSearches from "../components/SavedSearch"
 import "../style/Search.css"
-import retrieveLocalStorage from "../utils/retrieveLocalStorage"
 
 export default function Search({
   searchResults,
   searchStatus,
   searchQuery,
-  setSearchQuery,
   handleSavedSearchClick,
 }) {
   const [searchParams, setSearchParams] = useSearchParams()
@@ -61,7 +59,7 @@ export default function Search({
       return setFilterOptions(selectedOptions)
     }
     setFilterOptions([])
-    setIsSaved(false);
+    setIsSaved(false)
   }
 
   const saveHandler = () => {
@@ -77,7 +75,7 @@ export default function Search({
       const newSavedHistory = allSaved.filter(
         search => search.url !== currentEntry.url
       )
-     
+
       return setAllSaved(newSavedHistory)
     }
 
@@ -100,18 +98,23 @@ export default function Search({
     <div className="search-page main">
       <div className="search-page--options-bar">
         <div>
-        <FilterButton
-          options={allRoutes}
-          onApply={handleApplyFilters}
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-          setFilterOptions={setFilterOptions}
-        />
-        <SaveSearchButton onSave={saveHandler} isSaved={isSaved} isDisabled={!searchQuery} />
-        <SavedSearches savedSearches={allSaved}
-        setSearchQuery={setSearchQuery}
-        handleSavedSearchClick={handleSavedSearchClick}
-        />
+          <FilterButton
+            options={allRoutes}
+            onApply={handleApplyFilters}
+            searchQuery={searchQuery}
+            
+            setFilterOptions={setFilterOptions}
+          />
+          <SaveSearchButton
+            onSave={saveHandler}
+            isSaved={isSaved}
+            isDisabled={!searchQuery}
+          />
+          <SavedSearches
+            savedSearches={allSaved}
+            
+            handleSavedSearchClick={handleSavedSearchClick}
+          />
         </div>
         {searchQuery && (
           <p>
