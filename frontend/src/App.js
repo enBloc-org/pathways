@@ -15,10 +15,9 @@ import "./App.css"
 
 function App() {
   const {
-    searchState: { searchStatus, searchQuery },
+    searchState: { searchStatus, searchQuery, searchResults },
     dispatch,
   } = useSearchContext()
-  const [searchResults, setSearchResults] = useState([])
   const navigate = useNavigate()
 
   const handleSavedSearchClick = url => {
@@ -32,7 +31,7 @@ function App() {
       try {
         dispatch({ type: "SET_SEARCH_STATUS", payload: "loading" })
         const data = await fetchOccupationByQuery(searchQuery)
-        setSearchResults(data)
+        dispatch({ type: "SET_SEARCH_RESULTS", payload: data })
         dispatch({
           type: "SET_SEARCH_STATUS",
           payload: "fulfilled",
@@ -65,16 +64,13 @@ function App() {
             path="/search"
             element={
               <Search
-                searchResults={searchResults}
-                searchStatus={searchStatus}
-                searchQuery={searchQuery}
                 handleSavedSearchClick={handleSavedSearchClick}
               />
             }
           />
           <Route
             path="/occupation-details/:occupation"
-            element={<OccupationPage searchResults={searchResults} />}
+            element={<OccupationPage />}
           />
         </Routes>
       </div>

@@ -4,6 +4,8 @@ export default function searchReducer(state, action) {
       return { ...state, searchStatus: action.payload }
     case "SET_SEARCH_QUERY":
       return { ...state, searchQuery: action.payload }
+    case "SET_SEARCH_RESULTS":
+      return { ...state, searchResults: action.payload }
     default:
       return state
   }

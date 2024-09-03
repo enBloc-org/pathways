@@ -1,10 +1,14 @@
 import TLevelContainer from "../components/TLevelContainer"
+import { useSearchContext } from "../context/searchContext"
 import "../style/globals.css"
 import "../style/OccupationPage.css"
 import { useParams } from "react-router-dom"
 
-export default function OccupationPage({ searchResults }) {
+export default function OccupationPage() {
   const params = useParams()
+  const {
+    searchState: { searchResults },
+  } = useSearchContext()
 
   const index = searchResults.findIndex(
     occupation => occupation.stdCode === params.occupation
