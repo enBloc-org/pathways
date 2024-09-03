@@ -59,10 +59,7 @@ function App() {
 
   return (
     <div className="app">
-      <div className="app--header">
-        <Header searchHandler={handleQuery} />
-      </div>
-
+      <Header searchHandler={handleQuery} />
       <div className="app--routes">
         <Routes>
           <Route path="/" element={<InfoPage />} />
