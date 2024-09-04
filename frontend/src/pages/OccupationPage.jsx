@@ -40,14 +40,8 @@ export default function OccupationPage() {
           <div className="flex-col occupation-header">
             <h1>{currentOccupation.name}</h1>
             <h2>
-              Level {currentOccupation.level} -{" "}
-              <i>
-                {currentOccupation.mapHierarchy.technicalLevelName}
-              </i>
+              <i>{currentOccupation.mapHierarchy.pathwayName}</i>
             </h2>
-            <p className="route-name">
-              {currentOccupation.mapHierarchy.routeName}
-            </p>
           </div>
           <div className="flex-col occupation-page__banner">
             <h3>Overview:</h3>
@@ -61,14 +55,6 @@ export default function OccupationPage() {
             </p>
           </section>
           <TLevelContainer products={currentOccupation.products} />
-          <div className="pathway-name">
-            <p>
-              <strong>Pathway name: </strong>
-              <span>
-                {currentOccupation.mapHierarchy.pathwayName}
-              </span>
-            </p>
-          </div>
         </>
       ) : (
         <div className="occupation-page--loading-spinner">
