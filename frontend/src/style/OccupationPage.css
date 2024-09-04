@@ -1,6 +1,7 @@
 .occupation-page__main {
   display: grid;
   grid-template-columns: 1fr;
+  align-items:first baseline;
 }
 
 .occupation-header h1 {
@@ -45,14 +46,6 @@
   grid-column: 1 / 3;
 }
 
-.pathway-name {
-  grid-column: 1 / 3;
-  width: 100%;
-  justify-content: flex-end;
-  margin: 1rem 0;
-  padding-right: 1rem;
-}
-
 .occupation-page--loading-spinner {
   position: absolute;
   top:20%;
@@ -76,12 +69,6 @@
   .occupation-page__section {
     grid-column: 1 / 7;
     padding: 0 4rem;
-  }
-
-  .pathway-name {
-    grid-column: 1 / 6;
-    padding-right: 0;
-    margin-bottom: 1rem;
   }
 }
 
@@ -113,12 +100,6 @@
     grid-column: 2 / 8;
     padding: 0;
   }
-
-  .pathway-name {
-    grid-column: 2 / 5;
-    justify-content: flex-start;
-    padding-bottom: 1rem;
-  }
 }
 
 @media (min-width: 2000px) {
@@ -134,9 +115,5 @@
   .occupation-page__section {
     grid-column: 2 / 9;
     padding: 0 6rem;
-  }
-
-  .pathway-name {
-    grid-column: 1 / 8;
   }
 }
