@@ -36,10 +36,10 @@ export default function OccupationPage() {
         <h1>{currentOccupation.name}</h1>
         <h2>
           Level {currentOccupation.level} -{" "}
-          <i>{currentOccupation.level}</i>
+          <i>{currentOccupation.mapHierarchy.technicalLevelName}</i>
         </h2>
         <p className="route-name">
-          {/* {currentOccupation.mapHierarchy.routeName} */}
+          {currentOccupation.mapHierarchy.routeName}
         </p>
       </div>
       <div className="flex-col occupation-page__banner">
@@ -57,7 +57,7 @@ export default function OccupationPage() {
       <div className="pathway-name">
         <p>
           <strong>Pathway name: </strong>
-          {/* <span>{currentOccupation.mapHierarchy.pathwayName}</span> */}
+          <span>{currentOccupation.mapHierarchy.pathwayName}</span>
         </p>
       </div>
     </main>
