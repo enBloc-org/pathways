@@ -50,9 +50,10 @@ export default function OccupationPage() {
           <section className="occupation-page__section">
             <h3>In Depth</h3>
             <div />
-            <p className="occupation-page__summary">
-              {sanitize(currentOccupation.summary)}
-            </p>
+            <div
+          className="occupation-page__summary"
+              dangerouslySetInnerHTML={{ __html: sanitize(currentOccupation.summary) }}
+            />
           </section>
           <TLevelContainer products={currentOccupation.products} />
         </>
