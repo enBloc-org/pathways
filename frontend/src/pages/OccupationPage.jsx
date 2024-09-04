@@ -71,7 +71,9 @@ export default function OccupationPage() {
           </div>
         </>
       ) : (
-        <LoadingSpinner />
+        <div className="occupation-page--loading-spinner">
+          <LoadingSpinner />
+        </div>
       )}
     </main>
   )
