@@ -1,10 +1,12 @@
 import { useState, useEffect} from "react";
 import "../style/Filterbutton.css";
+import { useSearchContext } from "../context/searchContext";
 
 export default function FilterButton({ options, onApply,searchQuery, setSearchQuery, setFilterOptions }) {
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isActive, setIsActive] = useState(false)
+  const {dispatch} = useSearchContext()
 
   useEffect(() => {
     setIsActive(selectedOptions.length > 0)
@@ -32,7 +34,7 @@ export default function FilterButton({ options, onApply,searchQuery, setSearchQu
      const queryRegex = /[?&]query=([^&]+)/;
      
  const match = currentUrl.match(queryRegex);
- setSearchQuery(match ? decodeURIComponent(match[1]) : null);
+ dispatch({type: "SET_SEARCH_QUERY", payload: match ? decodeURIComponent(match[1]) : null})
  const filterRegex = /[?&]filter=(\d+)/g;
  const newOptions = [...currentUrl.matchAll(filterRegex)].map(match => parseInt(match[1]))
  
