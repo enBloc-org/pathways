@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 
+import { useSearchContext } from "../context/searchContext"
 import TextSearch from "./TextSearch"
 import gatsbyLogo from "../images/GATSBY.jpeg"
 import "../style/Header.css"
 
-export default function Header({ searchHandler }) {
+export default function Header() {
+  const { dispatch } = useSearchContext()
   const [currentPage, setCurrentPage] = useState()
 
   useEffect(() => {
@@ -14,8 +16,11 @@ export default function Header({ searchHandler }) {
     const match = page.match(pageRegex)
 
     setCurrentPage(match ? match[0] : "/")
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [window.location.href])
+
+  const searchHandler = input => {
+    dispatch({ type: "SET_SEARCH_QUERY", payload: input })
+  }
 
   return (
     <header className="header grid-container">
