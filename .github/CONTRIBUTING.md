@@ -33,4 +33,4 @@ npm run dev
 ### Frontend 
 REACT_APP_SERVER gives the frontend the address for the backend
 ### Backend 
-API_KEY the key for accessing the occupational maps API, BASE_URL the part of the URL use in all calls to the occupational maps API, PORT what port to use if running locally, FRONTEND the address for the frontend.
+API_KEY the key for accessing the occupational maps API can be requested [here](https://occupational-maps-api.instituteforapprenticeships.org/swagger/index.html), BASE_URL the part of the URL use in all calls to the occupational maps API, PORT what port to use if running locally, FRONTEND the address for the frontend.
