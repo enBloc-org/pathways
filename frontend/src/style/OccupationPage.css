@@ -53,7 +53,12 @@
   padding-right: 1rem;
 }
 
-
+.occupation-page__summary {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
 
 @media (min-width: 800px) {
   .occupation-page__main {

@@ -38,9 +38,10 @@ export default function OccupationPage() {
       <section className="occupation-page__section">
         <h3>In Depth</h3>
         <div />
-        <p className="occupation-page__summary">
-          {occupationSummary}
-        </p>
+        <div
+          className="occupation-page__summary"
+          dangerouslySetInnerHTML={{ __html: occupationSummary }}
+        />
       </section>
       <TLevelContainer products={searchResults[index].products} />
       <div className="pathway-name">
