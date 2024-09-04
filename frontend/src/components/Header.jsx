@@ -1,20 +1,26 @@
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link } from "react-router-dom"
+import { useEffect, useState } from "react"
 
-import TextSearch from "./TextSearch";
-import gatsbyLogo from "../images/GATSBY.jpeg";
-import "../style/Header.css";
+import { useSearchContext } from "../context/searchContext"
+import TextSearch from "./TextSearch"
+import gatsbyLogo from "../images/GATSBY.jpeg"
+import "../style/Header.css"
 
-export default function Header({ searchHandler }) {
-  const [currentPage, setCurrentPage] = useState();
+export default function Header() {
+  const { dispatch } = useSearchContext()
+  const [currentPage, setCurrentPage] = useState()
 
   useEffect(() => {
-    const page = window.location.href;
-    const pageRegex = /(about)|(search)/g;
-    const match = page.match(pageRegex);
+    const page = window.location.href
+    const pageRegex = /(about)|(search)/g
+    const match = page.match(pageRegex)
 
-    setCurrentPage(match ? match[0] : "/");
-  }, [window.location.href]);
+    setCurrentPage(match ? match[0] : "/")
+  }, [window.location.href])
+
+  const searchHandler = input => {
+    dispatch({ type: "SET_SEARCH_QUERY", payload: input })
+  }
 
   return (
     <nav className="header">
@@ -42,5 +48,5 @@ export default function Header({ searchHandler }) {
         </Link>
       </div>
     </nav>
-  );
+  )
 }

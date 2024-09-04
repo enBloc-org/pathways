@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { Routes, Route, useNavigate } from "react-router-dom"
 
+import { useSearchContext } from "./context/searchContext"
 import fetchOccupationByQuery from "./utils/fetchOccupationByQuery"
 import Header from "./components/Header"
 import About from "./pages/About"
@@ -13,54 +14,46 @@ import "./style/globals.css"
 import "./App.css"
 
 function App() {
-  const [searchStatus, setSearchStatus] = useState("idle")
-  const [searchQuery, setSearchQuery] = useState("")
-  const [searchResults, setSearchResults] = useState([])
+  const {
+    searchState: { searchQuery},
+    dispatch,
+  } = useSearchContext()
   const navigate = useNavigate()
 
   const handleSavedSearchClick = url => {
-    setSearchQuery("")
+    dispatch({ type: "SET_SEARCH_QUERY", payload: "" })
     const route = url.match(/^https?:\/\/[^/]+(\/.*)$/)[1]
     navigate(route)
-  }
-
-  const handleEmptyQuery = () => {
-    setSearchStatus("idle")
-    setSearchResults([])
-    navigate("/search")
   }
 
   useEffect(() => {
     const handleSearch = async () => {
       try {
-        setSearchStatus("loading")
+        dispatch({ type: "SET_SEARCH_STATUS", payload: "loading" })
         const data = await fetchOccupationByQuery(searchQuery)
-        setSearchResults(data)
-        setSearchStatus("fulfilled")
+        dispatch({ type: "SET_SEARCH_RESULTS", payload: data })
+        dispatch({
+          type: "SET_SEARCH_STATUS",
+          payload: "fulfilled",
+        })
         navigate("/search")
       } catch (error) {
-        handleEmptyQuery()
+        dispatch({ type: "SET_SEARCH_STATUS", payload: "idle" })
+        navigate("/search")
       }
     }
 
     if (searchQuery !== "") {
       handleSearch()
     } else {
-      setSearchStatus("idle")
+      dispatch({ type: "SET_SEARCH_STATUS", payload: "idle" })
     }
   }, [searchQuery])
-
-  const handleQuery = input => {
-    if (!input) {
-      return handleEmptyQuery()
-    }
-    setSearchQuery(input.replace(/^\s+/g, ""))
-  }
 
   return (
     <div className="app">
       <div className="app--header">
-        <Header searchHandler={handleQuery} />
+        <Header />
       </div>
 
       <div className="app--routes">
@@ -71,17 +64,13 @@ function App() {
             path="/search"
             element={
               <Search
-                searchResults={searchResults}
-                searchStatus={searchStatus}
-                searchQuery={searchQuery}
-                setSearchQuery={setSearchQuery}
                 handleSavedSearchClick={handleSavedSearchClick}
               />
             }
           />
           <Route
             path="/occupation-details/:occupation"
-            element={<OccupationPage searchResults={searchResults} />}
+            element={<OccupationPage />}
           />
         </Routes>
       </div>
