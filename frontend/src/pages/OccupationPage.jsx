@@ -1,54 +1,67 @@
+import { useState, useEffect } from "react"
+import { useParams } from "react-router-dom"
+
 import TLevelContainer from "../components/TLevelContainer"
 import { useSearchContext } from "../context/searchContext"
 import "../style/globals.css"
 import "../style/OccupationPage.css"
-import { useParams } from "react-router-dom"
-
+import LoadingSpinner from "../components/LoadingSpinner"
 import sanitize from "../utils/sanitize"
+import fetchOccupationDetails from "../utils/fetchOccupationDetails"
 
 export default function OccupationPage() {
-  const params = useParams()
   const {
     searchState: { searchResults },
   } = useSearchContext()
+  const params = useParams()
+  const [currentOccupation, setCurrentOccupation] = useState(null)
+  const [isLoaded, setIsLoaded] = useState(false)
 
-  const index = searchResults.findIndex(
-    occupation => occupation.stdCode === params.occupation
-  )
+  useEffect(() => {
+    const fetchDetails = async () => {
+      await fetchOccupationDetails(params.occupation)
+        .then(fetchedOccupation => {
+          setCurrentOccupation(fetchedOccupation)
+          setIsLoaded(true)
+        })
+        .catch(error => setIsLoaded(false))
+    }
 
-  const occupationSummary = sanitize(searchResults[index].summary)
-  return (
+    fetchDetails()
+  }, [searchResults, params])
+
+  return isLoaded ? (
     <main className="occupation-page__main main">
       <div className="flex-col occupation-header">
-        <h1>{searchResults[index].name}</h1>
+        <h1>{currentOccupation.name}</h1>
         <h2>
-          Level {searchResults[index].level} -{" "}
-          <i>
-            {searchResults[index].mapHierarchy.technicalLevelName}
-          </i>
+          Level {currentOccupation.level} -{" "}
+          <i>{currentOccupation.level}</i>
         </h2>
         <p className="route-name">
-          {searchResults[index].mapHierarchy.routeName}
+          {/* {currentOccupation.mapHierarchy.routeName} */}
         </p>
       </div>
       <div className="flex-col occupation-page__banner">
         <h3>Overview:</h3>
-        <p>{searchResults[index].overview}</p>
+        <p>{currentOccupation.overview}</p>
       </div>
       <section className="occupation-page__section">
         <h3>In Depth</h3>
         <div />
         <p className="occupation-page__summary">
-          {occupationSummary}
+          {sanitize(currentOccupation.summary)}
         </p>
       </section>
-      <TLevelContainer products={searchResults[index].products} />
+      <TLevelContainer products={currentOccupation.products} />
       <div className="pathway-name">
         <p>
           <strong>Pathway name: </strong>
-          <span>{searchResults[index].mapHierarchy.pathwayName}</span>
+          {/* <span>{currentOccupation.mapHierarchy.pathwayName}</span> */}
         </p>
       </div>
     </main>
+  ) : (
+    <LoadingSpinner />
   )
 }
