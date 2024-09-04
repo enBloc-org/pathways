@@ -22,9 +22,12 @@ export default function OccupationPage() {
       await fetchOccupationDetails(params.occupation)
         .then(fetchedOccupation => {
           setCurrentOccupation(fetchedOccupation)
-          setIsLoaded(true) 
+          setIsLoaded(true)
         })
-        .catch(error => setIsLoaded(false))
+        .catch(error => {
+          console.error(error)
+          setIsLoaded(false)
+        })
     }
 
     fetchDetails()
