@@ -23,17 +23,13 @@ export default function Header() {
   }
 
   return (
-    <nav className="header">
+    <header className="header grid-container">
       <div className="logo-container">
         <Link to="/">
           <img src={gatsbyLogo} alt="Gatsby Logo" className="logo" />
         </Link>
       </div>
-      <div className="search-and-info">
-        <TextSearch searchHandler={searchHandler} />
-        <p className="information">ℹ</p>
-      </div>
-      <div className="button-container">
+      <nav className="nav-links">
         <Link
           className={`header-button ${currentPage === "about" && "bold"}`}
           to="/about"
@@ -46,7 +42,8 @@ export default function Header() {
         >
           Search
         </Link>
-      </div>
-    </nav>
+      </nav>
+      <TextSearch searchHandler={searchHandler} />
+    </header>
   )
 }
