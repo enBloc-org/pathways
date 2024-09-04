@@ -1,11 +1,8 @@
 .header {
   z-index: 30;
-  width: 100dvw;
   height: 15vh;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5rem 5rem;
+  width: 100dvw;
+  padding: 1rem;
   background-color: var(--white);
   color: var(--white);
 }
@@ -13,26 +10,20 @@
 .logo-container {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .logo {
-  width: 10vw;
-  max-width: 90px;
+  width: 30vw;
+  max-width: 70px;
   height: auto;
-}
-
-.header-content {
-  display: flex;
-  gap: 4rem;
-  justify-content: space-between;
 }
 
 .nav-links {
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 2rem;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .nav-links a:visited {
@@ -53,7 +44,6 @@
   width: 1.5rem;
   border-radius: 50%;
   border: 1px solid var(--grey);
-  margin: 0 1rem;
   color: var(--grey);
   text-align: center;
   line-height: 1.5rem;
@@ -85,68 +75,21 @@
   display: block;
 }
 
-@media (max-width: 1024px) {
-  .header {
-    flex-direction: column;
-    height: auto;
-  }
-
-  .logo {
-    width: 15vw;
-    margin-bottom: 1rem;
-  }
-
-  .button-container {
-    width: 80%;
-    justify-content: center;
-    margin-top: 1rem;
-  }
-
-  .header-button {
-    font-size: 2vw;
-  }
-
-  .information {
-    margin-top: 0.5rem;
-  }
-
-  .information:after {
-    width: 90vw;
+@media screen and (min-width: 768px) {
+  .nav-links {
+    grid-column: 6 / -1;
+    gap: 2rem;
   }
 }
 
-@media (max-width: 768px) {
-  .header {
-    flex-direction: column;
-    height: auto;
+@media screen and (min-width: 1024px) {
+  .nav-links {
+    grid-column: 10 / -1;
   }
 
-  .logo {
-    width: 20vw;
-    margin-bottom: 1rem;
-  }
-
-  .button-container {
-    width: 100%;
-    justify-content: center;
-    margin-top: 1rem;
-  }
-
-  .header-button {
-    font-size: 3vw;
-  }
-
-  .information {
-    margin-top: 0.5rem;
-  }
-
-  .information:after {
-    width: 90vw;
+  .logo-container {
+    grid-column: 2 / 3;
+    margin-left: -1rem;
   }
 }
 
-@media (max-width: 480px) {
-  .header-button {
-    font-size: 4vw;
-  }
-}
