@@ -34,7 +34,7 @@ export default function FilterButton({ options, onApply,searchQuery, setSearchQu
      const queryRegex = /[?&]query=([^&]+)/;
      
  const match = currentUrl.match(queryRegex);
- dispatch({type: "SET_SEARCH_QUERY", payload: match ? decodeURIComponent(match[1]) : null})
+ dispatch({type: "SET_SEARCH_QUERY", payload: match ? decodeURIComponent(match[1]) : ""})
  const filterRegex = /[?&]filter=(\d+)/g;
  const newOptions = [...currentUrl.matchAll(filterRegex)].map(match => parseInt(match[1]))
  
