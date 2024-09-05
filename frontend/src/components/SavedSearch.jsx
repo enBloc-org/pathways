@@ -17,7 +17,7 @@ export default function SavedSearches({
         onClick={toggleDropdown}
         disabled={savedSearches.length === 0}
       >
-        <p>Saved Searches</p>
+        Saved Searches
         <svg
           version="1.1"
           width="28px"
@@ -39,19 +39,23 @@ export default function SavedSearches({
       </button>
 
       {isDropdownOpen && (
-        <div className="search-page--options__dropdown saved-searches__dropdown">
-          <div className="dropdown-section">
+        <div className="saved-searches__dropdown">
+          <div className="divider-container">
+            <h4>My Searches</h4>
             <div className="divider" />
-            {savedSearches.map((search, index) => (
-              <button
-                key={`today-${index}`}
-                className="dropdown-item"
-                onClick={() => handleSavedSearchClick(search.url)}
-              >
-                {search.name.replaceAll(",+", " and ").replaceAll(",", " and ")}
-              </button>
-            ))}
           </div>
+
+          {savedSearches.map((search, index) => (
+            <button
+              key={`today-${index}`}
+              className="dropdown-item"
+              onClick={() => handleSavedSearchClick(search.url)}
+            >
+              {search.name
+                .replaceAll(",+", " and ")
+                .replaceAll(",", " and ")}
+            </button>
+          ))}
         </div>
       )}
     </div>
