@@ -4,6 +4,10 @@
 
 .filter-container {
   position: relative;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  gap: 10px;
 }
 
 .filter-options {
@@ -71,23 +75,35 @@
 @media (min-width: 768px) {
   .filter-options {
     position: absolute;
+    grid-template-columns: 1fr 1fr;
+    transform: translateX(-25%);
     top: 100%;
-    left: 0;
+    left: 50%;
     right: auto;
     bottom: auto;
-    width: 300px;
     max-height: 80vh;
-    transform: none;
     padding: 20px;
   }
 
   .filter-apply-button {
-    position: static;
+    grid-column: 1 / -1;
     width: 100%;
     margin-top: 20px;
   }
+}
 
-  .filter-close-button {
-    display: none;
+@media (min-width: 1024px) {
+  .filter-options {
+    transform: translateX(-65%);
   }
+
+  .filter-options {
+    padding: 2rem 6rem;
+  }
+
+  .filter-apply-button {
+    margin-bottom: 0rem;
+  }
+
+  
 }
