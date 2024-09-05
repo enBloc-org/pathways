@@ -29,7 +29,7 @@ Push to dev or main and github should automatically deploy. If you encounter pro
 
 ## Configuration
 - **Environment Variables:** Frontend REACT_APP_SERVER gives the frontend the address for the backend
-Backend API_KEY the key for accessing the occupational maps API, BASE_URL the part of the URL use in all calls to the occupational maps API, PORT what port to use if running locally, FRONTEND the address for the frontend.
+Backend API_KEY the key for accessing the occupational maps API can be requested [here](https://occupational-maps-api.instituteforapprenticeships.org/swagger/index.html), BASE_URL the part of the URL use in all calls to the occupational maps API, PORT what port to use if running locally, FRONTEND the address for the frontend.
 - **Config Files:** Backend and Frontend have package.json for managing extensions and libraries. The frontend also has the Cypress config file.
 
 
