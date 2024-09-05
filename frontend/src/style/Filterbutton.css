@@ -3,15 +3,22 @@
 }
 
 .filter-container {
-  display: block;
+  position: relative;
 }
 
 .filter-options {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   grid-gap: 1px;
-  padding: 42px;
   background-color: var(--secondary-grey);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  overflow-y: auto;
+  padding: 60px 20px 20px;
 }
 
 .filter-option {
@@ -37,29 +44,50 @@
 }
 
 .filter-apply-button {
+  position: sticky;
+  bottom: 10px;
   padding: 0.5rem 1rem;
-  font-size: 1rem;
   cursor: pointer;
+  max-width: 300px;
   background-color: var(--pink);
   border: none;
   color: #ffffff;
   border-radius: 4px;
+  width: calc(100% - 40px);
+  margin: 30px auto;
 }
 
-@media (max-width: 800px) {
+.filter-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--grey);
+}
+
+@media (min-width: 768px) {
   .filter-options {
-    width: 70dvw;
-    height: 60dvh;
-    grid-template-columns: auto;
-    overflow: scroll;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: auto;
+    bottom: auto;
+    width: 300px;
+    max-height: 80vh;
+    transform: none;
+    padding: 20px;
   }
-}
 
-@media (max-width: 1400px) and (min-width: 800px) {
-  .filter-options {
-    width: 60dvw;
-    height: 60dvh;
-    grid-template-columns: repeat(2, 1fr);
-    overflow: scroll;
+  .filter-apply-button {
+    position: static;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .filter-close-button {
+    display: none;
   }
 }

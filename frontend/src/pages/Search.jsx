@@ -10,9 +10,7 @@ import SavedSearches from "../components/SavedSearch"
 import "../style/Search.css"
 import { useSearchContext } from "../context/searchContext"
 
-export default function Search({
-  handleSavedSearchClick,
-}) {
+export default function Search({ handleSavedSearchClick }) {
   const [searchParams, setSearchParams] = useSearchParams()
   const [isSaved, setIsSaved] = useState(false)
   const [allSaved, setAllSaved] = useState(
@@ -96,7 +94,7 @@ export default function Search({
   }
 
   return (
-    <div className="search-page main">
+    <main className="search-page grid-container">
       <div className="search-page--options-bar">
         <div>
           <FilterButton
@@ -116,14 +114,17 @@ export default function Search({
           />
         </div>
         {searchQuery && (
-          <p>
-            {filteredResults.length} matched results for {searchQuery.replaceAll(",+", " and ").replaceAll(",", " and ")}
+          <p className="search-page--results-count">
+            {filteredResults.length} matched results for{" "}
+            {searchQuery
+              .replaceAll(",+", " and ")
+              .replaceAll(",", " and ")}
           </p>
         )}
       </div>
       <div className="search-page--results">
         {renderStatusResults()}
       </div>
-    </div>
+    </main>
   )
 }
