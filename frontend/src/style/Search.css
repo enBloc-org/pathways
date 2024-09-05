@@ -1,6 +1,6 @@
 .search-page {
   display: grid;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto auto 1fr;
   align-items: center;
   justify-content: space-around;
   gap: 35px;
@@ -23,7 +23,7 @@
   grid-row: 1;
   grid-column: 1 / -1;
   position: sticky;
-  z-index: 1000;
+  z-index: 20;
   background-color: var(--secondary-grey);
 }
 
@@ -62,5 +62,6 @@
 
   .search-page--results {
     grid-row: 2;
+    margin-top: 4rem;
   }
 }
