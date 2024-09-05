@@ -3,7 +3,7 @@ export default function searchReducer(state, action) {
     case "SET_SEARCH_STATUS":
       return { ...state, searchStatus: action.payload }
     case "SET_SEARCH_QUERY":
-      return { ...state, searchQuery: action.payload.replaceAll(/\+/g, " ") }
+      return { ...state, searchQuery: action.payload === "" ?? action.payload.replaceAll(/\+/g, " ") }
     case "SET_SEARCH_RESULTS":
       return { ...state, searchResults: action.payload }
     default:

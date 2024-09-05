@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { useEffect, useState } from "react"
 
 import { useSearchContext } from "../context/searchContext"
@@ -9,6 +9,7 @@ import "../style/Header.css"
 export default function Header() {
   const { dispatch } = useSearchContext()
   const [currentPage, setCurrentPage] = useState()
+  const navigate = useNavigate()
 
   useEffect(() => {
     const page = window.location.href
@@ -19,6 +20,7 @@ export default function Header() {
   }, [window.location.href])
 
   const searchHandler = input => {
+    if (!input) return navigate("/search")
     dispatch({ type: "SET_SEARCH_QUERY", payload: input })
   }
 
