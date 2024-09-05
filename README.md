@@ -7,10 +7,10 @@ This is an app that is used to inform local authorities of what t-levels are ass
 For a quick link to the deployment see the top of the README. For more info on the deployment look [here](https://github.com/enBloc-org/pathways/blob/dev/Deployment-Info.md)
 
 ## User Guide
-When you arrive at the landing page you can either directly use the search bar to start looking for T-level placements that match your interest. From the landing page or any other page you can also click the about button and see the information about the purpose of the Pathways tool. If you do use the search bar you can search for as many terms as you want just separate them with commas. Once you search your matches if there are any T-level courses relevant to your search. You can click on any of these matches to see more information about the T-level course. If there are lots of results you can filter them by career category. If you want to revisit a search click the save button and your search and filters will be saved for you to view later on this computer. If you want to share search results to another device or with another person copy the URL and visiting that URL on another browser will load up the same results.
+When you arrive at the landing page you can directly use the search bar to start looking for T-level placements that match your interest. From the landing page or any other page you can also click the about button and see the information about the purpose of the Pathways tool. If you do use the search bar you can search for as many terms as you want just separate them with commas. Once you search your matches if there are any T-level courses relevant to your search. You can click on any of these matches to see more information about the T-level course. If there are lots of results you can filter them by career category. If you want to revisit a search click the save button and your search and filters will be saved for you to view later on this computer. If you want to share search results to another device or with another person copy the URL. Then when visiting that URL on another browser Pathways will load up the same results.
 
 ## Creation
-Pathways was created by the enbloc agency in conjunction with T-level students from Southwark college. 
+Pathways was created by the enBloc agency in conjunction with T-level students from Southwark college. 
 
 ## User Stories
 ### 1. Employer User Story
