@@ -10,9 +10,7 @@ import SavedSearches from "../components/SavedSearch"
 import "../style/Search.css"
 import { useSearchContext } from "../context/searchContext"
 
-export default function Search({
-  handleSavedSearchClick,
-}) {
+export default function Search({ handleSavedSearchClick }) {
   const [searchParams, setSearchParams] = useSearchParams()
   const [isSaved, setIsSaved] = useState(false)
   const [allSaved, setAllSaved] = useState(
@@ -26,6 +24,12 @@ export default function Search({
     useState(searchResults)
   const [filterOptions, setFilterOptions] = useState([])
 
+  const verifyIsSaved = () => {
+    const currentUrl = window.location.href.replaceAll(/\+/g, " ")
+    const allUrls = new Set(allSaved.map(search => search.url))
+    return allUrls.has(currentUrl)
+  }
+
   useEffect(() => {
     const fetchOptions = async () => {
       const filterOptions = await fetchAllRoutes()
@@ -35,9 +39,7 @@ export default function Search({
 
     searchQuery &&
       setSearchParams({ query: searchQuery, filter: filterOptions })
-    const currentUrl = window.location.href
-    const allUrls = new Set(allSaved.map(search => search.url))
-    setIsSaved(allUrls.has(currentUrl))
+    setIsSaved(verifyIsSaved())
     // eslint-disable-next-line react-hooks/exhaustive-deps
 
     if (filterOptions && filterOptions.length > 0) {
@@ -68,8 +70,8 @@ export default function Search({
     const currentUrl = window.location.href
     const currentQuery = searchParams.get("query")
     const currentEntry = {
-      name: `${currentQuery} filters(${currentFilterLength})`,
-      url: currentUrl,
+      name: `${currentQuery} ${currentFilterLength > 0 ? `filters(${currentFilterLength})` : ""}`,
+      url: currentUrl.replaceAll(/\+/g, " "),
     }
     setIsSaved(previous => !previous)
     if (isSaved) {
@@ -117,7 +119,7 @@ export default function Search({
         </div>
         {searchQuery && (
           <p>
-            {filteredResults.length} matched results for {searchQuery.replaceAll(",+", " and ").replaceAll(",", " and ")}
+            {filteredResults.length} matched results for {searchQuery}
           </p>
         )}
       </div>
