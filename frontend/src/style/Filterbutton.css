@@ -11,24 +11,21 @@
 }
 
 .filter-options {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 1px;
-  background-color: var(--secondary-grey);
-  position: fixed;
-  top: 0;
+  background-color: var(--white);
+  width: 100%;
   left: 0;
   right: 0;
   bottom: 0;
+  max-height: 80vh;
+  position: fixed;
   z-index: 1000;
   overflow-y: auto;
-  padding: 60px 20px 20px;
+  padding-left: 2rem;
 }
 
 .filter-option {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   border-radius: 5px;
   padding: 10px;
   height: 50px;
@@ -48,17 +45,18 @@
 }
 
 .filter-apply-button {
-  position: sticky;
-  bottom: 10px;
   padding: 0.5rem 1rem;
   cursor: pointer;
-  max-width: 300px;
+  width: 300px;
   background-color: var(--pink);
   border: none;
+  position: sticky;
+  bottom: 50px;
   color: #ffffff;
   border-radius: 4px;
-  width: calc(100% - 40px);
   margin: 30px auto;
+  margin-left: -2rem;
+  transform: translateX(50%);
 }
 
 .filter-close-button {
@@ -69,7 +67,6 @@
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: var(--grey);
 }
 
 @media (min-width: 768px) {

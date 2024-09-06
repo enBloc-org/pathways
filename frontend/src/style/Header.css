@@ -5,6 +5,7 @@
   padding: 1rem;
   background-color: var(--white);
   color: var(--white);
+  position: relative;
 }
 
 .logo-container {
