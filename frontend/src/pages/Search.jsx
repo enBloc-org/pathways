@@ -119,9 +119,7 @@ export default function Search({ handleSavedSearchClick }) {
       {searchQuery && (
         <p className="search-page--results-count">
           {filteredResults.length} matched results for{" "}
-          {searchQuery
-            .replaceAll(",+", " and ")
-            .replaceAll(",", " and ")}
+          {searchQuery}
         </p>
       )}
       <div className="search-page--results">
