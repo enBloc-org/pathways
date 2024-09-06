@@ -11,7 +11,7 @@
 }
 
 .filter-options {
-  background-color: var(--white);
+  background-color: var(--secondary-grey);
   width: 100%;
   left: 0;
   right: 0;
@@ -20,6 +20,7 @@
   position: fixed;
   z-index: 1000;
   overflow-y: auto;
+  padding-top: 2rem;
   padding-left: 2rem;
 }
 
@@ -61,7 +62,7 @@
 
 .filter-close-button {
   position: absolute;
-  top: 10px;
+  top: 20px;
   right: 10px;
   background: none;
   border: none;
@@ -72,26 +73,32 @@
 @media (min-width: 768px) {
   .filter-options {
     position: absolute;
+    display: grid;
     grid-template-columns: 1fr 1fr;
-    transform: translateX(-25%);
+    transform: translateX(-30%);
+    width: 42rem;
     top: 100%;
     left: 50%;
     right: auto;
     bottom: auto;
     max-height: 80vh;
-    padding: 20px;
+    padding: 40px;
+    overflow: hidden;
   }
 
   .filter-apply-button {
     grid-column: 1 / -1;
-    width: 100%;
-    margin-top: 20px;
+    position: static;
+    margin: 20px auto;
+    transform: translateX(0);
+
   }
 }
 
 @media (min-width: 1024px) {
   .filter-options {
-    transform: translateX(-65%);
+    transform: translateX(-85%);
+    width:50rem;
   }
 
   .filter-options {
