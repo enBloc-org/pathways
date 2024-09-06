@@ -24,6 +24,12 @@ export default function Search({ handleSavedSearchClick }) {
     useState(searchResults)
   const [filterOptions, setFilterOptions] = useState([])
 
+  const verifyIsSaved = () => {
+    const currentUrl = window.location.href.replaceAll(/\+/g, " ")
+    const allUrls = new Set(allSaved.map(search => search.url))
+    return allUrls.has(currentUrl)
+  }
+
   useEffect(() => {
     const fetchOptions = async () => {
       const filterOptions = await fetchAllRoutes()
@@ -33,9 +39,7 @@ export default function Search({ handleSavedSearchClick }) {
 
     searchQuery &&
       setSearchParams({ query: searchQuery, filter: filterOptions })
-    const currentUrl = window.location.href
-    const allUrls = new Set(allSaved.map(search => search.url))
-    setIsSaved(allUrls.has(currentUrl))
+    setIsSaved(verifyIsSaved())
     // eslint-disable-next-line react-hooks/exhaustive-deps
 
     if (filterOptions && filterOptions.length > 0) {
@@ -66,8 +70,8 @@ export default function Search({ handleSavedSearchClick }) {
     const currentUrl = window.location.href
     const currentQuery = searchParams.get("query")
     const currentEntry = {
-      name: `${currentQuery} filters(${currentFilterLength})`,
-      url: currentUrl,
+      name: `${currentQuery} ${currentFilterLength > 0 ? `filters(${currentFilterLength})` : ""}`,
+      url: currentUrl.replaceAll(/\+/g, " "),
     }
     setIsSaved(previous => !previous)
     if (isSaved) {

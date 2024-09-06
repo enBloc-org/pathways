@@ -35,22 +35,17 @@ export default function FilterButton({
     setIsDropdownOpen(prevIsDropdownOpen => !prevIsDropdownOpen)
   }
   useEffect(() => {
-    if (!searchQuery) {
-      const currentUrl = window.location.href
-      const queryRegex = /[?&]query=([^&]+)/
-
-      const match = currentUrl.match(queryRegex)
-      dispatch({
-        type: "SET_SEARCH_QUERY",
-        payload: match ? decodeURIComponent(match[1]) : null,
-      })
-      const filterRegex = /[?&]filter=(\d+)/g
-      const newOptions = [...currentUrl.matchAll(filterRegex)].map(
-        match => parseInt(match[1])
-      )
-
-      setFilterOptions(newOptions)
-      setSelectedOptions(newOptions)
+    if(!searchQuery){
+     const currentUrl = window.location.href
+     const queryRegex = /[?&]query=([^&]+)/;
+     
+ const match = currentUrl.match(queryRegex);
+ dispatch({type: "SET_SEARCH_QUERY", payload: match ? decodeURIComponent(match[1]) : ""})
+ const filterRegex = /[?&]filter=(\d+)/g;
+ const newOptions = [...currentUrl.matchAll(filterRegex)].map(match => parseInt(match[1]))
+ 
+     setFilterOptions(newOptions);
+     setSelectedOptions(newOptions)
     }
   }, [searchQuery])
 

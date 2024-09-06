@@ -51,7 +51,7 @@ describe("allows the user to view previously saved searches", () => {
     cy.get(".saved-searches__dropdown").should("be.visible")
 
     cy.get(".dropdown-item")
-      .contains("web developer filters(0)")
+      .contains(/web developer/i)
       .should("exist")
       .should("be.visible")
       .click()

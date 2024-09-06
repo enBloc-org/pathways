@@ -1,8 +1,12 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useSearchContext } from "../context/searchContext"
 import "../style/TextSearch.css"
 
 export default function TextSearch({ searchHandler }) {
-  const [searchParameter, setSearchParameter] = useState(undefined)
+  const [searchParameter, setSearchParameter] = useState()
+  const {
+    searchState: { searchQuery },
+  } = useSearchContext()
 
   const inputHandler = event => {
     setSearchParameter(event.target.value)
@@ -12,6 +16,12 @@ export default function TextSearch({ searchHandler }) {
     event.preventDefault()
     searchHandler(searchParameter)
   }
+
+  useEffect(() => {
+    if (searchQuery === searchParameter) return
+    setSearchParameter(searchQuery)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchQuery])
 
   return (
     <>
