@@ -5,6 +5,8 @@
   min-width: 450px;
   max-height: 225px;
   max-width: 400px;
+  line-height: 1.2; 
+
 gap: 20px;
   display: flex;
   flex-direction: column;
@@ -27,16 +29,20 @@ gap: 20px;
   border-radius: 0 7vmin 0 0;
   font-size: 17px;
   text-align: center;
-  
+  padding-left: 20px;
+
   width: 100%;
   box-sizing: border-box;
 }
 .occupation-card h2.text-left {
   text-align: left;
   justify-content: flex-start;
+  padding-left: 10px;
 
 }
-
+.occupation-card h2.text-center {
+  text-align: center;
+}
 
 
 .overview {
@@ -44,7 +50,6 @@ gap: 20px;
   flex-direction: row;
   padding-left: 1em;
   text-align: left;
-  align-items: center;
 gap: 20px;
   margin: 0;
   overflow: auto;
@@ -52,13 +57,11 @@ gap: 20px;
   width: 90%;
 }
 
-.overview span {
-  color: var(--grey);
-}
+
 
 .in-brief{
-
-  text-wrap:nowrap ;
+  align-self: flex-start;
+  text-wrap: nowrap ;
 }
 
 
