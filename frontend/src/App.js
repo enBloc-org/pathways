@@ -7,7 +7,7 @@ import Header from "./components/Header"
 import About from "./pages/About"
 import Search from "./pages/Search"
 import OccupationPage from "./pages/OccupationPage"
-import InfoPage from "./components/InfoPage"
+import InfoPage from "./pages/InfoPage"
 
 import "./style/normalize.css"
 import "./style/globals.css"
