@@ -1,12 +1,18 @@
-import { useState, useEffect} from "react";
-import "../style/Filterbutton.css";
-import { useSearchContext } from "../context/searchContext";
+import { useState, useEffect } from "react"
+import "../style/Filterbutton.css"
+import { useSearchContext } from "../context/searchContext"
 
-export default function FilterButton({ options, onApply,searchQuery, setSearchQuery, setFilterOptions }) {
-  const [selectedOptions, setSelectedOptions] = useState([]);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+export default function FilterButton({
+  options,
+  onApply,
+  searchQuery,
+  setSearchQuery,
+  setFilterOptions,
+}) {
+  const [selectedOptions, setSelectedOptions] = useState([])
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [isActive, setIsActive] = useState(false)
-  const {dispatch} = useSearchContext()
+  const { dispatch } = useSearchContext()
 
   useEffect(() => {
     setIsActive(selectedOptions.length > 0)
@@ -26,8 +32,8 @@ export default function FilterButton({ options, onApply,searchQuery, setSearchQu
   }
 
   const toggleDropdown = () => {
-    setIsDropdownOpen((prevIsDropdownOpen) => !prevIsDropdownOpen);
-  };
+    setIsDropdownOpen(prevIsDropdownOpen => !prevIsDropdownOpen)
+  }
   useEffect(() => {
     if(!searchQuery){
      const currentUrl = window.location.href
@@ -41,8 +47,8 @@ export default function FilterButton({ options, onApply,searchQuery, setSearchQu
      setFilterOptions(newOptions);
      setSelectedOptions(newOptions)
     }
-   
-   }, [searchQuery])
+  }, [searchQuery])
+
   return (
     <div className="filter-container">
       <button
@@ -63,22 +69,26 @@ export default function FilterButton({ options, onApply,searchQuery, setSearchQu
         </svg>
       </button>
       {isDropdownOpen && (
-        <div className="search-page--options__dropdown">
-          <div className="filter-options">
-            {options.map(route => (
-              <div key={route.routeId} className="filter-option">
-                <input
-                  type="checkbox"
-                  id={`filter-${route.routeId}`}
-                  checked={selectedOptions.includes(route.routeId)}
-                  onChange={() => handleCheckboxChange(route.routeId)}
-                />
-                <label htmlFor={`filter-${route.routeId}`}>
-                  {route.name}
-                </label>
-              </div>
-            ))}
-          </div>
+        <div className="filter-options">
+          <button
+            className="filter-close-button"
+            onClick={toggleDropdown}
+          >
+            &times;
+          </button>
+          {options.map(route => (
+            <div key={route.routeId} className="filter-option">
+              <input
+                type="checkbox"
+                id={`filter-${route.routeId}`}
+                checked={selectedOptions.includes(route.routeId)}
+                onChange={() => handleCheckboxChange(route.routeId)}
+              />
+              <label htmlFor={`filter-${route.routeId}`}>
+                {route.name}
+              </label>
+            </div>
+          ))}
           <button
             className="filter-apply-button"
             onClick={handleApplyFilters}

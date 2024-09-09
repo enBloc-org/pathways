@@ -3,21 +3,30 @@
 }
 
 .filter-container {
-  display: block;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  gap: 10px;
 }
 
 .filter-options {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 1px;
-  padding: 42px;
   background-color: var(--secondary-grey);
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 80vh;
+  position: fixed;
+  z-index: 1000;
+  overflow-y: auto;
+  padding-top: 2rem;
+  padding-left: 2rem;
 }
 
 .filter-option {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   border-radius: 5px;
   padding: 10px;
   height: 50px;
@@ -38,28 +47,65 @@
 
 .filter-apply-button {
   padding: 0.5rem 1rem;
-  font-size: 1rem;
   cursor: pointer;
+  width: 300px;
   background-color: var(--pink);
   border: none;
+  position: sticky;
+  bottom: 50px;
   color: #ffffff;
   border-radius: 4px;
+  margin: 30px auto;
+  margin-left: -2rem;
+  transform: translateX(50%);
 }
 
-@media (max-width: 800px) {
+.filter-close-button {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
   .filter-options {
-    width: 70dvw;
-    height: 60dvh;
-    grid-template-columns: auto;
-    overflow: scroll;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    transform: translateX(-30%);
+    width: 42rem;
+    top: 100%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    max-height: 80vh;
+    padding: 40px;
+    overflow: hidden;
+  }
+
+  .filter-apply-button {
+    grid-column: 1 / -1;
+    position: static;
+    margin: 20px auto;
+    transform: translateX(0);
+
   }
 }
 
-@media (max-width: 1400px) and (min-width: 800px) {
+@media (min-width: 1024px) {
   .filter-options {
-    width: 60dvw;
-    height: 60dvh;
-    grid-template-columns: repeat(2, 1fr);
-    overflow: scroll;
+    transform: translateX(-85%);
+    width:50rem;
+  }
+
+  .filter-options {
+    padding: 2rem 6rem;
+  }
+
+  .filter-apply-button {
+    margin-bottom: 0rem;
   }
 }

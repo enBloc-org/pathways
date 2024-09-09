@@ -98,34 +98,33 @@ export default function Search({ handleSavedSearchClick }) {
   }
 
   return (
-    <div className="search-page main">
+    <main className="search-page grid-container">
       <div className="search-page--options-bar">
-        <div>
-          <FilterButton
-            options={allRoutes}
-            onApply={handleApplyFilters}
-            searchQuery={searchQuery}
-            setFilterOptions={setFilterOptions}
-          />
-          <SaveSearchButton
-            onSave={saveHandler}
-            isSaved={isSaved}
-            isDisabled={!searchQuery}
-          />
-          <SavedSearches
-            savedSearches={allSaved}
-            handleSavedSearchClick={handleSavedSearchClick}
-          />
-        </div>
-        {searchQuery && (
-          <p>
-            {filteredResults.length} matched results for {searchQuery}
-          </p>
-        )}
+        <FilterButton
+          options={allRoutes}
+          onApply={handleApplyFilters}
+          searchQuery={searchQuery}
+          setFilterOptions={setFilterOptions}
+        />
+        <SaveSearchButton
+          onSave={saveHandler}
+          isSaved={isSaved}
+          isDisabled={!searchQuery}
+        />
+        <SavedSearches
+          savedSearches={allSaved}
+          handleSavedSearchClick={handleSavedSearchClick}
+        />
       </div>
+      {searchQuery && (
+        <p className="search-page--results-count">
+          {filteredResults.length} matched results for{" "}
+          {searchQuery}
+        </p>
+      )}
       <div className="search-page--results">
         {renderStatusResults()}
       </div>
-    </div>
+    </main>
   )
 }
