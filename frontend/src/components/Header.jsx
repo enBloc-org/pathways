@@ -22,6 +22,7 @@ export default function Header() {
   const searchHandler = input => {
     if (!input) return navigate("/search")
     dispatch({ type: "SET_SEARCH_QUERY", payload: input })
+    navigate('/search')
   }
 
   return (
@@ -39,7 +40,7 @@ export default function Header() {
           About
         </Link>
         <Link
-          className={`header-button ${currentPage === "search" && "bold"}`}
+          className={`header-button ${currentPage === "search" | currentPage === "occupation-details" && "bold"}`}
           to="/search"
         >
           {currentPage === 'occupation-details' ? "Back" : "Search"}
