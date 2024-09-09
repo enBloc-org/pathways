@@ -1,5 +1,6 @@
 import "../style/InfoPage.css"
 import backgroundImage from "../images/HomeBackground.jpg"
+import ifATELogo from "../images/IfATE-web-logo.jpg"
 
 function InfoPage() {
   return (
@@ -14,6 +15,11 @@ function InfoPage() {
         <div className="info-page__box info-page__box--tlevel">
           <p className="info-page__text-2">Explore T-Level placements for your team</p>
         </div>
+      </div>
+      <div className="ifATE-container">
+       
+          <img src={ifATELogo} alt="ifATE Logo" className="ifATE-logo" />
+      
       </div>
     </main>
   )
