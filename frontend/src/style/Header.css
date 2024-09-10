@@ -33,6 +33,7 @@
 
 .header-button {
   text-decoration: none;
+  width:55px;
 }
 
 .header-button:hover {

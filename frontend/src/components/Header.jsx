@@ -13,7 +13,7 @@ export default function Header() {
 
   useEffect(() => {
     const page = window.location.href
-    const pageRegex = /(about)|(search)/g
+    const pageRegex = /(about)|(search)|(occupation-details)/g
     const match = page.match(pageRegex)
 
     setCurrentPage(match ? match[0] : "/")
@@ -22,6 +22,7 @@ export default function Header() {
   const searchHandler = input => {
     if (!input) return navigate("/search")
     dispatch({ type: "SET_SEARCH_QUERY", payload: input })
+    navigate('/search')
   }
 
   return (
@@ -39,10 +40,10 @@ export default function Header() {
           About
         </Link>
         <Link
-          className={`header-button ${currentPage === "search" && "bold"}`}
+          className={`header-button ${currentPage === "search" | currentPage === "occupation-details" && "bold"}`}
           to="/search"
         >
-          Search
+          {currentPage === 'occupation-details' ? "Back" : "Search"}
         </Link>
       </nav>
       <TextSearch searchHandler={searchHandler} />
