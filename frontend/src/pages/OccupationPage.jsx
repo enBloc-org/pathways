@@ -51,8 +51,14 @@ export default function OccupationPage() {
             <h3>In Depth</h3>
             <div />
             <div
-          className="occupation-page__summary"
-              dangerouslySetInnerHTML={{ __html: sanitize(currentOccupation.summary) }}
+              className="occupation-page__summary"
+              dangerouslySetInnerHTML={{
+                __html: sanitize(
+                  currentOccupation.summary === ""
+                    ? "<p>No summary provided. Please visit the T-Level placement links provided for more information.</p>"
+                    : currentOccupation.summary
+                ),
+              }}
             />
           </section>
           <TLevelContainer products={currentOccupation.products} />
