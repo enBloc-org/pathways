@@ -1,6 +1,16 @@
+[![Deployed at](https://img.shields.io/badge/Deployed%20at-Netlify-blue)](https://pathways-front.netlify.app/)
 ## PROJECT DESCRIPTION
 
 This is an app that is used to inform local authorities of what t-levels are assigned to-do and what future careers in can align with.The tool is made to integrate with labour market information sources so that users can see job market trends which then allows the user to make informed decisions about education and employment. Local authorities benefit from this integration as it allows them to tailor educational programs to meet the needs of the local job market. On the other hand employers can use the app to identity and recruit talent directly from the pool of students who have completed relevant t-level qualifications.
+
+## Deployment
+For a quick link to the deployment see the top of the README. For more info on the deployment look [here](https://github.com/enBloc-org/pathways/blob/dev/Deployment-Info.md)
+
+## User Guide
+Use the search bar on any page to locate T-level placements suited to your interests. Click "About" for insights into the Pathways tool and the team behind it. Enter multiple search terms separated by commas to find relevant courses; click on the results for more details. Narrow down a large volume of results by applying career category filters. To revisit your search later, click "Save" - this action preserves your search terms and filters, accessible from the "Recent Searches" menu. To share your search, simply copy the URL, which encapsulates all filters and terms.
+
+## Creation
+Pathways was created by the enBloc agency in conjunction with T-level students from Southwark college. 
 
 ## User Stories
 ### 1. Employer User Story

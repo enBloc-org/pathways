@@ -1,0 +1,115 @@
+.header {
+  z-index: 30;
+  height: 15vh;
+  width: 100dvw;
+  padding: 1rem;
+  background-color: var(--white);
+  color: var(--white);
+  position: relative;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  width: 30vw;
+  max-width: 70px;
+  height: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.nav-links a:visited {
+  color: var(--black);
+}
+
+.header-button {
+  text-decoration: none;
+  width:55px;
+}
+
+.header-button:hover {
+  text-decoration: underline;
+}
+
+.information {
+  background-color: var(--white);
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--grey);
+  color: var(--grey);
+  text-align: center;
+  line-height: 1.5rem;
+  font-size: 0.8rem;
+  position: relative;
+  z-index: 10;
+}
+
+.information:after {
+  display: none;
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-75%);
+  padding: 0.5rem;
+  z-index: 100;
+  height: auto;
+  width: 80vw;
+  max-width: 15rem;
+  background-color: var(--white);
+  box-shadow: 0 5px 10px var(--grey);
+  content: 'You can search multiple job titles by separating them with a comma ","';
+  font-size: 0.8rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.information:hover:after {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .nav-links {
+    grid-column: 6 / -1;
+    gap: 2rem;
+  }
+
+  .logo-container {
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nav-links {
+    grid-column: 10 / -1;
+  }
+
+  .logo-container {
+    grid-column: 2 / 3;
+    margin-left: -1rem;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .logo-container {
+   margin-top: 2rem;
+  }
+
+  .logo { 
+    max-width: 100px;
+  }
+
+  .nav-links a {
+    font-size: 1.75rem;
+  }
+}
+

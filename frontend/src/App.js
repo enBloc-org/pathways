@@ -1,53 +1,81 @@
-import "./App.css";
-import Dropdown from "./components/Dropdown";
-import Header from "./components/Header";
-import fetchAllRoutes from "./utils/fetchAllRoutes";
-import { useEffect, useState } from "react";
+import { useEffect } from "react"
+import { Routes, Route, useNavigate } from "react-router-dom"
+
+import { useSearchContext } from "./context/searchContext"
+import fetchOccupationByQuery from "./utils/fetchOccupationByQuery"
+import Header from "./components/Header"
+import About from "./pages/About"
+import Search from "./pages/Search"
+import OccupationPage from "./pages/OccupationPage"
+import InfoPage from "./pages/InfoPage"
+
+import "./style/normalize.css"
+import "./style/globals.css"
+import "./App.css"
 
 function App() {
-  const [allRoutes, setAllRoutes] = useState([]);
-  const [selectedRoute, setSelectedRoute] = useState('');
-  const [routeDetails, setRouteDetails] = useState(null);
+  const {
+    searchState: { searchQuery},
+    dispatch,
+  } = useSearchContext()
+  const navigate = useNavigate()
+
+  const handleSavedSearchClick = url => {
+    dispatch({ type: "SET_SEARCH_QUERY", payload: "" })
+    const route = url.match(/^https?:\/\/[^/]+(\/.*)$/)[1]
+    navigate(route)
+  }
 
   useEffect(() => {
-    const fetch = async () => {
+    const handleSearch = async () => {
       try {
-        const fetchedRoutes = await fetchAllRoutes();
-        setAllRoutes(fetchedRoutes);
+        dispatch({ type: "SET_SEARCH_STATUS", payload: "loading" })
+        const data = await fetchOccupationByQuery(searchQuery)
+        dispatch({ type: "SET_SEARCH_RESULTS", payload: data })
+        dispatch({
+          type: "SET_SEARCH_STATUS",
+          payload: "fulfilled",
+        })
+        navigate("/search")
       } catch (error) {
-        console.error("Failed to fetch routes:", error);
+        dispatch({ type: "SET_SEARCH_STATUS", payload: "idle" })
+        navigate("/search")
       }
-    };
-    fetch();
-  }, []);
-
-  useEffect(() => {
-    if (selectedRoute) {
-      const route = allRoutes.find(route => route.routeId === parseInt(selectedRoute, 10));
-      setRouteDetails(route);
     }
-  }, [selectedRoute, allRoutes]);
+
+    if (searchQuery !== "") {
+      handleSearch()
+    } else {
+      dispatch({ type: "SET_SEARCH_STATUS", payload: "idle" })
+    }
+  }, [searchQuery])
 
   return (
-    <div className="App">
-      <Header />
-      <h1>Route Details</h1>
-      <Dropdown 
-        routes={allRoutes}
-        selectedRoute={selectedRoute}
-        setSelectedRoute={setSelectedRoute}
-        showId={false}
-      />
-      {routeDetails && (
-        <div>
-          <h2>{routeDetails.name}</h2>
-          <p>ID: {routeDetails.routeId}</p>
-          <p>Sequence: {routeDetails.sequence}</p>
-          <p>Object: {routeDetails.object}</p>
-        </div>
-      )}
+    <div className="app">
+      <div className="app--header">
+        <Header />
+      </div>
+
+      <div className="app--routes">
+        <Routes>
+          <Route path="/" element={<InfoPage />} />
+          <Route path="/about" element={<About />} />
+          <Route
+            path="/search"
+            element={
+              <Search
+                handleSavedSearchClick={handleSavedSearchClick}
+              />
+            }
+          />
+          <Route
+            path="/occupation-details/:occupation"
+            element={<OccupationPage />}
+          />
+        </Routes>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

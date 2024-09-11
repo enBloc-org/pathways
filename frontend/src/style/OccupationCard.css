@@ -1,0 +1,68 @@
+.occupation-card {
+  height: 43dvh;
+  width: 30dvw;
+  min-height: 200px;
+  min-width: 450px;
+  max-height: 225px;
+  max-width: 400px;
+  line-height: 1.2; 
+
+gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 5px var(--black);
+  border-radius: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  background-image: linear-gradient(var(--brown) 20%, var(--grey-three) 0%);
+}
+
+.occupation-card h2 {
+  display: flex;
+  color: var(--white);
+  height: 20%;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 0;
+  border-radius: 0 7vmin 0 0;
+  font-size: 17px;
+  text-align: center;
+  padding-left: 20px;
+
+  width: 100%;
+  box-sizing: border-box;
+}
+.occupation-card h2.text-left {
+  text-align: left;
+  justify-content: flex-start;
+  padding-left: 10px;
+
+}
+.occupation-card h2.text-center {
+  text-align: center;
+}
+
+
+.overview {
+  display: flex;
+  flex-direction: row;
+  padding-left: 1em;
+  text-align: left;
+gap: 20px;
+  margin: 0;
+  overflow: auto;
+  text-wrap: wrap;
+  width: 90%;
+}
+
+
+
+.in-brief{
+  align-self: flex-start;
+  text-wrap: nowrap ;
+ font-style: italic;
+}
+
+
+
