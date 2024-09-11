@@ -68,6 +68,7 @@
   border: none;
   text-wrap: wrap;
   cursor: pointer;
+  text-align: start;
 }
 
 .dropdown-item:hover {
