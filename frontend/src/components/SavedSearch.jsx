@@ -45,17 +45,19 @@ export default function SavedSearches({
             <div className="divider" />
           </div>
 
-          {savedSearches.map((search, index) => (
-            <button
-              key={`today-${index}`}
-              className="dropdown-item"
-              onClick={() => handleSavedSearchClick(search.url)}
-            >
-              {search.name
-                .replaceAll(",+", " and ")
-                .replaceAll(",", " and ")}
-            </button>
-          ))}
+          <div className="saved-searches__dropdown-links-container">
+            {savedSearches.map((search, index) => (
+              <button
+                key={`today-${index}`}
+                className="dropdown-item"
+                onClick={() => handleSavedSearchClick(search.url)}
+              >
+                {search.name
+                  .replaceAll(",+", " and ")
+                  .replaceAll(",", " and ")}
+              </button>
+            ))}
+          </div>
         </div>
       )}
     </div>

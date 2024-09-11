@@ -34,6 +34,11 @@
   display: flex;
 }
 
+.saved-searches__dropdown-links-container {
+  max-height: 300px;
+  overflow: auto;
+}
+
 .divider-container {
   display: flex;
   align-items: center;
