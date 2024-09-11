@@ -22,7 +22,7 @@
   padding: 15px;
   grid-row: 1;
   grid-column: 1 / -1;
-  position: sticky;
+  position: relative;
   z-index: 20;
   background-color: var(--secondary-grey);
 }
