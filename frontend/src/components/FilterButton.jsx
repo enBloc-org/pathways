@@ -6,7 +6,6 @@ export default function FilterButton({
   options,
   onApply,
   searchQuery,
-  setSearchQuery,
   setFilterOptions,
 }) {
   const [selectedOptions, setSelectedOptions] = useState([])
@@ -35,17 +34,22 @@ export default function FilterButton({
     setIsDropdownOpen(prevIsDropdownOpen => !prevIsDropdownOpen)
   }
   useEffect(() => {
-    if(!searchQuery){
-     const currentUrl = window.location.href
-     const queryRegex = /[?&]query=([^&]+)/;
-     
- const match = currentUrl.match(queryRegex);
- dispatch({type: "SET_SEARCH_QUERY", payload: match ? decodeURIComponent(match[1]) : ""})
- const filterRegex = /[?&]filter=(\d+)/g;
- const newOptions = [...currentUrl.matchAll(filterRegex)].map(match => parseInt(match[1]))
- 
-     setFilterOptions(newOptions);
-     setSelectedOptions(newOptions)
+    if (!searchQuery) {
+      const currentUrl = window.location.href
+      const queryRegex = /[?&]query=([^&]+)/
+
+      const match = currentUrl.match(queryRegex)
+      dispatch({
+        type: "SET_SEARCH_QUERY",
+        payload: match ? decodeURIComponent(match[1]) : "",
+      })
+      const filterRegex = /[?&]filter=(\d+)/g
+      const newOptions = [...currentUrl.matchAll(filterRegex)].map(
+        match => parseInt(match[1])
+      )
+
+      setFilterOptions(newOptions)
+      setSelectedOptions(newOptions)
     }
   }, [searchQuery])
 
@@ -55,7 +59,7 @@ export default function FilterButton({
         className="search-page--options-button"
         onClick={toggleDropdown}
       >
-        <span>Filter Results</span>
+        Filter Results
         <svg
           height="28px"
           fill={isActive ? "var(--pink)" : "var(--grey)"}

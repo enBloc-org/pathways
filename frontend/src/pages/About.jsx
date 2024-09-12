@@ -7,6 +7,7 @@ export default function About() {
       <img
         className="about-page__image about-page-container__element"
         src={youngProfessionals}
+        alt="Young professionals"
       />
       <div className="about-page-container__element">
         <p>

@@ -8,12 +8,17 @@
   width: 100%;
 }
 
+.t-level-container h2 {
+  font-weight: 300;
+}
+
 .t-level-container__links {
   display: flex;
-  flex-direction: row;
-  gap: 2rem;
+  flex-direction: column;
+  gap: .5rem;
   justify-content: center;
-  padding: 0 2rem;
+  padding: 0 2rem 2rem;
+  min-width: 375px;
 }
 
 .t-level-container__links a {
@@ -30,5 +35,9 @@
 @media (min-width: 1400px) {
   .t-level-container {
     grid-column: 9 / 12;
+  }
+
+  .t-level-container__links {
+    gap: 2rem;
   }
 }
