@@ -52,7 +52,7 @@ const [isMultiLine, setIsMultiLine]= useState(false);
       className="occupation-card"
       onClick={() => navigate(`/occupation-details/${stdCode}`)}
     >
-      <h2 ref={ref} className= {isMultiLine ? 'text-center' :'text-left'   } >{name}</h2>
+      <h2 ref={ref} className= {isMultiLine ? 'text-center' :'text-left'   } >{name.replace(/[\w+\s]*-/gi, "")}</h2>
     
         <div className="overview">
           <p className='in-brief'>
