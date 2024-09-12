@@ -34,6 +34,11 @@
   display: flex;
 }
 
+.saved-searches__dropdown-links-container {
+  max-height: 300px;
+  overflow: auto;
+}
+
 .divider-container {
   display: flex;
   align-items: center;
@@ -63,6 +68,7 @@
   border: none;
   text-wrap: wrap;
   cursor: pointer;
+  text-align: start;
 }
 
 .dropdown-item:hover {
