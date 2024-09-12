@@ -49,16 +49,16 @@ export default function OccupationCard({
       className="occupation-card"
       onClick={() => navigate(`/occupation-details/${stdCode}`)}
     >
-      <h2
-        ref={ref}
-        className={isMultiLine ? "text-center" : "text-left"}
-      >
-        {name}
-      </h2>
-      <div className="overview">
-        <p className="in-brief">In brief:</p>
-        <p>{` ${overview}`}</p>
-      </div>
+      <h2 ref={ref} className= {isMultiLine ? 'text-center' :'text-left'   } >{name.replace(/[\w+\s]*-/gi, "")}</h2>
+    
+        <div className="overview">
+          <p className='in-brief'>
+          In brief:
+          </p>
+         <p>{` ${overview}`}</p> 
+        </div>
+     
+      
     </button>
   )
 }
