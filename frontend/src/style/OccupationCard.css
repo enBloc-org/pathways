@@ -1,7 +1,7 @@
 .occupation-card {
   min-height: 175px;
   min-width: 300px;
-  max-height: 225px;
+  max-height: fit-content;
   max-width: 350px;
   line-height: 1.2;
   background-color: #F2F2F7;
@@ -38,6 +38,7 @@
 
 .occupation-card h2.text-center {
   text-align: center;
+  padding-left: 10px;
 }
 
 .overview {
