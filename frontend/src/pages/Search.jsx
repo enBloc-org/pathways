@@ -2,8 +2,8 @@ import { useSearchParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 
 import SaveSearchButton from "../components/SaveSearchButton"
+import LoadingSpinner from "../components/LoadingSpinner"
 import OccupationsList from "../components/OccupationsList"
-import spinner from "../images/loadingSpinner.svg"
 import FilterButton from "../components/FilterButton"
 import fetchAllRoutes from "../utils/fetchAllRoutes"
 import SavedSearches from "../components/SavedSearch"
@@ -91,7 +91,7 @@ export default function Search({ handleSavedSearchClick }) {
       case "idle":
         return <p>Enter search terms</p>
       case "loading":
-        return <img src={spinner} alt="Loading spinner" />
+        return <LoadingSpinner />
       case "fulfilled":
         return <OccupationsList occupationsArray={filteredResults} />
     }
@@ -118,8 +118,7 @@ export default function Search({ handleSavedSearchClick }) {
       </div>
       {searchQuery && (
         <p className="search-page--results-count">
-          {filteredResults.length} matched results for{" "}
-          {searchQuery}
+          {filteredResults.length} matched results for {searchQuery}:
         </p>
       )}
       <div className="search-page--results">

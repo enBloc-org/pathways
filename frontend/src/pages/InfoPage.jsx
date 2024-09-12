@@ -10,10 +10,10 @@ function InfoPage() {
     >
       <div className="info-page__wrapper">
         <div className="info-page__box info-page__box--pathways">
-          <h1 className="info-page__text">Pathways</h1>
+          <h1 className="info-page__text">T Level Pathways</h1>
         </div>
         <div className="info-page__box info-page__box--tlevel">
-          <p className="info-page__text-2">Explore T-Level placements for your team</p>
+          <p className="info-page__text-2">Explore T-Level solutions for your business</p>
         </div>
       </div>
       <div className="ifATE-container">

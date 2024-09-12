@@ -11,6 +11,7 @@
   grid-column: 1 / -1;
   padding-left: 1rem;
   z-index: 0;
+  padding: 1rem 2rem;
 }
 
 .search-page--options-bar {
@@ -29,6 +30,8 @@
 
 .search-page--options-button {
   display: flex;
+  font-size: 0.9rem;
+  font-weight: 400;
   align-items: center;
   background: none;
   border: none;
@@ -44,11 +47,18 @@
   justify-content: center;
 }
 
+.loading-image {
+  margin-top: 4rem;
+  width: 100px;
+  height: 100px;
+}
+
 @media (min-width: 1024px) {
   .search-page--options-bar {
     grid-column: 8 / 13;
     background-color: var(--primary-grey);
     margin-top: 2rem;
+    padding: 0;
   }
 
   .search-page--results-count {
