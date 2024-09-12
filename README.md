@@ -29,3 +29,6 @@ Pathways was created by the enBloc agency in conjunction with T-level students f
 - As a future tool user, I want the tool to integrate with labour market information sources, so that I can see job market trends and demand for specific occupations.
 
 For guidance on contributing visit [this document](./.github/CONTRIBUTING.md)
+
+## Rollback Strategy
+Development teams can find a simple rollback strategy [here](./.github/ROLLBACK.md) in the event of a breaking change.
