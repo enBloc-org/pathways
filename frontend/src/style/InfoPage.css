@@ -4,9 +4,8 @@
    flex-direction: column; 
   height: 80dvh;
   width: 100dvw;
-  margin-top: 8rem;
   justify-content: space-between;
-
+  overflow: hidden;
 }
 
 .info-page__wrapper {
@@ -33,7 +32,7 @@
 
 .info-page__text {
   height: fit-content;
-  font-size: 5rem;
+  font-size: 4rem;
   margin: 0 auto;
 }
 
@@ -57,6 +56,14 @@
 
 @media screen and (min-width: 768px) {
   .info-page{
+    margin-top: 2rem;
+  }
+  
+  .info-page__text {
+    font-size: 5rem;
+  }
+
+  .info-page__wrapper {
     margin-top: 2rem;
   }
 }
