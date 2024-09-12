@@ -1,7 +1,7 @@
 .occupations-list--container {
   display: grid;
   grid-template: repeat(3, auto) / repeat(3, auto);
-  gap: 1rem;
+  gap: 2rem;
   height: 100%;
   width: fit-content;
   padding: 5px 15px;
@@ -27,6 +27,7 @@
   .occupations-list--container {
     display: grid;
     grid-template: repeat(2, auto) / repeat(2, auto);
+    gap: 1.5rem;
   }
 }
 
