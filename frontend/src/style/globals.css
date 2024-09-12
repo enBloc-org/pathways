@@ -17,6 +17,18 @@
   box-sizing: border-box;
 }
 
+h1 {
+  font-size: 1.5rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
 .grey-header-text {
   color: var(--grey);
   font-size: 52pt;
@@ -54,19 +66,31 @@
   a {
     font-size: var(--font-medium);
   }
+
+  h1 {
+    font-size: 1.85rem;
+  }
+
+  h2 {
+    font-size: 1.55rem;
+  }
+
+  h3 {
+    font-size: 1.4rem;
+  }
 }
 
 @media (min-width: 1400px) {
   h1 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   h2 {
-    font-size: 1.85rem;
+    font-size: 1.75rem;
   }
 
   h3 {
-    font-size: 1.7rem;
+    font-size: 1.6rem;
   }
 
   p,
