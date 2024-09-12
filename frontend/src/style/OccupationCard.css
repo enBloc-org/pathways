@@ -1,68 +1,66 @@
 .occupation-card {
-  height: 43dvh;
-  width: 30dvw;
-  min-height: 200px;
-  min-width: 450px;
+  min-height: 175px;
+  min-width: 300px;
   max-height: 225px;
-  max-width: 400px;
-  line-height: 1.2; 
-
-gap: 20px;
+  max-width: 350px;
+  line-height: 1.2;
+  background-color: #F2F2F7;
+  gap: .75rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 0 0 5px var(--black);
   border-radius: 10px;
-  font-size: 20px;
   cursor: pointer;
-  background-image: linear-gradient(var(--brown) 20%, var(--grey-three) 0%);
+  padding: 0;
+  border: none;
 }
 
 .occupation-card h2 {
   display: flex;
   color: var(--white);
-  height: 20%;
+  background-color: var(--brown);
   justify-content: flex-start;
   align-items: center;
-  margin-top: 0;
-  border-radius: 0 7vmin 0 0;
-  font-size: 17px;
   text-align: center;
-  padding-left: 20px;
-
+  font-size: .85rem;
+  font-weight: 500;
+  min-height: 50px;
+  margin: 0;
   width: 100%;
-  box-sizing: border-box;
+  border-radius: 10px 10px 0 0;
 }
+
 .occupation-card h2.text-left {
   text-align: left;
   justify-content: flex-start;
   padding-left: 10px;
-
 }
+
 .occupation-card h2.text-center {
   text-align: center;
 }
 
-
 .overview {
   display: flex;
   flex-direction: row;
-  padding-left: 1em;
+  padding-left: .65rem;
+  padding-bottom: .65rem;
   text-align: left;
-gap: 20px;
+  gap: .75rem;
   margin: 0;
-  overflow: auto;
   text-wrap: wrap;
   width: 90%;
+  font-weight: 300;
 }
 
+.overview p {
+  font-size: 1.15rem;
+}
 
-
-.in-brief{
+.in-brief {
   align-self: flex-start;
-  text-wrap: nowrap ;
- font-style: italic;
+  text-wrap: nowrap;
+  font-style: italic;
+  font-weight: 200;
+  font-size: 1rem;
 }
-
-
-
