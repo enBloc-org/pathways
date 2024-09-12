@@ -32,7 +32,7 @@
 
 .info-page__text {
   height: fit-content;
-  font-size: 4rem;
+  font-size: 3rem;
   margin: 0 auto;
 }
 
@@ -60,15 +60,13 @@
   }
   
   .info-page__text {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 
   .info-page__wrapper {
     margin-top: 2rem;
   }
 }
-
-
 
 @media screen and (min-width: 2000px) {
   .info-page {
